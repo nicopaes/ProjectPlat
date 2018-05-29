@@ -1,53 +1,97 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
 
-[RequireComponent(typeof(Controller2D))]
+[RequireComponent (typeof (Controller2D))]
 public class PlayerComponent : MonoBehaviour {
 
-	[Header("DEBUG")]
+	[Header("Debug?")]
 	public bool debug;
-	[Space]
-	public float jumpHeight = 4;
-	public float timeToJumpApex = 0.5f;
-	[Space]
-	public float moveSpeed = 5;
 
-	[Header("Debug Private Stuff")]
+	[Header("Movement Variables")]
+	public float maxJumpHeight = 4;
+	public float minJumpHeight = 1;
+	public float timeToJumpApex = .4f;
+	public float fallMultipler = 2.5f;
+	[Space]
+	public float accelerationTimeAirborne = .2f;	
+	public float accelerationTimeGrounded = .1f;
+	[Range(0.1f,50f)]
+	public float moveSpeed = 6;
+	
+
+	[Space]
+	[Header("PRIVATE DEBUG SHIT")]
 	[SerializeField]
-	private float gravity;
+	float gravity;
 	[SerializeField]
-	private float jumpVelocity;
+	float maxJumpVelocity;
+	[SerializeField]
+	float minJumpVelocity;
+	[SerializeField]
+	[Space]
+	public float velocityXSmoothing;
+	[SerializeField]
 	Vector3 velocity;
+
+
 	Controller2D controller;
 
-	void OnEnable()
-	{
-		controller = GetComponent<Controller2D>();
+	Vector2 directionalInput;
 
-		gravity = -(2*jumpHeight) / Mathf.Pow(timeToJumpApex,2);
-		jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+	void Start() {
+		controller = GetComponent<Controller2D> ();
+
+		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 	}
-	void Update()
-	{
-		if(debug) 
-		{
-			gravity = -(2*jumpHeight) / Mathf.Pow(timeToJumpApex,2);
-			jumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-		}
-		if(controller.collisionsInf.above || controller.collisionsInf.below)
-		{
+
+	void Update() {
+		RecalculatePhysics(debug);
+		CalculateVelocity ();
+
+		controller.Move (velocity * Time.deltaTime);
+		if (controller.collisionsInf.above || controller.collisionsInf.below) {
 			velocity.y = 0;
 		}
-		if(Input.GetKeyDown(KeyCode.Space) && controller.collisionsInf.below)
-		{
-			velocity.y = jumpVelocity;
+	}
+
+	public void SetDirectionalInput (Vector2 input) {
+		directionalInput = input;
+	}
+
+	public void OnJumpInputDown() 
+	{		
+		if (controller.collisionsInf.below) {
+			velocity.y = maxJumpVelocity;
 		}
-		Vector2 input = new Vector2(Input.GetAxisRaw("Horizontal"),Input.GetAxisRaw("Vertical"));
+	}
 
-		velocity.x = input.x * moveSpeed;
-		velocity.y += gravity * Time.deltaTime;
+	public void OnJumpInputUp() {
+		if (velocity.y > minJumpVelocity) {
+			velocity.y = minJumpVelocity;
+		}
+	}
 
-		controller.Move(velocity * Time.deltaTime);
+	void CalculateVelocity() {
+		float targetVelocityX = directionalInput.x * moveSpeed;
+		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisionsInf.below)?accelerationTimeGrounded:accelerationTimeAirborne);
+		if(velocity.y < 0f)
+		{
+			velocity.y += gravity * fallMultipler * Time.deltaTime;
+		}
+		else
+		{			
+			velocity.y += gravity * Time.deltaTime;
+		}
+	}
+	void RecalculatePhysics(bool debug)
+	{
+		if(debug)
+		{
+			gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
+			maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+			minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
+		}
 	}
 }
