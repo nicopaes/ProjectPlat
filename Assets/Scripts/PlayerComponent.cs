@@ -1,10 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System;
+using UnityEngine.EventSystems;
 
 [RequireComponent (typeof (Controller2D))]
 public class PlayerComponent : MonoBehaviour {
 
-	[Header("Debug?")]
+    public delegate void playerAction();
+    public static event playerAction ActionButton;
+
+    [Header("Debug?")]
 	public bool debug;
 
 	[Header("Movement Variables")]
@@ -17,10 +22,10 @@ public class PlayerComponent : MonoBehaviour {
 	public float accelerationTimeGrounded = .1f;
 	[Range(0.1f,50f)]
 	public float moveSpeed = 6;
-	
 
-	[Space]
-	[Header("PRIVATE DEBUG SHIT")]
+
+    [Space]
+    [Header("PRIVATE DEBUG SHIT")]
 	[SerializeField]
 	float gravity;
 	[SerializeField]
@@ -30,9 +35,9 @@ public class PlayerComponent : MonoBehaviour {
 	[SerializeField]
 	[Space]
 	public float velocityXSmoothing;
-	[SerializeField]
-	Vector3 velocity;
 
+    [SerializeField]
+	Vector3 velocity;
 
 	Controller2D controller;
 
@@ -85,13 +90,17 @@ public class PlayerComponent : MonoBehaviour {
 			velocity.y += gravity * Time.deltaTime;
 		}
 	}
-	void RecalculatePhysics(bool debug)
-	{
-		if(debug)
-		{
-			gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
-			maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
-			minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
-		}
-	}
+    void RecalculatePhysics(bool debug)
+    {
+        if (debug)
+        {
+            gravity = -(2 * maxJumpHeight) / Mathf.Pow(timeToJumpApex, 2);
+            maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
+            minJumpVelocity = Mathf.Sqrt(2 * Mathf.Abs(gravity) * minJumpHeight);
+        }
+    }
+    public void OnActionDown()
+    {
+        ActionButton();
+    }
 }

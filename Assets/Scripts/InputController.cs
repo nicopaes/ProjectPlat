@@ -23,6 +23,10 @@ public class InputController : MonoBehaviour
 		{
 			playerComp.OnJumpInputUp();
 		}
-	}
+        if(Input.GetKeyDown(KeyCode.F))
+        {
+            playerComp.OnActionDown();
+        }
+    }
 
 }
