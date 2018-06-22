@@ -12,7 +12,6 @@ public class Begin : MonoBehaviour, IState
     public CanvasGroup CanvasGroup;        // CanvasGroup allow to fade in/out evething in the canvas
 
     [Header("Target Settings")]
-    public GameObject Target;
     public Vector3 PlacementOffset;     //0 x 0.5 y 0 z
     public bool FollowTarget;
 
@@ -42,6 +41,9 @@ public class Begin : MonoBehaviour, IState
     // estados que ele iria quando entrasse nos eventos
     public IState Faded;
     public IState Neverend;
+
+    [HideInInspector]
+    public GameObject Target;
 
     public void Enter()
     {
