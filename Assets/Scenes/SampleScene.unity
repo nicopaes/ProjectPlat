@@ -146,6 +146,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &148120793 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 4845523917345462, guid: 7bcb05f4ca1854c42b9f630e717e8226,
+    type: 2}
+  m_PrefabInternal: {fileID: 632506307}
 --- !u!1 &206512253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1008,7 +1013,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2e87b0b3df9d2e4fa01110066981005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerPrefab: {fileID: 423727738}
+  playerPrefabIlio: {fileID: 423727738}
+  playerPrefabLuna: {fileID: 148120793}
   spawnPoint: {fileID: 64269318}
 --- !u!4 &1487718935
 Transform:

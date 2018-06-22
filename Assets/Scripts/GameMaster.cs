@@ -6,7 +6,8 @@ public class GameMaster : MonoBehaviour {
 
 	public static GameMaster gm;
 	Vector3 spawnPosition;
-	public Transform playerPrefab;
+	public Transform playerPrefabIlio;
+	public Transform playerPrefabLuna;
 	public Transform spawnPoint;
 
 	void Start () {
@@ -19,11 +20,16 @@ public class GameMaster : MonoBehaviour {
 	//public int spawnDelay;
 
 	public void RespawnPlayer () {
-		playerPrefab.transform.position = spawnPosition;
-		for (int i = 0; i < playerPrefab.transform.childCount; i++) {
-			playerPrefab.transform.GetChild (i).transform.position = spawnPosition;
+		playerPrefabIlio.transform.position = spawnPosition;
+		playerPrefabLuna.transform.position = spawnPosition;
+		for (int i = 0; i < playerPrefabIlio.transform.childCount; i++) {
+			playerPrefabIlio.transform.GetChild (i).transform.position = spawnPosition;
 		}
-		Debug.Log (playerPrefab.transform.position + " PlayerPrefab");
+		for (int i = 0; i < playerPrefabLuna.transform.childCount; i++) {
+			playerPrefabLuna.transform.GetChild (i).transform.position = spawnPosition;
+		}
+		Debug.Log (playerPrefabIlio.transform.position + " PlayerPrefabIio");
+		Debug.Log (playerPrefabLuna.transform.position + " PlayerPrefabIio");
 		Debug.Log (spawnPosition + " SpawnPosition");
 		Debug.Log ("TO DO: Add Spawn Particles");
 	}
