@@ -415,7 +415,7 @@ GameObject:
   - component: {fileID: 4081466584445108}
   - component: {fileID: 95996639065422100}
   m_Layer: 0
-  m_Name: Isis_34 (material test)
+  m_Name: Isis_34
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -787,7 +787,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1861352582183694}
   m_LocalRotation: {x: 0, y: 0, z: 0.9682123, w: 0.25012997}
-  m_LocalPosition: {x: 2.4542768, y: -0.00000056251884, z: -0.095703125}
+  m_LocalPosition: {x: 2.4542987, y: -0.0000009797513, z: -0.095703125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4701001725110564}
@@ -1451,7 +1451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.4542782
+  m_Length: 2.4543016
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4151488181705274}
   m_AttachedIK: {fileID: 0}
@@ -2366,7 +2366,7 @@ SkinnedMeshRenderer:
   m_SortingOrder: -2
   serializedVersion: 2
   m_Quality: 0
-  m_UpdateWhenOffscreen: 0
+  m_UpdateWhenOffscreen: 1
   m_SkinnedMotionVectors: 1
   m_Mesh: {fileID: 43500447090421858, guid: b6ab12e6bd46c3b49919324de211405e, type: 2}
   m_Bones:
