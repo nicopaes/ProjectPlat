@@ -96,6 +96,7 @@ public class Begin : MonoBehaviour, IState
                         else
                         {
                             CanvasGroup.alpha = 0;
+                            Exit();
                         }
                     });
                 }
@@ -118,7 +119,9 @@ public class Begin : MonoBehaviour, IState
 
     public void Exit()
     {
-        throw new System.NotImplementedException();
+        gameObject.transform.parent = null;
+        ManageText mt = this.GetComponent<ManageText>();
+        mt.endedBubble = true;
     }
 
     IEnumerator CheckCommand(Action callback)
@@ -156,5 +159,6 @@ public class Begin : MonoBehaviour, IState
             CanvasGroup.alpha = alpha;
             yield return null;
         }
+        Exit();
     }
 }

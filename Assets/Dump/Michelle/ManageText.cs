@@ -14,49 +14,83 @@ public class ManageText : MonoBehaviour
 
     public float MaxTextWidth;
 
+    [Header("Dialog Documents")]
     public TextAsset[] DialogTexts;
 
+   
     [System.Serializable]
     public struct Characters
     {
         public GameObject character;
-        public string code;
+        public string codeInDocument;
     }
+
+    [Header("Characters")]
     public Characters[] TalkableCharacters;
+
+    [HideInInspector]
+    public int currentText = 0;              // o texto atual que está lendo
+    [HideInInspector]
+    public int currentDialogLine = 0;        // a frase no texto que se está lendo
+    [HideInInspector]
+    public bool endedBubble;
+    [HideInInspector]
+    public bool endedDialog;
 
     private string newText;
     private int totalTextWidth = 0;
     private int totalTextHeight = 0;
 
     private DialogControl dialogController;
+    
+    private List<GameObject> currentSpeakers = new List<GameObject>();       // adiciona conforme ve escrito no texto o nome do character
+    private List<string> currentLines = new List<string>();                  // adiciona conforme ve escrito no texto o nome do character
 
-    private int currentDialog = 0;              // o texto atual que está lendo
-    private int currentDialogLine = 0;          // a frase no texto que se está lendo
-    private GameObject[] currentSpeakers;       // adiciona conforme ve escrito no texto o nome do character
 
-    // criar um script em um gameObject fora do jogo que recebe todos os documentos de texto do jogo, ele libera pra ler um documento de cada vez, que é triguerado pelo player
-    // ele vai pegar as falas e separar ela em dois arrays, um é o de falas, na ordem que elas aparecem e outro são com os personagens, repetindo mesmo, na ordem que eles falam
-    // SÓ QUE antes de colocar os personagens que falam ele precisa achar o personagem que está falando, como? -- com uma lista enorme de todos os personagens que falam? tags?
-    // ae ele vai liberar as falas aos poucos conforme a pessoa aperta o teclado e vai acionar a acao do item do balão pra trocar e ir até o target da fala
-
-        // falta fazer a função que entende as pessoas que falam e as falas, 
+    // falta ajeitar a funcao presentBubbleText pra não bugar e fazer um jeito de triggar a função, also textar com mais de um script
 
     void Start()
     {
         //
-
+        FindSpeaker(DialogTexts[currentText]);
         dialogController = this.GetComponent<DialogControl>();
-        //dialogController.showSpeechBallon(currentSpeakers[currentDialog]);        -- é assim que tem que ser
-        dialogController.showSpeechBallon(TalkableCharacters[currentDialogLine].character);
-        BubbleText.text = DialogTexts[currentDialog].text;
+        dialogController.showSpeechBallon(currentSpeakers[currentDialogLine]);
+        endedBubble = true; // nem isso
+        endedDialog = true; // isso não deve acontecer aqui
 
     }
 
     private void Update() {
 
-       if (totalTextWidth == 0)
+       if (endedBubble)
+       {
+            if (currentDialogLine < currentLines.Count && endedDialog)
+            {
+                dialogController.showSpeechBallon(currentSpeakers[currentDialogLine]);
+                presentBubbleText();
+                currentDialogLine += 1;
+            } else
+            {
+                endedDialog = false;
+                currentDialogLine = 0;
+                currentText += 1;
+                currentSpeakers.Clear();
+                currentLines.Clear();
+            }
+       }
+
+    }
+
+    // adjust de bubble with the text
+    private void presentBubbleText()
+    {
+        if (currentLines[currentDialogLine].Length != 0)
         {
-            newText = CalculateWidthOfMessage(BubbleText.text);
+            print(currentLines[currentDialogLine]);
+            endedBubble = false;
+
+            CalculateWidthOfMessage(currentLines[currentDialogLine]);
+
             BubbleText.text = newText;
             totalTextHeight = (int)(BubbleText.preferredHeight);
 
@@ -69,13 +103,79 @@ public class ManageText : MonoBehaviour
                 BubbleBox.sizeDelta = new Vector2(MaxTextWidth + OffSetWidth, totalTextHeight + OffSetHeight);
             }
         }
-
     }
 
-    // Todo -- separar por palavra e não letra
+    // Organize the speakers and their lines in two arrays
+    private void FindSpeaker(TextAsset text)
+    {
+        string[] linesWithCharacters;
+
+        char[] arr = text.text.ToCharArray();
+        List<char> dialogLine = new List<char>();
+        bool willSearchdialog = false;
+        for (int i=0;i<arr.Length;i++)
+        {
+            char currentLetter = arr[i];
+
+            if (currentLetter == ' ')
+            {
+                if (!willSearchdialog)
+                {
+                    dialogLine.Add(currentLetter);
+                }
+
+            } else
+            {
+                if (willSearchdialog)
+                {
+                    willSearchdialog = false;
+                }
+                dialogLine.Add(currentLetter);
+            }
+
+            // get the speaker
+            if (currentLetter == ':')
+            {
+                dialogLine.Remove(currentLetter);
+
+                // Check if not the first speaker
+                if (dialogLine.Contains('\n'))
+                {
+                    dialogLine.Remove('\n');
+                    dialogLine.RemoveAt(0);
+                } 
+
+                foreach (Characters speaker in TalkableCharacters)
+                {
+                    if (speaker.codeInDocument == new string(dialogLine.ToArray()))
+                    {
+                        currentSpeakers.Add(speaker.character);
+                        break;
+                    }
+                }
+
+                dialogLine.Clear();
+                willSearchdialog = true;
+            }
+
+            // get the line
+            if (currentLetter == ';')
+            { 
+                dialogLine.Remove(currentLetter);
+                currentLines.Add(new string(dialogLine.ToArray()));
+
+                dialogLine.Clear();
+            }
+
+        }
+
+
+        }
+
+    // Todo -- separar por palavra e não letra, se uma palavra for maior que todo o texto, separar a palavra
 
     // Calculates the Width of the text
-    private string CalculateWidthOfMessage(string message)
+    private void CalculateWidthOfMessage(string message)
     {
         Font myFont = BubbleText.font;  //chatText is my Text component
         CharacterInfo characterInfo = new CharacterInfo();
@@ -96,13 +196,11 @@ public class ManageText : MonoBehaviour
             if (lineText > MaxTextWidth)
             {
                 lineText = 0;
-                lst.Insert(i ,'\n');
+                lst.Insert(i, '\n');
             }
         }
+
         string txt = new string(lst.ToArray());
         newText = txt;
-
-        return newText;
-
     }
 }
