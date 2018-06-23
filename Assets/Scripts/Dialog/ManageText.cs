@@ -29,9 +29,9 @@ public class ManageText : MonoBehaviour
     public Characters[] TalkableCharacters;
 
     [HideInInspector]
-    public int currentText = 0;              // o texto atual que está lendo
+    public int currentText = 0;              
     [HideInInspector]
-    public int currentDialogLine = 0;        // a frase no texto que se está lendo
+    public int currentDialogLine = 0;    
     [HideInInspector]
     public bool endedBubble;
     [HideInInspector]
@@ -43,37 +43,32 @@ public class ManageText : MonoBehaviour
 
     private DialogControl dialogController;
     
-    private List<GameObject> currentSpeakers = new List<GameObject>();       // adiciona conforme ve escrito no texto o nome do character
-    private List<string> currentLines = new List<string>();                  // adiciona conforme ve escrito no texto o nome do character
-
-
-    // falta ajeitar a funcao presentBubbleText pra não bugar e fazer um jeito de triggar a função, also textar com mais de um script
+    private List<GameObject> currentSpeakers = new List<GameObject>(); 
+    private List<string> currentLines = new List<string>();       
 
     void Start()
     {
-        //
-        FindSpeaker(DialogTexts[currentText]);
         dialogController = this.GetComponent<DialogControl>();
-        dialogController.showSpeechBallon(currentSpeakers[currentDialogLine]);
-        endedBubble = true; // nem isso
-        endedDialog = true; // isso não deve acontecer aqui
-
     }
 
     private void Update() {
 
        if (endedBubble)
        {
+            print(currentLines.Count);
             if (currentDialogLine < currentLines.Count && endedDialog)
             {
-                dialogController.showSpeechBallon(currentSpeakers[currentDialogLine]);
-                presentBubbleText();
-                currentDialogLine += 1;
+                if (currentLines[currentDialogLine].Length != 0)
+                {
+                    dialogController.showSpeechBallon(currentSpeakers[currentDialogLine]);
+                    presentBubbleText();
+                    currentDialogLine += 1;
+                }
+
             } else
             {
                 endedDialog = false;
                 currentDialogLine = 0;
-                currentText += 1;
                 currentSpeakers.Clear();
                 currentLines.Clear();
             }
@@ -81,35 +76,38 @@ public class ManageText : MonoBehaviour
 
     }
 
+    public void startDialog(int number)
+    {
+        currentText = number - 1;
+        FindSpeaker(DialogTexts[currentText]);
+        endedBubble = true; 
+        endedDialog = true; 
+    }
+
+
     // adjust de bubble with the text
     private void presentBubbleText()
     {
-        if (currentLines[currentDialogLine].Length != 0)
+        endedBubble = false;
+
+        CalculateWidthOfMessage(currentLines[currentDialogLine]);
+
+        BubbleText.text = newText;
+        totalTextHeight = (int)(BubbleText.preferredHeight);
+
+        if (totalTextWidth < MaxTextWidth)
         {
-            print(currentLines[currentDialogLine]);
-            endedBubble = false;
-
-            CalculateWidthOfMessage(currentLines[currentDialogLine]);
-
-            BubbleText.text = newText;
-            totalTextHeight = (int)(BubbleText.preferredHeight);
-
-            if (totalTextWidth < MaxTextWidth)
-            {
-                BubbleBox.sizeDelta = new Vector2(totalTextWidth + OffSetWidth, totalTextHeight + OffSetHeight);
-            }
-            else
-            {
-                BubbleBox.sizeDelta = new Vector2(MaxTextWidth + OffSetWidth, totalTextHeight + OffSetHeight);
-            }
+            BubbleBox.sizeDelta = new Vector2(totalTextWidth + OffSetWidth, totalTextHeight + OffSetHeight);
+        }
+        else
+        {
+            BubbleBox.sizeDelta = new Vector2(MaxTextWidth + OffSetWidth, totalTextHeight + OffSetHeight);
         }
     }
 
     // Organize the speakers and their lines in two arrays
     private void FindSpeaker(TextAsset text)
     {
-        string[] linesWithCharacters;
-
         char[] arr = text.text.ToCharArray();
         List<char> dialogLine = new List<char>();
         bool willSearchdialog = false;
@@ -190,7 +188,7 @@ public class ManageText : MonoBehaviour
         {
             myFont.GetCharacterInfo(lst[i], out characterInfo, BubbleText.fontSize);
             totalTextWidth += characterInfo.advance;
-            lineText += characterInfo.advance;
+            lineText += characterInfo.advance;            
 
             // Don't let the text pass it's maximum
             if (lineText > MaxTextWidth)

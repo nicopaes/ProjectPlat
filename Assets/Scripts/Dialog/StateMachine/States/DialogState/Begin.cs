@@ -12,7 +12,7 @@ public class Begin : MonoBehaviour, IState
     public CanvasGroup CanvasGroup;        // CanvasGroup allow to fade in/out evething in the canvas
 
     [Header("Target Settings")]
-    public Vector3 PlacementOffset;     //0 x 0.5 y 0 z
+    public Vector3 PlacementOffset; 
     public bool FollowTarget;
 
     [Header("Display Settings")]
@@ -33,7 +33,7 @@ public class Begin : MonoBehaviour, IState
     public GameObject RotateTowards;    // the gameObject the camera will follow
     public float RotateSpeed;
 
-    [Header("Event Settings")]
+    [Header("Event Settings : TO DO")]
     // criar um evento pra quando terminar
     public Event FinishedFadeOut; // ?????????? se o fadeOut tiver setado -- se for fadeOut vai para um estado se nunca terminar ele vai pra ou outro estado diferente
     public Event FinishedNoEnd; // ?????????? se o neverEnd estiver setado

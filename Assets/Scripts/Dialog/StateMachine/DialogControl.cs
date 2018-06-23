@@ -21,7 +21,7 @@ public class DialogControl : MonoBehaviour {
 
     private void Update()
     {
-        //this.stateMachine.ExecuteStateUpdate();
+
     }
 
 
