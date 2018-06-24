@@ -55,7 +55,6 @@ public class ManageText : MonoBehaviour
 
        if (endedBubble)
        {
-            print(currentLines.Count);
             if (currentDialogLine < currentLines.Count && endedDialog)
             {
                 if (currentLines[currentDialogLine].Length != 0)
