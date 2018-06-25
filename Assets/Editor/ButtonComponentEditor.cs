@@ -14,7 +14,10 @@ public class ButtonComponentEditor : Editor
         Vector3 doorPosition = button.attachedReactionObject.transform.position;
 
         Handles.color = Color.white;
-        Handles.DrawDottedLine(buttonPosition, doorPosition,0.5f);
-        Handles.CubeHandleCap(1,buttonPosition,Quaternion.identity,0.2f,EventType.Ignore);
+        if(doorPosition != null)
+        {
+            Handles.DrawDottedLine(buttonPosition, doorPosition,0.5f);
+            Handles.CubeHandleCap(1,buttonPosition,Quaternion.identity,0.2f,EventType.Ignore);
+        }
     }
 }

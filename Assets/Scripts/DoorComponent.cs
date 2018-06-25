@@ -6,6 +6,7 @@ using UnityEngine;
 public class DoorComponent : ReactiveComponent
 {
     public bool doorOpen = false;
+    public Color openColor;
 
     private void OnEnable()
     {
@@ -17,7 +18,7 @@ public class DoorComponent : ReactiveComponent
         //base.Reaction();
         doorOpen = true;
         Debug.Log("Aaaaaaaan OPEEEENNN");
-        GetComponent<SpriteRenderer>().color = Color.red;
+        GetComponent<SpriteRenderer>().color = openColor;
         GetComponent<Collider2D>().enabled = false;
     }
 }

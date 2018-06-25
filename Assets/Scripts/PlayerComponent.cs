@@ -42,6 +42,9 @@ public class PlayerComponent : MonoBehaviour {
 	Controller2D controller;
 
 	Vector2 directionalInput;
+	[SerializeField]
+	[Space]
+	private Transform spawnPoint;
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -49,6 +52,11 @@ public class PlayerComponent : MonoBehaviour {
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
+	}
+	void OnEnable()
+	{		
+		transform.parent.position = spawnPoint.position;
+		transform.localPosition = Vector3.zero;
 	}
 
 	void Update() {

@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.Assertions;
 using System.Collections;
 
 public class Camera2DFollow : MonoBehaviour {
@@ -21,7 +22,8 @@ public class Camera2DFollow : MonoBehaviour {
 	void Start () {
 		lastTargetPosition = target.position;
 		offsetZ = (transform.position - target.position).z;
-		transform.parent = null;
+		//transform.parent = null;
+		Assert.IsTrue(target.GetComponent<PlayerComponent>());
 	}
 	
 	// Update is called once per frame

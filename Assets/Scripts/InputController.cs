@@ -10,8 +10,8 @@ public class InputController : MonoBehaviour
 	PlayerComponent playerComp;
 	[Range(1,2)]
 	public int playerNumber;
-	InputDevice device;
-	
+	public bool isis = false;
+	InputDevice device;	
 
 	private bool _controls;
 	[SerializeField]
@@ -19,7 +19,10 @@ public class InputController : MonoBehaviour
 	void OnEnable()
 	{
 		playerComp = GetComponent<PlayerComponent>();
-		string filePath = Path.Combine(Application.streamingAssetsPath, "PKEYS" + playerNumber + ".json");
+		string filePath;
+		if(!isis) filePath  = Path.Combine(Application.streamingAssetsPath, "PKEYS" + playerNumber + ".json");
+		else filePath = Path.Combine(Application.streamingAssetsPath, "PKEYSISIS" + ".json");
+		
 		if(File.Exists(filePath))
 		{
 			string dataAsJson = File.ReadAllText(filePath);
