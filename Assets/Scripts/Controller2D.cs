@@ -146,6 +146,11 @@ public class Controller2D : RaycastController {
 					collisionsInf.left = directionX == -1; // If collided with smth on the left -> true
 					collisionsInf.right = directionX == 1; // If collided with smth on the right -> true
 				}
+				if(hit.collider.CompareTag("Push"))
+				{
+					if(hit.transform.GetComponent<Rigidbody2D>().velocity.x < 0.7f)
+						hit.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(7f,0));
+				}
 			}
 		}
 	}

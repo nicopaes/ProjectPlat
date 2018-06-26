@@ -110,5 +110,6 @@ public class PlayerComponent : MonoBehaviour {
     public void OnActionDown()
     {
         ActionButton();
+		this.gameObject.layer = LayerMask.NameToLayer("Hidden");
     }
 }
