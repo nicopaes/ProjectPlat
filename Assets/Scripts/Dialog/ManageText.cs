@@ -67,7 +67,7 @@ public class ManageText : MonoBehaviour
             } else
             {
                 endedDialog = false;
-                currentDialogLine = 0;
+                //currentDialogLine = 0;
                 currentSpeakers.Clear();
                 currentLines.Clear();
             }
@@ -78,6 +78,10 @@ public class ManageText : MonoBehaviour
     public void startDialog(int number)
     {
         currentText = number - 1;
+        currentDialogLine = 0;
+       // newText = "";
+       // totalTextWidth = 0;
+       // totalTextHeight = 0;
         FindSpeaker(DialogTexts[currentText]);
         endedBubble = true; 
         endedDialog = true; 
@@ -177,6 +181,9 @@ public class ManageText : MonoBehaviour
         Font myFont = BubbleText.font;  //chatText is my Text component
         CharacterInfo characterInfo = new CharacterInfo();
         int lineText = 0;
+        totalTextWidth = 0;
+
+        myFont.RequestCharactersInTexture(message.ToString(), BubbleText.fontSize, BubbleText.fontStyle);
 
         List<char> lst = new List<char>();
 
@@ -192,10 +199,11 @@ public class ManageText : MonoBehaviour
             // Don't let the text pass it's maximum
             if (lineText > MaxTextWidth)
             {
-                lineText = 0;
                 lst.Insert(i, '\n');
+                lineText = 0;
             }
         }
+
 
         string txt = new string(lst.ToArray());
         newText = txt;
