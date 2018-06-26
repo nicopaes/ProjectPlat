@@ -37,9 +37,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1449893246379156}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6, y: 1.64, z: 0}
-  m_LocalScale: {x: 1, y: 0.34, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6.824, y: -1.593, z: 0.030733278}
+  m_LocalScale: {x: 1.0450077, y: 0.86509526, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -143,4 +143,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attachedReactionObject: {fileID: 0}
+  currentState: 0
   playerPresence: 0
+  ButtonMaterials:
+  - state: 0
+    material: {fileID: 2100000, guid: 8d8861ba463788548b46b7fc951def55, type: 2}
+  - state: 1
+    material: {fileID: 2100000, guid: 4be064a3aba34094199bfda81aaf058f, type: 2}

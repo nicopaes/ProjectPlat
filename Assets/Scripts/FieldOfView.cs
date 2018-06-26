@@ -8,26 +8,32 @@ public class FieldOfView : MonoBehaviour {
     public float viewRadius;
     [Range(0, 360)]
     public float viewAngle;
-
+    [Tooltip("Delay from target entering the FOV ")]
+    public float viewDelay;
+    public float maxInViewTime;
+    [Space]
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
     public List<Transform> visibleTargets = new List<Transform>();
 
+    [Space]
+    [Header("FOV Mesh visualization")]
     public float meshResolution;
     public int edgeResolveIterations;
     public float edgeDstThreshold;
 
     public MeshFilter viewMeshFilter;
+    public TextMesh timeViewer;
     private Mesh viewMesh;
-
+    private float inViewTime = 0;
     private void OnEnable()
     {
         viewMesh = new Mesh();
         viewMesh.name ="View Mesh";
         viewMeshFilter.mesh = viewMesh;
 
-        StartCoroutine("FindTargetsWithDelay", .5f);
+        StartCoroutine("FindTargetsWithDelay", viewDelay);
     }
 
     IEnumerator FindTargetsWithDelay(float delay)
@@ -61,6 +67,35 @@ public class FieldOfView : MonoBehaviour {
     private void Update()
     {
         DrawFOV();
+        if(visibleTargets.Count > 0)
+        {
+            inViewTime += Time.deltaTime;
+            GetComponent<LineRenderer>().enabled = true;
+            GetComponent<LineRenderer>().SetPosition(0,this.transform.position);
+            GetComponent<LineRenderer>().SetPosition(1,visibleTargets[0].position);
+        }
+        else
+        {
+            inViewTime = 0;
+            GetComponent<LineRenderer>().enabled = false;
+        }
+        if(inViewTime < maxInViewTime - 1f)
+            timeViewer.text = inViewTime.ToString("0.00");
+        else
+        {
+            timeViewer.text = "DANGER";
+        }
+        if(inViewTime > maxInViewTime)
+        {
+            foreach(Transform visObj in visibleTargets)
+            {
+                if(visObj.GetComponent<PlayerComponent>())
+                {
+                    visObj.gameObject.SetActive(false);
+                }
+
+            }
+        }
     }
     void DrawFOV()
     {

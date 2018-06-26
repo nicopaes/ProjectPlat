@@ -6,15 +6,23 @@ using UnityEngine;
 public class ButtonComponent : InteractiveComponent
 {
     public ReactiveComponent attachedReactionObject;
+    public buttonState currentState = buttonState.active;
 
     [SerializeField]
     private bool playerPresence;
-    private Collider2D col2D;
+    [SerializeField]
+    private List<ButtonMaterial> ButtonMaterials = new List<ButtonMaterial>(2);
 
-
+    [System.Serializable]
+    public struct ButtonMaterial
+    {
+        public buttonState state;
+        public Material material;
+    }
+    public enum buttonState {active, inactive}
+    
     private void OnEnable()
     {
-        col2D = GetComponent<Collider2D>();
         PlayerComponent.ActionButton += Action;
     }
     private void OnDisable()
@@ -25,10 +33,29 @@ public class ButtonComponent : InteractiveComponent
     public override void Action()
     {
         //base.Action();
-        if (playerPresence)
+        if (playerPresence && currentState == buttonState.active)
         {
             Debug.Log("DoorOpen");
+            ChangeState();
             attachedReactionObject.Reaction();
+        }
+    }
+    void ChangeState()
+    {
+        if(currentState == buttonState.active)
+        {
+            currentState = buttonState.inactive;
+        }
+        else
+        {
+            currentState = buttonState.active;
+        }
+        foreach(ButtonMaterial bmat in ButtonMaterials)
+        {
+            if(bmat.state == currentState)
+            {
+                GetComponent<MeshRenderer>().material = bmat.material;
+            }
         }
     }
 
