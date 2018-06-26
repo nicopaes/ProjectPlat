@@ -12,7 +12,6 @@ public class ButtonComponent : InteractiveComponent
     private bool playerPresence;
     [SerializeField]
     private List<ButtonMaterial> ButtonMaterials = new List<ButtonMaterial>(2);
-    private Collider2D col2D;
 
     [System.Serializable]
     public struct ButtonMaterial
@@ -24,7 +23,6 @@ public class ButtonComponent : InteractiveComponent
     
     private void OnEnable()
     {
-        col2D = GetComponent<Collider2D>();
         PlayerComponent.ActionButton += Action;
     }
     private void OnDisable()
