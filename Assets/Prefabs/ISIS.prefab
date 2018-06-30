@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4913821144942968}
   - component: {fileID: 114828148842075000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: boca
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -36,7 +36,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4696627128966148}
   - component: {fileID: 114697470177305664}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: topCabelo2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -52,9 +52,25 @@ GameObject:
   m_Component:
   - component: {fileID: 4682318360548286}
   - component: {fileID: 114995016725487854}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: antebracoDir
   m_TagString: Player
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1081233366663062
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4035348000479766}
+  - component: {fileID: 108435470038664412}
+  m_Layer: 8
+  m_Name: SelfLight
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -68,7 +84,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4872337830356042}
   - component: {fileID: 114314755442153170}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ombroEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -83,7 +99,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4662664407564688}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: rosto
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -98,7 +114,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4747176700032846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cintura
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -115,7 +131,7 @@ GameObject:
   - component: {fileID: 4755257758085020}
   - component: {fileID: 114608682099202352}
   - component: {fileID: 137274695715731706}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tronco
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -131,7 +147,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4230702782920580}
   - component: {fileID: 114360265758140018}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bracoEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -147,7 +163,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4962652472058990}
   - component: {fileID: 114835703695604568}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: canelaEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -165,7 +181,7 @@ GameObject:
   - component: {fileID: 114390303867044292}
   - component: {fileID: 33997149019596346}
   - component: {fileID: 23767501516163884}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: olhoEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -182,7 +198,7 @@ GameObject:
   - component: {fileID: 4845863870835708}
   - component: {fileID: 114842415419543998}
   - component: {fileID: 137587441095324332}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: boca
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -213,7 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4631587645527712}
   - component: {fileID: 114474085969979540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: topCabelo
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -231,7 +247,7 @@ GameObject:
   - component: {fileID: 114516961485999538}
   - component: {fileID: 33018424329847786}
   - component: {fileID: 23927426559059012}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: olhoDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -247,7 +263,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4556214156578814}
   - component: {fileID: 114724950933901638}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: antebracoEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -264,7 +280,7 @@ GameObject:
   - component: {fileID: 4290840867267804}
   - component: {fileID: 114767943829308010}
   - component: {fileID: 137832398310479218}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cabeca
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -282,7 +298,7 @@ GameObject:
   - component: {fileID: 114395022854742650}
   - component: {fileID: 33751983617521416}
   - component: {fileID: 23130123976114448}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sobrancelhaDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -298,7 +314,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4109911200967990}
   - component: {fileID: 114626804657330966}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tronco2
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -314,7 +330,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4635677977136672}
   - component: {fileID: 114850282931526752}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: botCabelo
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -330,7 +346,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4503405285784534}
   - component: {fileID: 114651369861843846}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: maoDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -346,7 +362,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4388720638451196}
   - component: {fileID: 114885442105574782}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pescoco
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -362,7 +378,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4667287510667278}
   - component: {fileID: 114290137029292818}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: maoEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -378,7 +394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4103060959012036}
   - component: {fileID: 95932353268069220}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Isis_34
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -394,7 +410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4161693562075234}
   - component: {fileID: 114416092583490176}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: tronco1
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -410,7 +426,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4011112229124398}
   - component: {fileID: 114264906478806560}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: ombroDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -428,7 +444,7 @@ GameObject:
   - component: {fileID: 114165050861722366}
   - component: {fileID: 33619667229131336}
   - component: {fileID: 23306225045748826}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: sobrancelhaEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -445,7 +461,7 @@ GameObject:
   - component: {fileID: 4496530705627310}
   - component: {fileID: 114713968462236412}
   - component: {fileID: 137092429805048300}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cabeloTras
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -461,7 +477,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4626110714972464}
   - component: {fileID: 114257698810525032}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: peEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -478,7 +494,7 @@ GameObject:
   - component: {fileID: 4957188490459538}
   - component: {fileID: 114576033123600660}
   - component: {fileID: 137563131512644548}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cabeloFrente
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -494,7 +510,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4613701252336540}
   - component: {fileID: 114869510401948666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cabeca
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -527,7 +543,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4800151354100702}
   - component: {fileID: 114119757509618666}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bracoDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -543,7 +559,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4336395259150078}
   - component: {fileID: 114905965636786350}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: peDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -560,7 +576,7 @@ GameObject:
   - component: {fileID: 4244953546960954}
   - component: {fileID: 114299396569776928}
   - component: {fileID: 137540400159805582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pernaEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -575,7 +591,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4899495137714878}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mesh
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -592,7 +608,7 @@ GameObject:
   - component: {fileID: 4907730143525246}
   - component: {fileID: 114029462639237292}
   - component: {fileID: 137560216611116544}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bracoDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -608,7 +624,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4401568615400474}
   - component: {fileID: 114094781559672766}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pernaDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -624,7 +640,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4037953603359928}
   - component: {fileID: 114373022941832138}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: cintura
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -641,7 +657,7 @@ GameObject:
   - component: {fileID: 4648995777724056}
   - component: {fileID: 114200764850756910}
   - component: {fileID: 137479931305833464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bracoEsq
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -680,25 +696,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4707335608018412}
   - component: {fileID: 114140829881893290}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pernaEsq
   m_TagString: Player
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!1 &1957054998200498
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4429252198498108}
-  - component: {fileID: 108001949423913534}
-  m_Layer: 0
-  m_Name: CharLight
-  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -712,7 +712,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4964615122704684}
   - component: {fileID: 114729916199844874}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: canelaDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -729,7 +729,7 @@ GameObject:
   - component: {fileID: 4289844464079888}
   - component: {fileID: 114782876364303040}
   - component: {fileID: 137037591429996484}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pernaDir
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -744,7 +744,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4353248617614772}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bones
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -765,6 +765,19 @@ Transform:
   m_Father: {fileID: 4109911200967990}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 147.74701}
+--- !u!4 &4035348000479766
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1081233366663062}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4064593420000014}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!4 &4035789063835466
 Transform:
   m_ObjectHideFlags: 1
@@ -805,7 +818,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4103060959012036}
-  - {fileID: 4429252198498108}
+  - {fileID: 4035348000479766}
   m_Father: {fileID: 4845523917345462}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -965,19 +978,6 @@ Transform:
   m_Father: {fileID: 4037953603359928}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: -212.728}
---- !u!4 &4429252198498108
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1957054998200498}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.122, y: 1, z: -2.1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4064593420000014}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4496530705627310
 Transform:
   m_ObjectHideFlags: 1
@@ -1264,7 +1264,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1305443617362122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.89, y: -3.38, z: 0}
+  m_LocalPosition: {x: 23.09, y: -3.87, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4064593420000014}
@@ -1653,22 +1653,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!108 &108001949423913534
+--- !u!108 &108435470038664412
 Light:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1957054998200498}
+  m_GameObject: {fileID: 1081233366663062}
   m_Enabled: 1
   serializedVersion: 8
-  m_Type: 2
-  m_Color: {r: 0.504717, g: 0.9634899, b: 0.65882355, a: 1}
-  m_Intensity: 1
-  m_Range: 8.27
+  m_Type: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Intensity: 0.15
+  m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -1681,7 +1681,7 @@ Light:
   m_RenderMode: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 256
   m_Lightmapping: 4
   m_AreaSize: {x: 1, y: 1}
   m_BounceIntensity: 1
@@ -1769,7 +1769,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
-  m_Length: 5.6651793
+  m_Length: 5.66518
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4962652472058990}
   m_AttachedIK: {fileID: 0}
@@ -1843,7 +1843,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5411765, g: 0.8117647, b: 1, a: 1}
-  m_Length: 0.53076494
+  m_Length: 0.53076833
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4800151354100702}
   m_AttachedIK: {fileID: 0}
@@ -1897,7 +1897,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 1.0206419
+  m_Length: 1.0206466
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4230702782920580}
   m_AttachedIK: {fileID: 0}
@@ -1913,7 +1913,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 2.6241155
+  m_Length: 2.6241179
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4556214156578814}
   m_AttachedIK: {fileID: 0}
@@ -2146,7 +2146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 3.555632
+  m_Length: 3.5556307
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4667287510667278}
   m_AttachedIK: {fileID: 0}
@@ -2277,7 +2277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
-  m_Length: 5.066026
+  m_Length: 5.066028
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4626110714972464}
   m_AttachedIK: {fileID: 0}
@@ -2341,7 +2341,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 2.4543016
+  m_Length: 2.4543006
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4631587645527712}
   m_AttachedIK: {fileID: 0}
