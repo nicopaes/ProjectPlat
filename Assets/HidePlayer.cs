@@ -35,6 +35,7 @@ public class HidePlayer : MonoBehaviour {
 			}
 			if(playerTranform.gameObject.layer != LayerMask.NameToLayer("Hide"))
 			{
+				playerTranform.GetComponent<Collider2D>().enabled = false;
 				playerTranform.GetComponent<PlayerComponent>().enabled = false;
 				playerTranform.GetComponent<Controller2D>().enabled = false;
 				playerTranform.gameObject.layer = LayerMask.NameToLayer("Hide");
@@ -46,6 +47,9 @@ public class HidePlayer : MonoBehaviour {
 		}
 		else if(_playerHidden)
 		{
+			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+			playerTranform.GetComponent<Collider2D>().enabled = true;
 			playerTranform.GetComponent<PlayerComponent>().enabled = true;
 			playerTranform.GetComponent<Controller2D>().enabled = true;
 			playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");

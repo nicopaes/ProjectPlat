@@ -504,16 +504,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 6
       objectReference: {fileID: 0}
-    - target: {fileID: 212896091968576464, guid: 2579a201f9e9a194ca05bc246ae45780,
-        type: 2}
-      propertyPath: m_SortingLayerID
-      value: 1442143991
-      objectReference: {fileID: 0}
-    - target: {fileID: 212896091968576464, guid: 2579a201f9e9a194ca05bc246ae45780,
-        type: 2}
-      propertyPath: m_SortingLayer
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2579a201f9e9a194ca05bc246ae45780, type: 2}
   m_IsPrefabParent: 0
@@ -522,25 +512,6 @@ Transform:
   m_PrefabParentObject: {fileID: 4370054768755446, guid: 2579a201f9e9a194ca05bc246ae45780,
     type: 2}
   m_PrefabInternal: {fileID: 402760887}
---- !u!1 &402760889 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1461973298892316, guid: 2579a201f9e9a194ca05bc246ae45780,
-    type: 2}
-  m_PrefabInternal: {fileID: 402760887}
---- !u!114 &402760894
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 402760889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 159632219cc6cf946863112bd6f822af, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerPresence: 0
-  _playerHidden: 0
-  _fromTheRight: 0
 --- !u!1 &410166150
 GameObject:
   m_ObjectHideFlags: 0
@@ -1394,7 +1365,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004229495
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_RenderMode: 0
   m_SortMode: 0
@@ -6118,7 +6089,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -897697269
-  m_SortingLayer: -1
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2e0e64921a5bf457aab1ba9d9d79eb94, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -6512,7 +6483,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004229495
-  m_SortingLayer: -2
+  m_SortingLayer: -3
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 07178a71c77b143139212eb5d7954ba7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

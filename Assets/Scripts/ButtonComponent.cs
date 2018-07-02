@@ -54,7 +54,7 @@ public class ButtonComponent : InteractiveComponent
         {
             if(bmat.state == currentState)
             {
-                GetComponent<MeshRenderer>().material = bmat.material;
+                if(GetComponent<MeshRenderer>()) GetComponent<MeshRenderer>().material = bmat.material;
             }
         }
     }
