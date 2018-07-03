@@ -2185,6 +2185,8 @@ MonoBehaviour:
   accelerationTimeAirborne: 0.1
   accelerationTimeGrounded: 0
   moveSpeed: 6
+  meleeAtt: {fileID: 0}
+  activeAttackTime: 0.5
   gravity: 0
   maxJumpVelocity: 0
   minJumpVelocity: 0
@@ -2249,6 +2251,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   maxSlopeAngle: 80
+  facingRight: 0
 --- !u!114 &114828148842075000
 MonoBehaviour:
   m_ObjectHideFlags: 1

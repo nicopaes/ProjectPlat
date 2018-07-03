@@ -22,6 +22,9 @@ public class PlayerComponent : MonoBehaviour {
 	public float accelerationTimeGrounded = .1f;
 	[Range(0.1f,50f)]
 	public float moveSpeed = 6;
+	[Header("MELEE ATTACK")]
+	public MeleeAttack meleeAtt;
+	public float activeAttackTime = 0.5f;
 
 
     [Space]
@@ -110,5 +113,15 @@ public class PlayerComponent : MonoBehaviour {
     public void OnActionDown()
     {
         ActionButton();
+		StartCoroutine(DoMeleeAttack(activeAttackTime));
+		
     }
+	IEnumerator DoMeleeAttack(float activeTime)
+	{
+		meleeAtt.startCheckingCollision();
+		Debug.Log("ATTACK");
+		yield return new WaitForSeconds(activeTime);
+		meleeAtt.stopCheckingCollision();
+		Debug.Log("STOP ATTACK");
+	}
 }

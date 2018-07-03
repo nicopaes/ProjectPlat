@@ -62,12 +62,14 @@ public class ManageText : MonoBehaviour
                     dialogController.showSpeechBallon(currentSpeakers[currentDialogLine]);
                     presentBubbleText();
                     currentDialogLine += 1;
+                    totalTextWidth = 0;
                 }
 
             } else
             {
                 endedDialog = false;
                 currentDialogLine = 0;
+                totalTextWidth = 0;
                 currentSpeakers.Clear();
                 currentLines.Clear();
             }
@@ -100,6 +102,7 @@ public class ManageText : MonoBehaviour
         }
         else
         {
+            print(MaxTextWidth + OffSetWidth + " Tamanho");
             BubbleBox.sizeDelta = new Vector2(MaxTextWidth + OffSetWidth, totalTextHeight + OffSetHeight);
         }
     }
@@ -174,6 +177,8 @@ public class ManageText : MonoBehaviour
     // Calculates the Width of the text
     private void CalculateWidthOfMessage(string message)
     {
+        // voltar até o primeiro espaço e jogar a palavra pra baixo
+
         Font myFont = BubbleText.font;  //chatText is my Text component
         CharacterInfo characterInfo = new CharacterInfo();
         int lineText = 0;
@@ -192,8 +197,32 @@ public class ManageText : MonoBehaviour
             // Don't let the text pass it's maximum
             if (lineText > MaxTextWidth)
             {
+
+               // print("entrei");
+                //print(MaxTextWidth);
+                //print(lineText);
+                int j = i-1;
+                if (lst[i-1] != ' ')
+                {
+
+                    for (; j >= 0; j--)
+                    {
+                        if(lst[j] == ' ')
+                        {
+                            break;
+                        }
+                    }
+
+                    if(j == 0)
+                    {
+                        j = i-1;
+                        lst.Insert(j, '-');
+                    }
+
+                } 
+
                 lineText = 0;
-                lst.Insert(i, '\n');
+                lst.Insert(j, '\n');
             }
         }
 

@@ -6,6 +6,7 @@ using UnityEngine;
 public class Controller2D : RaycastController {
 
 	public float maxSlopeAngle;
+	public bool facingRight;
 
 	public CollisionInfo collisionsInf;
 
@@ -101,6 +102,9 @@ public class Controller2D : RaycastController {
 		float directionX = Mathf.Sign(velocity.x);
 		float rayLenght = Mathf.Abs(velocity.x) + skinWidth;
 
+		if(facingRight && directionX == -1) ChangeDir();
+		else if (!facingRight && directionX == 1) ChangeDir();
+		
 		for(int i = 0; i <horizontalRayCount; i++)
 		{
 			Vector2 rayOrigin = (directionX == -1)?raycastOrigins.bottomLeft:raycastOrigins.bottomRight;
@@ -199,6 +203,11 @@ public class Controller2D : RaycastController {
 				}
 			}
 		}
+	}
+
+	public void ChangeDir()
+	{
+		facingRight = !facingRight;
 	}
 
 	public struct CollisionInfo
