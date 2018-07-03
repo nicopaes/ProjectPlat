@@ -43,6 +43,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1766883855291964
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4461996708157272}
+  - component: {fileID: 114337635206782256}
+  m_Layer: 8
+  m_Name: PlayerAttackBox (SWORD)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1916615845154164
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,10 +88,24 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1916615845154164}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.02120018, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4461996708157272}
+  m_Father: {fileID: 4845523917345462}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4461996708157272
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766883855291964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 4845523917345462}
+  m_Father: {fileID: 4064593420000014}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4536060531174926
@@ -85,7 +115,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1656387841231606}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.021199942, z: 0}
   m_LocalScale: {x: 0.13622534, y: 0.13622534, z: 0.13622534}
   m_Children: []
   m_Father: {fileID: 4845523917345462}
@@ -199,6 +229,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   HitBox: {fileID: 4064593420000014}
   playerController2D: {fileID: 114823282858181522}
+--- !u!114 &114337635206782256
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1766883855291964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3c4b7c60c4fb34faf2ec0db481971e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 4096
+  attackBoxSize: {x: 0.5, y: 0.2}
+  attackBoxOffset: {x: -0.8, y: 0}
+  facingRight: 0
+  Damage: 20
+  inactiveColor: {r: 0, g: 0, b: 0, a: 1}
+  collisionOpenColor: {r: 1, g: 0, b: 0, a: 1}
+  collidingColor: {r: 1, g: 0.9479667, b: 0, a: 1}
+  col2D: {fileID: 114823282858181522}
 --- !u!114 &114735424271779676
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -218,9 +270,11 @@ MonoBehaviour:
   accelerationTimeAirborne: 0.1
   accelerationTimeGrounded: 0
   moveSpeed: 6
-  gravity: 0
-  maxJumpVelocity: 0
-  minJumpVelocity: 0
+  meleeAtt: {fileID: 114337635206782256}
+  activeAttackTime: 0.5
+  gravity: -14.8148155
+  maxJumpVelocity: 6.666667
+  minJumpVelocity: 3.849002
   velocityXSmoothing: 0
   velocity: {x: 0, y: 0, z: 0}
   spawnPoint: {fileID: 0}
@@ -239,6 +293,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   maxSlopeAngle: 80
+  facingRight: 0
 --- !u!114 &114853333560681180
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -264,9 +319,9 @@ MonoBehaviour:
   playerNumber: 2
   isis: 0
   pKeys:
-    axis: 
-    jumpKey: 
-    actionKey: 
+    axis: Horizontal2
+    jumpKey: i
+    actionKey: right shift
 --- !u!212 &212606432417051074
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -304,7 +359,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c1f2ed4faf1b3254fb449a5151b01490, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.8, y: 1.1}

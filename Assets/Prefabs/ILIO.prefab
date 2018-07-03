@@ -26,6 +26,22 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1367736119955154
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4589956058396756}
+  - component: {fileID: 114769583604076132}
+  m_Layer: 8
+  m_Name: PlayerAttackBox (SHIELD)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1514088780714262
 GameObject:
   m_ObjectHideFlags: 0
@@ -74,8 +90,22 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 4589956058396756}
   m_Father: {fileID: 4785358823670656}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4589956058396756
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1367736119955154}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4324381218494090}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4656156387326660
@@ -201,6 +231,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   maxSlopeAngle: 80
+  facingRight: 0
 --- !u!114 &114174105301895270
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,6 +273,28 @@ MonoBehaviour:
     axis: 
     jumpKey: 
     actionKey: 
+--- !u!114 &114769583604076132
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1367736119955154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb3c4b7c60c4fb34faf2ec0db481971e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mask:
+    serializedVersion: 2
+    m_Bits: 4096
+  attackBoxSize: {x: 0.2, y: 0.6}
+  attackBoxOffset: {x: -0.35, y: 0}
+  facingRight: 1
+  Damage: 1
+  inactiveColor: {r: 0.87843144, g: 0.76470596, b: 0.33333334, a: 0.49019608}
+  collisionOpenColor: {r: 1, g: 0, b: 0, a: 1}
+  collidingColor: {r: 1, g: 0.9479667, b: 0, a: 1}
+  col2D: {fileID: 114090550302567018}
 --- !u!114 &114783951052440928
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -261,6 +314,8 @@ MonoBehaviour:
   accelerationTimeAirborne: 0.1
   accelerationTimeGrounded: 0
   moveSpeed: 6
+  meleeAtt: {fileID: 114769583604076132}
+  activeAttackTime: 5
   gravity: 0
   maxJumpVelocity: 0
   minJumpVelocity: 0

@@ -9,6 +9,8 @@ public class FollowHitBox : MonoBehaviour {
 
 	void Update () 
 	{
+		GetComponent<SpriteRenderer>().flipX = !playerController2D.facingRight;
+
 		transform.position = HitBox.position;
 		Vector3 newRotation = Vector3.zero;
 		newRotation.z = playerController2D.collisionsInf.slopeAngle;
