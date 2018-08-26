@@ -8,15 +8,21 @@ public class FieldOfView : MonoBehaviour {
     public float viewRadius;
     [Range(0, 360)]
     public float viewAngle;
+
     [Tooltip("Delay from target entering the FOV ")]
     public float viewDelay;
+
+    [Tooltip("Max time to the player in vision to get respawn")]
     public float maxInViewTime;
+
     [Space]
     public LayerMask targetMask;
     public LayerMask obstacleMask;
 
+    // Targets visible in the FOV of the enemy
     public List<Transform> visibleTargets = new List<Transform>();
 
+    // Some Hard Math
     [Space]
     [Header("FOV Mesh visualization")]
     public float meshResolution;
@@ -27,24 +33,31 @@ public class FieldOfView : MonoBehaviour {
     public TextMesh timeViewer;
     private Mesh viewMesh;
     private float inViewTime = 0;
+
+    private EnemyChase attack;
+
+    // Activate enemy and start coroutine that search for a target with the delay
     private void OnEnable()
     {
+        attack = this.GetComponentInParent<EnemyChase>();
+
         viewMesh = new Mesh();
         viewMesh.name ="View Mesh";
         viewMeshFilter.mesh = viewMesh;
 
-        StartCoroutine("FindTargetsWithDelay", viewDelay);
+      //  StartCoroutine("FindTargetsWithDelay", viewDelay);
     }
 
-    IEnumerator FindTargetsWithDelay(float delay)
+   /* IEnumerator FindTargetsWithDelay(float delay)
     {
         while(true)
         {
             yield return new WaitForSeconds(delay);
             FindVisibleTargets();
         }
-    }
+    }*/
 
+    // Add targets being saw
     void FindVisibleTargets()
     {
         visibleTargets.Clear();
@@ -64,39 +77,65 @@ public class FieldOfView : MonoBehaviour {
             }
         }
     }
+
+
     private void Update()
     {
+        // Draw FOV
         DrawFOV();
+
+        // Search for targets
+        FindVisibleTargets();
+
+        // Check if have any visible targets
         if(visibleTargets.Count > 0)
         {
             inViewTime += Time.deltaTime;
+
+            // show line pointing towards target
             GetComponent<LineRenderer>().enabled = true;
             GetComponent<LineRenderer>().SetPosition(0,this.transform.position);
             GetComponent<LineRenderer>().SetPosition(1,visibleTargets[0].position);
-        }
-        else
-        {
+
+        } else {
+
             inViewTime = 0;
             GetComponent<LineRenderer>().enabled = false;
         }
-        if(inViewTime < maxInViewTime - 1f)
+
+
+        /*if(inViewTime < maxInViewTime - 1f) {
+
+            // Nothing is happening
+            Debug.Log("Chillin");
             timeViewer.text = inViewTime.ToString("0.00");
-        else
-        {
+
+        } else {
+
+            // Is seeing danger
+            Debug.Log("Seeing target");
+
             timeViewer.text = "DANGER";
-        }
+        }*/
+
+
         if(inViewTime > maxInViewTime)
         {
             foreach(Transform visObj in visibleTargets)
             {
                 if(visObj.GetComponent<PlayerComponent>())
                 {
-                    visObj.gameObject.SetActive(false);
+                    // Start following Player
+                    attack.StartChasingTarget();
+                    // Kills her if touches her
+                    //visObj.gameObject.SetActive(false);
                 }
 
             }
         }
     }
+
+    // Draw FOV in Game
     void DrawFOV()
     {
         int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
@@ -155,7 +194,7 @@ public class FieldOfView : MonoBehaviour {
         viewMesh.RecalculateNormals();
     }
 
-
+    // Adjust FOV for corners in obstacles
     EdgeInfo FindEdge(ViewCastInfo minViewCast, ViewCastInfo maxViewCast)
     {
         float minAngle = minViewCast.angle;
@@ -184,6 +223,7 @@ public class FieldOfView : MonoBehaviour {
         return new EdgeInfo(minPoint, maxPoint);
     }
 
+    // Update info about FOV in game 
     ViewCastInfo ViewCast(float globalAngle)
     {
         Vector3 dir = DirFromAngle(globalAngle, true);
@@ -199,6 +239,7 @@ public class FieldOfView : MonoBehaviour {
         }
     }
 
+    // Adjust angles of FOV
     public Vector3 DirFromAngle(float angleInDegrees, bool angleIsGlobal)
     {
         if (!angleIsGlobal)
@@ -208,6 +249,7 @@ public class FieldOfView : MonoBehaviour {
         return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad),0);
     }
 
+    // info about the FOV
     public struct ViewCastInfo
     {
         public bool hit;
@@ -224,6 +266,7 @@ public class FieldOfView : MonoBehaviour {
         }
     }
 
+    // Info about the edges of the obstacles
     public struct EdgeInfo
     {
         public Vector3 pointA;
