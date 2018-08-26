@@ -8,6 +8,9 @@ public class ButtonComponent : InteractiveComponent
     public ReactiveComponent attachedReactionObject;
     public buttonState currentState = buttonState.active;
 
+    public GameObject DestructableObject01;
+    public GameObject DestructableObject02;
+
     [SerializeField]
     private bool playerPresence;
     [SerializeField]
@@ -37,7 +40,9 @@ public class ButtonComponent : InteractiveComponent
         {
             Debug.Log("DoorOpen");
             ChangeState();
+            DestructableObject01.SetActive(false);
             attachedReactionObject.Reaction();
+
         }
     }
     void ChangeState()
