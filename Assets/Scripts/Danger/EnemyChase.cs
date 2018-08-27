@@ -45,4 +45,14 @@ public class EnemyChase : MonoBehaviour {
         keepChasing = true;
         pausePatrol.isChasingTarget = true;
     }
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+        Debug.Log("to tocando com trigger");
+        if (collision.transform.CompareTag("Player"))
+        {
+            collision.gameObject.SetActive(false);
+        }
+	}
+
 }

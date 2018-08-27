@@ -39,7 +39,7 @@ public class EnemyPatrol : MonoBehaviour {
         }
 
         // Find the FOV to turn with the enemy
-        FOV = this.transform.FindChild("FOV").gameObject;
+        FOV = this.transform.Find("FOV").gameObject;
 	}
 	
 	// Update is called once per frame
@@ -47,20 +47,18 @@ public class EnemyPatrol : MonoBehaviour {
 
         if (!isChasingTarget) {
             GotoPoint();
-        }
 
-        // Choose the next destination point when the agent gets
-        // close to the current one.
-        if (Vector2.Distance(transform.position, points[currentDestPoint].position) < 0.1f)
-        {
-            waitTimeToContinue();
+            // Choose the next destination point when the agent gets
+            // close to the current one.
+            if (Vector2.Distance(transform.position, points[currentDestPoint].position) < 0.1f)
+            {
+                waitTimeToContinue();
+            }
         }
 
 	}
 
     void waitTimeToContinue(){
-
-        Debug.Log(timeWaiting + " Tempo que falta");
 
         if (timeWaiting <= 0)
         {
