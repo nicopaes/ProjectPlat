@@ -22,6 +22,18 @@ public class FieldOfView : MonoBehaviour {
     // Targets visible in the FOV of the enemy
     public List<Transform> visibleTargets = new List<Transform>();
 
+    [Space]
+    [Header("Security Camera")]
+    [Tooltip("Waypoints to the rotation of the camera ")]
+    public float RightDirection;
+    public float LeftDirection;
+
+    [Tooltip("Rotation Speed of the FOV")]
+    public float RotationSpeed;
+    [Tooltip("Wait time in each point")]
+    public float WaitTime;
+
+
     // Some Hard Math
     [Space]
     [Header("FOV Mesh visualization")]
@@ -36,9 +48,25 @@ public class FieldOfView : MonoBehaviour {
 
     private EnemyChase attack;
 
+
+    private bool isSecurityCamera = false;
+    private float currentWaitTime = 0;
+    private float currentSide;
+
+
+
     // Activate enemy and start coroutine that search for a target with the delay
     private void OnEnable()
     {
+        currentSide = LeftDirection;
+
+        // Se for camera de seguranca o campo de visão vai rotacionar entre dois
+        // waypoints de tempos em tempos (corotina)
+        if (this.transform.parent.name == "Security"){
+            isSecurityCamera = true;
+            //StartCoroutine(RotateSecurityCamera());
+        }
+
         attack = this.GetComponentInParent<EnemyChase>();
 
         viewMesh = new Mesh();
@@ -47,6 +75,8 @@ public class FieldOfView : MonoBehaviour {
 
       //  StartCoroutine("FindTargetsWithDelay", viewDelay);
     }
+
+
 
    /* IEnumerator FindTargetsWithDelay(float delay)
     {
@@ -79,6 +109,25 @@ public class FieldOfView : MonoBehaviour {
     }
 
 
+    void WaitTimeToContinue(){
+        
+        if (currentWaitTime < WaitTime)
+        {
+            currentWaitTime += Time.deltaTime;
+        }
+        else
+        {
+            if (currentSide == LeftDirection){
+                currentSide = RightDirection;
+            } else {
+                currentSide = LeftDirection;
+            }
+
+            currentWaitTime = 0;
+        }
+    
+    }
+
     private void Update()
     {
         // Draw FOV
@@ -103,6 +152,22 @@ public class FieldOfView : MonoBehaviour {
             GetComponent<LineRenderer>().enabled = false;
         }
 
+        // Rotate security camera
+        if (isSecurityCamera && this.enabled)
+        {
+            // Rotaciona a camera, quando chega no ponto ela para, roda o tempo e quando o tempo termina
+            // ele contina a rotacao da camera
+            Debug.Log(transform.eulerAngles.z - currentSide);
+            if (currentSide == LeftDirection && transform.eulerAngles.z - currentSide >= 5.0f) {
+                this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, LeftDirection), Time.deltaTime * RotationSpeed);
+            
+            } else if (currentSide == RightDirection && currentSide - transform.eulerAngles.z >= 5.0f){
+                this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, RightDirection), Time.deltaTime * RotationSpeed);
+
+            } else {
+                WaitTimeToContinue();
+            }
+        }
 
         /*if(inViewTime < maxInViewTime - 1f) {
 
@@ -126,7 +191,10 @@ public class FieldOfView : MonoBehaviour {
                 if(visObj.GetComponent<PlayerComponent>())
                 {
                     // Start following Player
-                    attack.StartChasingTarget();
+
+                    if (!isSecurityCamera) {
+                        attack.StartChasingTarget();
+                    }
                     // Kills her if touches her
                     //visObj.gameObject.SetActive(false);
                 }
