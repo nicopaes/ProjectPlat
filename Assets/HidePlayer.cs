@@ -63,7 +63,11 @@ public class HidePlayer : MonoBehaviour {
 	}
 	private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("Hero");
+        if (collision.gameObject.tag == "Danger")
+        {
+            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider);
+        }
+
         if (collision.transform.CompareTag("Player"))
         {
 			playerTranform = collision.transform;

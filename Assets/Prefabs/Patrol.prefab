@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 114673820921371524}
   m_Layer: 0
   m_Name: Patrol
-  m_TagString: Untagged
+  m_TagString: Danger
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -384,7 +384,8 @@ MonoBehaviour:
   RightDirection: 0
   LeftDirection: 0
   RotationSpeed: 0
-  WaitTime: 0
+  WaitTimeContinueMoving: 0
+  WaitTimeTriggerAlarm: 0
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
