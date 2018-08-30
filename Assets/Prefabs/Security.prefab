@@ -386,12 +386,13 @@ MonoBehaviour:
     m_Bits: 256
   obstacleMask:
     serializedVersion: 2
-    m_Bits: 2050
+    m_Bits: 2562
   visibleTargets: []
   RightDirection: 230
   LeftDirection: 130
   RotationSpeed: 0.5
-  WaitTime: 1
+  WaitTimeContinueMoving: 1
+  WaitTimeTriggerAlarm: 2
   meshResolution: 1
   edgeResolveIterations: 4
   edgeDstThreshold: 0.5
