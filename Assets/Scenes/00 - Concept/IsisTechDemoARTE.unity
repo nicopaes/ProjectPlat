@@ -3103,6 +3103,16 @@ Prefab:
       propertyPath: viewAngle
       value: 43
       objectReference: {fileID: 0}
+    - target: {fileID: 114305237999653928, guid: 0269a51376879704db7b25e318481719,
+        type: 2}
+      propertyPath: WaitTimeContinueMoving
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305237999653928, guid: 0269a51376879704db7b25e318481719,
+        type: 2}
+      propertyPath: WaitTimeTriggerAlarm
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0269a51376879704db7b25e318481719, type: 2}
   m_IsPrefabParent: 0

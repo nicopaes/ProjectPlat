@@ -174,6 +174,22 @@ public class FieldOfView : MonoBehaviour {
             } else {
                 WaitTimeToContinue();
             }
+
+            if (StartCountDownAlarm){
+
+                currentWaitTimeTriggerAlarm += Time.deltaTime;
+
+                if (currentWaitTimeTriggerAlarm >= WaitTimeTriggerAlarm){
+                    currentWaitTimeTriggerAlarm = 0;
+                    StartCountDownAlarm = false;
+
+                    foreach (Transform target in visibleTargets){
+                        if (target.tag == "Player"){
+                            target.gameObject.SetActive(false);
+                        }
+                    }
+                }
+            }
         }
 
         /*if(inViewTime < maxInViewTime - 1f) {
