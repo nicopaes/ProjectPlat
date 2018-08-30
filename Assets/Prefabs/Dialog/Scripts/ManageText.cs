@@ -81,6 +81,9 @@ public class ManageText : MonoBehaviour
     {
         currentText = number - 1;
         FindSpeaker(DialogTexts[currentText]);
+        //Debug.Log(currentSpeakers[0].name);
+
+        //Debug.Log(currentSpeakers[1].name);
         endedBubble = true; 
         endedDialog = true; 
     }
@@ -102,7 +105,6 @@ public class ManageText : MonoBehaviour
         }
         else
         {
-            print(MaxTextWidth + OffSetWidth + " Tamanho");
             BubbleBox.sizeDelta = new Vector2(MaxTextWidth + OffSetWidth, totalTextHeight + OffSetHeight);
         }
     }
@@ -143,7 +145,9 @@ public class ManageText : MonoBehaviour
                 {
                     dialogLine.Remove('\n');
                     dialogLine.RemoveAt(0);
-                } 
+                }
+
+                Debug.Log(dialogLine);
 
                 foreach (Characters speaker in TalkableCharacters)
                 {

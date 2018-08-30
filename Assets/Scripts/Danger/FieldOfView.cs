@@ -165,7 +165,6 @@ public class FieldOfView : MonoBehaviour {
         {
             // Rotaciona a camera, quando chega no ponto ela para, roda o tempo e quando o tempo termina
             // ele contina a rotacao da camera
-            Debug.Log(transform.eulerAngles.z - currentSide);
             if (currentSide == LeftDirection && transform.eulerAngles.z - currentSide >= 5.0f) {
                 this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, LeftDirection), Time.deltaTime * RotationSpeed);
             
