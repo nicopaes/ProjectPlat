@@ -1516,7 +1516,7 @@ namespace Anima2D
 					}else if(PrefabUtility.GetPrefabType(activeGameObject) == PrefabType.PrefabInstance ||
 					         PrefabUtility.GetPrefabType(activeGameObject) == PrefabType.DisconnectedPrefabInstance)
 					{
-						prefab = PrefabUtility.GetCorrespondingObjectFromSource(activeGameObject) as GameObject;
+						prefab = PrefabUtility.GetPrefabParent(activeGameObject) as GameObject;
 					}
 					
 					if(prefab)
