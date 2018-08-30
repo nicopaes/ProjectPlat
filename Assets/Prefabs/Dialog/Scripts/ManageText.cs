@@ -144,10 +144,10 @@ public class ManageText : MonoBehaviour
                 if (dialogLine.Contains('\n'))
                 {
                     dialogLine.Remove('\n');
-                    dialogLine.RemoveAt(0);
+                    //dialogLine.RemoveAt(0);
                 }
 
-                Debug.Log(dialogLine);
+                Debug.Log(new string(dialogLine.ToArray()));
 
                 foreach (Characters speaker in TalkableCharacters)
                 {
