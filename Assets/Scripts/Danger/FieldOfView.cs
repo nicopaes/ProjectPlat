@@ -31,7 +31,9 @@ public class FieldOfView : MonoBehaviour {
     [Tooltip("Rotation Speed of the FOV")]
     public float RotationSpeed;
     [Tooltip("Wait time in each point")]
-    public float WaitTime;
+    public float WaitTimeContinueMoving;
+    [Tooltip("Wait time in each point")]
+    public float WaitTimeTriggerAlarm;
 
 
     // Some Hard Math
@@ -50,8 +52,10 @@ public class FieldOfView : MonoBehaviour {
 
 
     private bool isSecurityCamera = false;
-    private float currentWaitTime = 0;
+    private float currentWaitTimeMovementCamera = 0;
+    private float currentWaitTimeTriggerAlarm = 0;
     private float currentSide;
+    private bool StartCountDownAlarm = false;
 
 
 
@@ -103,6 +107,10 @@ public class FieldOfView : MonoBehaviour {
                 if(!Physics2D.Raycast(transform.position,dirToTarget,dstToTarget,obstacleMask))
                 {
                     visibleTargets.Add(target);
+
+                    if (isSecurityCamera){
+                        StartCountDownAlarm = true;
+                    }
                 }
             }
         }
@@ -111,9 +119,9 @@ public class FieldOfView : MonoBehaviour {
 
     void WaitTimeToContinue(){
         
-        if (currentWaitTime < WaitTime)
+        if (currentWaitTimeMovementCamera < WaitTimeContinueMoving)
         {
-            currentWaitTime += Time.deltaTime;
+            currentWaitTimeMovementCamera += Time.deltaTime;
         }
         else
         {
@@ -123,7 +131,7 @@ public class FieldOfView : MonoBehaviour {
                 currentSide = LeftDirection;
             }
 
-            currentWaitTime = 0;
+            currentWaitTimeMovementCamera = 0;
         }
     
     }
@@ -157,7 +165,6 @@ public class FieldOfView : MonoBehaviour {
         {
             // Rotaciona a camera, quando chega no ponto ela para, roda o tempo e quando o tempo termina
             // ele contina a rotacao da camera
-            Debug.Log(transform.eulerAngles.z - currentSide);
             if (currentSide == LeftDirection && transform.eulerAngles.z - currentSide >= 5.0f) {
                 this.transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(0, 0, LeftDirection), Time.deltaTime * RotationSpeed);
             
@@ -166,6 +173,22 @@ public class FieldOfView : MonoBehaviour {
 
             } else {
                 WaitTimeToContinue();
+            }
+
+            if (StartCountDownAlarm){
+
+                currentWaitTimeTriggerAlarm += Time.deltaTime;
+
+                if (currentWaitTimeTriggerAlarm >= WaitTimeTriggerAlarm){
+                    currentWaitTimeTriggerAlarm = 0;
+                    StartCountDownAlarm = false;
+
+                    foreach (Transform target in visibleTargets){
+                        if (target.tag == "Player"){
+                            target.gameObject.SetActive(false);
+                        }
+                    }
+                }
             }
         }
 
