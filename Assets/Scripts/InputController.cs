@@ -50,6 +50,9 @@ public class InputController : MonoBehaviour
 			{
 				playerComp.OnActionDown();
 			}
+            if(device.Action2.WasPressed){
+                playerComp.GrabBox();
+            }
 		}
 
 		Vector2 directionalInput;
@@ -78,6 +81,9 @@ public class InputController : MonoBehaviour
         {
             playerComp.OnActionDown();
         }
+        if(Input.GetKeyDown(pKeys.grabKey)){
+            playerComp.GrabBox();
+        }
     }
 }
 [System.Serializable]
@@ -86,4 +92,5 @@ public class playerKeyBindings
 	public string axis;
 	public string jumpKey;
 	public string actionKey;
+    public string grabKey;
 }

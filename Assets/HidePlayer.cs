@@ -5,7 +5,7 @@ using UnityEngine;
 public class HidePlayer : MonoBehaviour {
 
 	[SerializeField]
-	private bool _playerPresence;
+	public bool _playerPresence;
 	[SerializeField]
 	private bool _playerHidden = false;
 	private Transform playerTranform;
@@ -54,13 +54,14 @@ public class HidePlayer : MonoBehaviour {
 			playerTranform.GetComponent<Controller2D>().enabled = true;
 			playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");
 			if(!_fromTheRight)
-				playerTranform.position = this.transform.position + Vector3.right;
+				playerTranform.position = this.transform.position + Vector3.right*2.5f;
 			else
-				playerTranform.position = this.transform.position + Vector3.left;
+				playerTranform.position = this.transform.position + Vector3.left*2.5f;
 			_playerHidden = false;
 			_fromTheRight = false;
 		}
 	}
+
 	private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Danger")
@@ -72,6 +73,7 @@ public class HidePlayer : MonoBehaviour {
         {
 			playerTranform = collision.transform;
             _playerPresence = true;
+            collision.gameObject.GetComponent<PlayerComponent>().nearBox = this.gameObject;
 
         }
     }
@@ -80,6 +82,7 @@ public class HidePlayer : MonoBehaviour {
         if (collision.transform.CompareTag("Player"))
         {
             _playerPresence = false;
+            collision.gameObject.GetComponent<PlayerComponent>().nearBox = null;
         }
     }
 }

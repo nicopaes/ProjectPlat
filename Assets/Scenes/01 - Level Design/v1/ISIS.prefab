@@ -2050,7 +2050,7 @@ MonoBehaviour:
   minJumpVelocity: 0
   velocityXSmoothing: 0
   velocity: {x: 0, y: 0, z: 0}
-  spawnPoint: {fileID: 0}
+  nearBox: {fileID: 0}
 --- !u!114 &114540139107042648
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2221,6 +2221,7 @@ MonoBehaviour:
     axis: 
     jumpKey: 
     actionKey: 
+    grabKey: 
 --- !u!114 &114792815004590208
 MonoBehaviour:
   m_ObjectHideFlags: 1
