@@ -755,7 +755,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 205315001}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 249.13945, y: 0, z: 0}
+  m_LocalPosition: {x: 258.7, y: 0, z: 0}
   m_LocalScale: {x: 0.9999675, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 201896659}
@@ -2966,7 +2966,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 485428926}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 249.1401, y: 0, z: 0}
+  m_LocalPosition: {x: 258.70096, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1.0000001, z: 1}
   m_Children: []
   m_Father: {fileID: 440982291}
@@ -3399,7 +3399,7 @@ Prefab:
         type: 2}
       propertyPath: ConstructableObject01
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 749239418}
     m_RemovedComponents:
     - {fileID: 23721378370984556, guid: dfcc00165c83029498b562d4063092b6, type: 2}
     - {fileID: 33561520574473758, guid: dfcc00165c83029498b562d4063092b6, type: 2}
@@ -12673,7 +12673,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: -450
   m_Sprite: {fileID: 21300000, guid: 5abdd372862304bd487af0a898336dc3, type: 3}
   m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   m_FlipX: 0
@@ -13707,6 +13707,11 @@ Prefab:
       propertyPath: localWaypoints.Array.data[0].y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 61989951783217722, guid: 07ac9b4b0181ac8498db7d69252e36a9,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07ac9b4b0181ac8498db7d69252e36a9, type: 2}
   m_IsPrefabParent: 0
@@ -13857,7 +13862,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: -4
+  m_SortingOrder: -437
   m_Sprite: {fileID: 21300000, guid: 5abdd372862304bd487af0a898336dc3, type: 3}
   m_Color: {r: 0.41509432, g: 0.41509432, b: 0.41509432, a: 1}
   m_FlipX: 0
