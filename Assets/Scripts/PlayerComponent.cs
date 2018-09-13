@@ -45,9 +45,17 @@ public class PlayerComponent : MonoBehaviour {
 	Controller2D controller;
 
 	Vector2 directionalInput;
-	[SerializeField]
-	[Space]
+    [SerializeField]
+    [Space]
+
+    [HideInInspector]
+    public GameObject nearBox = null;
+
 	private Transform spawnPoint;
+
+    private bool holdingBox = false;
+
+    private GameObject originalBoxParent;
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -56,8 +64,9 @@ public class PlayerComponent : MonoBehaviour {
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 	}
+
 	void OnEnable()
-	{		
+	{
 		transform.parent.position = spawnPoint.position;
 		transform.localPosition = Vector3.zero;
 	}
@@ -113,9 +122,38 @@ public class PlayerComponent : MonoBehaviour {
     public void OnActionDown()
     {
         ActionButton();
-		StartCoroutine(DoMeleeAttack(activeAttackTime));
+		//StartCoroutine(DoMeleeAttack(activeAttackTime));
 		
     }
+
+    // Gruda o player colado a caixa e desfreeza a posição x da caixa
+    public void GrabBox(){
+
+        if(nearBox){
+
+            if (holdingBox)
+            {
+                holdingBox = false;
+                Debug.Log("solta a caixinha");
+                nearBox.transform.parent = originalBoxParent.transform; 
+                nearBox.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
+
+                // Solta da caixa e freeza o x
+            }
+            else
+            {
+                originalBoxParent = nearBox.transform.parent.gameObject;
+                holdingBox = true;
+                Debug.Log("Empurra a caixinha");
+                nearBox.transform.parent = this.transform;
+                //nearBox.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
+                //nearBox.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+                // Gruda na caixa e desfreeza o x
+            } 
+        }
+    }
+
 	IEnumerator DoMeleeAttack(float activeTime)
 	{
 		meleeAtt.startCheckingCollision();
