@@ -82,10 +82,10 @@ public class ButtonComponent : InteractiveComponent
     }
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawSphere(transform.position, 0.1f);
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere(attachedReactionObject.transform.position, 0.1f);
+        //Gizmos.color = Color.red;
+        //Gizmos.DrawSphere(transform.position, 0.1f);
+        //Gizmos.color = Color.green;
+        //Gizmos.DrawSphere(attachedReactionObject.transform.position, 0.1f);
         //Gizmos.color = Color.white;
         //Gizmos.DrawLine(transform.position, attachedReactionObject.transform.position);
     }

@@ -51,7 +51,7 @@ public class PlayerComponent : MonoBehaviour {
     [HideInInspector]
     public GameObject nearBox = null;
 
-	private Transform spawnPoint;
+	public Transform spawnPoint;
 
     private bool holdingBox = false;
 
