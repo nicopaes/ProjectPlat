@@ -60,6 +60,8 @@ public class PlayerComponent : MonoBehaviour {
 	void Start() {
 		controller = GetComponent<Controller2D> ();
 
+        spawnPoint = GameObject.FindWithTag("Respawn").transform;
+
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
