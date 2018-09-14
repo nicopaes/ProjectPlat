@@ -51,7 +51,7 @@ public class PlayerComponent : MonoBehaviour {
     [HideInInspector]
     public GameObject nearBox = null;
 
-	public Transform spawnPoint;
+	private Transform spawnPoint;
 
     private bool holdingBox = false;
 
@@ -59,6 +59,8 @@ public class PlayerComponent : MonoBehaviour {
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
+
+        spawnPoint = GameObject.FindWithTag("Respawn").transform;
 
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;

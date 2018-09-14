@@ -66,7 +66,7 @@ public class FieldOfView : MonoBehaviour {
 
         // Se for camera de seguranca o campo de visão vai rotacionar entre dois
         // waypoints de tempos em tempos (corotina)
-        if (this.transform.parent.name == "Security"){
+        if (this.transform.parent.tag == "Security Camera"){
             isSecurityCamera = true;
             //StartCoroutine(RotateSecurityCamera());
         }

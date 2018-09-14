@@ -54,15 +54,40 @@ public class HidePlayer : MonoBehaviour {
 			playerTranform.GetComponent<Controller2D>().enabled = true;
 			playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");
 			if(!_fromTheRight)
-				playerTranform.position = this.transform.position + Vector3.right*2.5f;
+				playerTranform.position = this.transform.position + Vector3.right*2.3f;
 			else
-				playerTranform.position = this.transform.position + Vector3.left*2.5f;
+				playerTranform.position = this.transform.position + Vector3.left*2.3f;
 			_playerHidden = false;
 			_fromTheRight = false;
 		}
 	}
 
-	private void OnCollisionEnter2D(Collision2D collision)
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+        if (collision.gameObject.tag == "Danger")
+        {
+            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.GetComponent<Collider2D>());
+        }
+
+        if (collision.transform.CompareTag("Player"))
+        {
+            playerTranform = collision.transform;
+            _playerPresence = true;
+            collision.gameObject.GetComponent<PlayerComponent>().nearBox = this.gameObject;
+
+        }
+	}
+
+	private void OnTriggerExit2D(Collider2D collision)
+	{
+        if (collision.transform.CompareTag("Player"))
+        {
+            _playerPresence = false;
+            collision.gameObject.GetComponent<PlayerComponent>().nearBox = null;
+        }
+	}
+
+	/*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Danger")
         {
@@ -77,12 +102,12 @@ public class HidePlayer : MonoBehaviour {
 
         }
     }
-    private void OnCollisionExit2D(Collision2D collision)
+	private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Player"))
         {
             _playerPresence = false;
             collision.gameObject.GetComponent<PlayerComponent>().nearBox = null;
         }
-    }
+    }*/
 }
