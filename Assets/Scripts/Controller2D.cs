@@ -6,6 +6,10 @@ using UnityEngine;
 public class Controller2D : RaycastController {
 
 	public float maxSlopeAngle;
+	[Header("PUSH FORCE - EMPURRAR A CAIXA")]
+	public float pushMaxVelocity;
+	public float pushForce;
+
 	public bool facingRight;
 
 	public CollisionInfo collisionsInf;
@@ -152,8 +156,8 @@ public class Controller2D : RaycastController {
 				}
 				if(hit.collider.CompareTag("Push"))
 				{
-					if(hit.transform.GetComponent<Rigidbody2D>().velocity.x < 0.7f)
-						hit.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(7f,0));
+					if(hit.transform.GetComponent<Rigidbody2D>().velocity.x < pushMaxVelocity)
+						hit.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(pushForce,0));
 				}
 			}
 		}
