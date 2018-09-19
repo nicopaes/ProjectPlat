@@ -28,7 +28,7 @@ public class PushObject : MonoBehaviour {
         holdingBox = true;
         Debug.Log("Empurra a caixinha");
         this.transform.parent = obj.transform;
-        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionY;
+        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation | RigidbodyConstraints2D.FreezePositionY;
         //nearBox.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
         //nearBox.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
 
@@ -41,6 +41,9 @@ public class PushObject : MonoBehaviour {
         Debug.Log("solta a caixinha");
         this.GetComponent<Rigidbody2D>().mass = originalWeight;
         this.transform.parent = originalBoxParent.transform;
+        this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
+
+
         //this.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
 
         // Solta da caixa e freeza o x

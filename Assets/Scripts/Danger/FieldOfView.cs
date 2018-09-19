@@ -185,6 +185,10 @@ public class FieldOfView : MonoBehaviour {
 
                     foreach (Transform target in visibleTargets){
                         if (target.tag == "Player"){
+                            GameObject box = target.GetComponent<PlayerComponent>().nearBox;
+                            if(box && box.GetComponent<PushObject>().holdingBox){
+                                box.GetComponent<PushObject>().checkBox(target.gameObject);
+                            }
                             target.gameObject.SetActive(false);
                         }
                     }
