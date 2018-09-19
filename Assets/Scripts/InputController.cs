@@ -50,7 +50,11 @@ public class InputController : MonoBehaviour
 			{
 				playerComp.OnActionDown();
 			}
-            if(device.Action2.WasPressed){
+            if (device.Action2.WasReleased)
+            {
+                playerComp.OnActionUp();
+            }
+            if(device.Action3.WasPressed){
                 playerComp.GrabBox();
             }
 		}
@@ -80,6 +84,10 @@ public class InputController : MonoBehaviour
         if(Input.GetKeyDown(pKeys.actionKey))
         {
             playerComp.OnActionDown();
+        }
+        if (Input.GetKeyUp(pKeys.actionKey))
+        {
+            playerComp.OnActionUp();
         }
         if(Input.GetKeyDown(pKeys.grabKey)){
             playerComp.GrabBox();

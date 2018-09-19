@@ -53,6 +53,8 @@ public class PlayerComponent : MonoBehaviour {
 
 	private Transform spawnPoint;
 
+    [HideInInspector]
+    public bool isOnDialogTrigger = false;
     private bool holdingBox = false;
 
     private GameObject originalBoxParent;
@@ -123,9 +125,17 @@ public class PlayerComponent : MonoBehaviour {
     }
     public void OnActionDown()
     {
+        isOnDialogTrigger = true; 
+
         ActionButton();
 		//StartCoroutine(DoMeleeAttack(activeAttackTime));
 		
+    }
+
+    public void OnActionUp()
+    {
+        isOnDialogTrigger = false;
+        //StartCoroutine(DoMeleeAttack(activeAttackTime));
     }
 
     // Gruda o player colado a caixa e desfreeza a posição x da caixa
@@ -133,35 +143,16 @@ public class PlayerComponent : MonoBehaviour {
 
         if(nearBox){
 
-            if (holdingBox)
-            {
-                holdingBox = false;
-                Debug.Log("solta a caixinha");
-                nearBox.transform.parent = originalBoxParent.transform; 
-                nearBox.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezePositionX;
-
-                // Solta da caixa e freeza o x
-            }
-            else
-            {
-                originalBoxParent = nearBox.transform.parent.gameObject;
-                holdingBox = true;
-                Debug.Log("Empurra a caixinha");
-                nearBox.transform.parent = this.transform;
-                //nearBox.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.None;
-                //nearBox.GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeRotation;
-
-                // Gruda na caixa e desfreeza o x
-            } 
+            nearBox.GetComponent<PushObject>().checkBox(this.gameObject);
         }
     }
 
-	IEnumerator DoMeleeAttack(float activeTime)
+	/*IEnumerator DoMeleeAttack(float activeTime)
 	{
 		meleeAtt.startCheckingCollision();
 		Debug.Log("ATTACK");
 		yield return new WaitForSeconds(activeTime);
 		meleeAtt.stopCheckingCollision();
 		Debug.Log("STOP ATTACK");
-	}
+	}*/
 }
