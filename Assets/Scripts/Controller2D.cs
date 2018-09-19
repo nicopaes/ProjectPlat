@@ -156,8 +156,12 @@ public class Controller2D : RaycastController {
 				}
 				if(hit.collider.CompareTag("Push"))
 				{
-					if(hit.transform.GetComponent<Rigidbody2D>().velocity.x < pushMaxVelocity)
-						hit.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(pushForce,0));
+					if(Math.Abs(hit.transform.GetComponent<Rigidbody2D>().velocity.x) < pushMaxVelocity)
+					{
+						if(facingRight) hit.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(pushForce,0));
+						else hit.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(-pushForce,0));
+					}
+						
 				}
 			}
 		}

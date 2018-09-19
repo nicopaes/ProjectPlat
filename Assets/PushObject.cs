@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class PushObject : MonoBehaviour {
 
+    [SerializeField]
+    private float _boxSpeed;
     [HideInInspector]
     public bool holdingBox = false;
     private GameObject originalBoxParent;
 
     private float originalWeight = 1;
 
-    public void checkBox(GameObject obj){
+    void Update()
+    {
+        _boxSpeed = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x);
+    }
+
+    public void checkBox(GameObject obj)
+    {
 
         if (holdingBox) {
             leaveBox();
