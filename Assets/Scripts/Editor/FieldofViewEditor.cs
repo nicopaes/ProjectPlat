@@ -9,6 +9,8 @@ public class FieldofViewEditor : Editor
     private void OnSceneGUI()
     {
         FieldOfView fov = target as FieldOfView;
+
+        
         Handles.color = Color.white;
 
         Handles.DrawWireArc(fov.transform.position, Vector3.forward, Vector3.up,360f,fov.viewRadius);
@@ -17,7 +19,7 @@ public class FieldofViewEditor : Editor
 
         Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngleA * fov.viewRadius);
         Handles.DrawLine(fov.transform.position, fov.transform.position + viewAngleB * fov.viewRadius);
-
+        
         foreach (Transform visibleTarget in fov.visibleTargets)
         {
             Handles.color = Color.red;
