@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5689,6 +5689,11 @@ Prefab:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 20665758589367518, guid: e7ffed41cc03749a587c8cb122880da4,
+        type: 2}
+      propertyPath: m_TargetDisplay
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
   m_IsPrefabParent: 0
@@ -6233,6 +6238,21 @@ Prefab:
       propertyPath: m_Color.a
       value: 0.63529414
       objectReference: {fileID: 0}
+    - target: {fileID: 50505763821525910, guid: 2579a201f9e9a194ca05bc246ae45780,
+        type: 2}
+      propertyPath: m_GravityScale
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50505763821525910, guid: 2579a201f9e9a194ca05bc246ae45780,
+        type: 2}
+      propertyPath: m_Mass
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 50505763821525910, guid: 2579a201f9e9a194ca05bc246ae45780,
+        type: 2}
+      propertyPath: m_LinearDrag
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 2579a201f9e9a194ca05bc246ae45780, type: 2}
   m_IsPrefabParent: 0
@@ -6613,7 +6633,7 @@ Prefab:
     - target: {fileID: 114673820921371524, guid: 04ee458747e0b214cb113bb0aaec735f,
         type: 2}
       propertyPath: ChaseSpeed
-      value: 7
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 114673820921371524, guid: 04ee458747e0b214cb113bb0aaec735f,
         type: 2}
@@ -6905,8 +6925,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 1442143991
+  m_SortingLayer: 1
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c49fa571802d94d7891b5555ed46b5da, type: 3}
   m_Color: {r: 0.990566, g: 0.8845279, b: 0.7335796, a: 1}
@@ -11165,6 +11185,10 @@ Prefab:
         type: 2}
       propertyPath: m_SortingOrder
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589249161367818, guid: 0269a51376879704db7b25e318481719, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0269a51376879704db7b25e318481719, type: 2}
