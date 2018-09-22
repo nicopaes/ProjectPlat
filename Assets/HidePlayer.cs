@@ -26,40 +26,43 @@ public class HidePlayer : MonoBehaviour {
 	}
 	void Action()
 	{
-		if(_playerPresence && !_playerHidden)
-		{
-			positionToGo = new Vector2(this.transform.position.x - playerTranform.position.x,playerTranform.position.y);
-			if(positionToGo.x < 0) 
-			{				
-				_fromTheRight = true;
-			}
-			if(playerTranform.gameObject.layer != LayerMask.NameToLayer("Hide"))
-			{
-				playerTranform.GetComponent<Collider2D>().enabled = false;
-				playerTranform.GetComponent<PlayerComponent>().enabled = false;
-				playerTranform.GetComponent<Controller2D>().enabled = false;
-				playerTranform.gameObject.layer = LayerMask.NameToLayer("Hide");
-				playerTranform.position = this.transform.position;
+        if(!this.GetComponent<PushObject>().holdingBox){
+            if (_playerPresence && !_playerHidden)
+            {
+                positionToGo = new Vector2(this.transform.position.x - playerTranform.position.x, playerTranform.position.y);
+                if (positionToGo.x < 0)
+                {
+                    _fromTheRight = true;
+                }
+                if (playerTranform.gameObject.layer != LayerMask.NameToLayer("Hide"))
+                {
+                    playerTranform.GetComponent<Collider2D>().enabled = false;
+                    playerTranform.GetComponent<PlayerComponent>().enabled = false;
+                    playerTranform.GetComponent<Controller2D>().enabled = false;
+                    playerTranform.gameObject.layer = LayerMask.NameToLayer("Hide");
+                    playerTranform.position = this.transform.position;
 
-				_playerHidden = true;
-			}
-			
-		}
-		else if(_playerHidden)
-		{
-			GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+                    _playerHidden = true;
+                }
 
-			playerTranform.GetComponent<Collider2D>().enabled = true;
-			playerTranform.GetComponent<PlayerComponent>().enabled = true;
-			playerTranform.GetComponent<Controller2D>().enabled = true;
-			playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");
-			if(!_fromTheRight)
-				playerTranform.position = this.transform.position + Vector3.right*2.3f;
-			else
-				playerTranform.position = this.transform.position + Vector3.left*2.3f;
-			_playerHidden = false;
-			_fromTheRight = false;
-		}
+            }
+            else if (_playerHidden)
+            {
+                GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+
+                playerTranform.GetComponent<Collider2D>().enabled = true;
+                playerTranform.GetComponent<PlayerComponent>().enabled = true;
+                playerTranform.GetComponent<Controller2D>().enabled = true;
+                playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");
+                if (!_fromTheRight)
+                    playerTranform.position = this.transform.position + Vector3.right * 2.5f;
+                else
+                    playerTranform.position = this.transform.position + Vector3.left * 2.5f;
+                _playerHidden = false;
+                _fromTheRight = false;
+            }
+        }
+		
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)

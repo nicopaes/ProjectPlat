@@ -21,6 +21,8 @@ public class FieldOfView : MonoBehaviour {
 
     // Targets visible in the FOV of the enemy
     public List<Transform> visibleTargets = new List<Transform>();
+    [SerializeField]
+    private Vector3 _lastTargetLocation;
 
     [Space]
     [Header("Security Camera")]
@@ -95,18 +97,23 @@ public class FieldOfView : MonoBehaviour {
     void FindVisibleTargets()
     {
         visibleTargets.Clear();
-        Collider2D[] targetsInViewRadious = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
+        Collider2D[] oldTargetsInViewRadious = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
+        //Collider2D[] newTargetInViewRadious = Physics2D.OverlapBoxAll(transform.position, new Vector2(viewRadius,5f),0,targetMask);
+        
 
-        for (int i = 0; i < targetsInViewRadious.Length; i++)
+        for (int i = 0; i < oldTargetsInViewRadious.Length; i++) //Change to old back if error
         {
-            Transform target = targetsInViewRadious[i].transform;
+            Transform target = oldTargetsInViewRadious[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
+            //Debug.DrawLine(transform.position,target.position,Color.red,0.3f);
+
             if(Vector3.Angle(transform.up, dirToTarget) < viewAngle/2)
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
                 if(!Physics2D.Raycast(transform.position,dirToTarget,dstToTarget,obstacleMask))
                 {
                     visibleTargets.Add(target);
+                    _lastTargetLocation = target.transform.position;
 
                     if (isSecurityCamera){
                         StartCountDownAlarm = true;
@@ -150,9 +157,11 @@ public class FieldOfView : MonoBehaviour {
             inViewTime += Time.deltaTime;
 
             // show line pointing towards target
+            /*
             GetComponent<LineRenderer>().enabled = true;
             GetComponent<LineRenderer>().SetPosition(0,this.transform.position);
             GetComponent<LineRenderer>().SetPosition(1,visibleTargets[0].position);
+            */
 
         } else {
 
@@ -185,6 +194,10 @@ public class FieldOfView : MonoBehaviour {
 
                     foreach (Transform target in visibleTargets){
                         if (target.tag == "Player"){
+                            GameObject box = target.GetComponent<PlayerComponent>().nearBox;
+                            if(box && box.GetComponent<PushObject>().holdingBox){
+                                box.GetComponent<PushObject>().checkBox(target.gameObject);
+                            }
                             target.gameObject.SetActive(false);
                         }
                     }
@@ -224,6 +237,11 @@ public class FieldOfView : MonoBehaviour {
 
             }
         }
+    }
+
+    void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position,new Vector3(viewRadius,5,0));
     }
 
     // Draw FOV in Game

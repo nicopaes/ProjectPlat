@@ -147,8 +147,6 @@ public class ManageText : MonoBehaviour
                     //dialogLine.RemoveAt(0);
                 }
 
-                Debug.Log(new string(dialogLine.ToArray()));
-
                 foreach (Characters speaker in TalkableCharacters)
                 {
                     if (speaker.codeInDocument == new string(dialogLine.ToArray()))

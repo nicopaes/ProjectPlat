@@ -17,7 +17,6 @@ public class DoorComponent : ReactiveComponent
     {
         //base.Reaction();
         doorOpen = true;
-        Debug.Log("Aaaaaaaan OPEEEENNN");
         GetComponent<SpriteRenderer>().color = openColor;
         GetComponent<Collider2D>().enabled = false;
     }
