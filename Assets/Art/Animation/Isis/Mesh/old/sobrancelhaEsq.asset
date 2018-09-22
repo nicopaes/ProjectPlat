@@ -3,17 +3,17 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
-  m_Name: sobrancelhaDir
+  m_Name: sobrancelhaEsq
   m_EditorClassIdentifier: 
   m_ApiVersion: 4
-  m_Sprite: {fileID: 21300020, guid: 888a2ce3edd55f54b86c312007301e56, type: 3}
-  m_SharedMesh: {fileID: 43589968631242598}
+  m_Sprite: {fileID: 21300018, guid: 888a2ce3edd55f54b86c312007301e56, type: 3}
+  m_SharedMesh: {fileID: 43208319088225788}
   pivotPoint: {x: 0, y: 0}
   texVertices: []
   edges: []
@@ -21,13 +21,13 @@ MonoBehaviour:
   indices: 
   bindPoses: []
   m_SharedMaterials: []
---- !u!43 &43589968631242598
+--- !u!43 &43208319088225788
 Mesh:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Isis_sheet3_12
-  serializedVersion: 8
+  m_Name: Isis_sheet3_11
+  serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
@@ -38,7 +38,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.16, y: 0.14, z: 0}
+      m_Extent: {x: 0.24, y: 0.15, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -53,39 +53,6 @@ Mesh:
   m_KeepIndices: 1
   m_IndexFormat: 0
   m_IndexBuffer: 000001000200020001000300
-  m_Skin:
-  - weight[0]: 0
-    weight[1]: 0
-    weight[2]: 0
-    weight[3]: 0
-    boneIndex[0]: 0
-    boneIndex[1]: 0
-    boneIndex[2]: 0
-    boneIndex[3]: 0
-  - weight[0]: 0
-    weight[1]: 0
-    weight[2]: 0
-    weight[3]: 0
-    boneIndex[0]: 0
-    boneIndex[1]: 0
-    boneIndex[2]: 0
-    boneIndex[3]: 0
-  - weight[0]: 0
-    weight[1]: 0
-    weight[2]: 0
-    weight[3]: 0
-    boneIndex[0]: 0
-    boneIndex[1]: 0
-    boneIndex[2]: 0
-    boneIndex[3]: 0
-  - weight[0]: 0
-    weight[1]: 0
-    weight[2]: 0
-    weight[3]: 0
-    boneIndex[0]: 0
-    boneIndex[1]: 0
-    boneIndex[2]: 0
-    boneIndex[3]: 0
   m_VertexData:
     serializedVersion: 2
     m_VertexCount: 4
@@ -138,8 +105,16 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    m_DataSize: 192
-    _typelessdata: 0ad723be295c0f3e000000000000000000000000000080bf0000803f0000000000000000000080bf0ad7233e295c0f3e000000000000000000000000000080bf0000803f0000000000000000000080bf0ad723be295c0fbe000000000000000000000000000080bf0000803f0000000000000000000080bf0ad7233e295c0fbe000000000000000000000000000080bf0000803f0000000000000000000080bfb3fd533ff98a2f3ee097583ff98a2f3eb3fd533f5b5f203ee097583f5b5f203e
+    - stream: 2
+      offset: 0
+      format: 0
+      dimension: 4
+    - stream: 2
+      offset: 16
+      format: 11
+      dimension: 4
+    m_DataSize: 320
+    _typelessdata: 8fc275be9a99193e000000000000000000000000000080bf0000803f0000000000000000000080bf8fc2753e9a99193e000000000000000000000000000080bf0000803f0000000000000000000080bf8fc275be9a9919be000000000000000000000000000080bf0000803f0000000000000000000080bf8fc2753e9a9919be000000000000000000000000000080bf0000803f0000000000000000000080bfc5f2623f7e81423e08da693f7e81423ec5f2623f7a40323e08da693f7a40323e0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -194,28 +169,30 @@ Mesh:
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.16, y: 0.14, z: 0}
+    m_Extent: {x: 0.24, y: 0.15, z: 0}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
+  m_MeshMetrics[0]: 1
+  m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
---- !u!114 &114666123940686358
+--- !u!114 &114935074392225970
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e715ea371f114f4a8d2584ad476634d, type: 3}
-  m_Name: Isis_sheet3_12_Data
+  m_Name: Isis_sheet3_11_Data
   m_EditorClassIdentifier: 
-  m_PivotPoint: {x: 1490, y: 310}
+  m_PivotPoint: {x: 1602, y: 344}
   m_Vertices:
-  - {x: 1474, y: 324}
-  - {x: 1506, y: 324}
-  - {x: 1474, y: 296}
-  - {x: 1506, y: 296}
+  - {x: 1578, y: 359}
+  - {x: 1626, y: 359}
+  - {x: 1578, y: 329}
+  - {x: 1626, y: 329}
   m_BoneWeights: []
   m_Edges:
   - index1: 0
