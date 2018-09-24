@@ -3,17 +3,17 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c10c0be6d28fe4d539c4a39822fe301c, type: 3}
-  m_Name: isis_atlas_leftEye
+  m_Name: sobrancelhaEsq
   m_EditorClassIdentifier: 
   m_ApiVersion: 4
-  m_Sprite: {fileID: 21300018, guid: 8226c1732221a79448ee3ee83643b7ed, type: 3}
-  m_SharedMesh: {fileID: 43930426288409204}
+  m_Sprite: {fileID: 21300018, guid: 888a2ce3edd55f54b86c312007301e56, type: 3}
+  m_SharedMesh: {fileID: 43208319088225788}
   pivotPoint: {x: 0, y: 0}
   texVertices: []
   edges: []
@@ -21,13 +21,13 @@ MonoBehaviour:
   indices: 
   bindPoses: []
   m_SharedMaterials: []
---- !u!43 &43930426288409204
+--- !u!43 &43208319088225788
 Mesh:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: isis_atlas_leftEye
-  serializedVersion: 9
+  m_Name: Isis_sheet3_11
+  serializedVersion: 8
   m_SubMeshes:
   - serializedVersion: 2
     firstByte: 0
@@ -38,7 +38,7 @@ Mesh:
     vertexCount: 4
     localAABB:
       m_Center: {x: 0, y: 0, z: 0}
-      m_Extent: {x: 0.185, y: 0.125, z: 0}
+      m_Extent: {x: 0.24, y: 0.15, z: 0}
   m_Shapes:
     vertices: []
     shapes: []
@@ -53,6 +53,39 @@ Mesh:
   m_KeepIndices: 1
   m_IndexFormat: 0
   m_IndexBuffer: 000001000200020001000300
+  m_Skin:
+  - weight[0]: 0
+    weight[1]: 0
+    weight[2]: 0
+    weight[3]: 0
+    boneIndex[0]: 0
+    boneIndex[1]: 0
+    boneIndex[2]: 0
+    boneIndex[3]: 0
+  - weight[0]: 0
+    weight[1]: 0
+    weight[2]: 0
+    weight[3]: 0
+    boneIndex[0]: 0
+    boneIndex[1]: 0
+    boneIndex[2]: 0
+    boneIndex[3]: 0
+  - weight[0]: 0
+    weight[1]: 0
+    weight[2]: 0
+    weight[3]: 0
+    boneIndex[0]: 0
+    boneIndex[1]: 0
+    boneIndex[2]: 0
+    boneIndex[3]: 0
+  - weight[0]: 0
+    weight[1]: 0
+    weight[2]: 0
+    weight[3]: 0
+    boneIndex[0]: 0
+    boneIndex[1]: 0
+    boneIndex[2]: 0
+    boneIndex[3]: 0
   m_VertexData:
     serializedVersion: 2
     m_VertexCount: 4
@@ -105,16 +138,8 @@ Mesh:
       offset: 0
       format: 0
       dimension: 0
-    - stream: 2
-      offset: 0
-      format: 0
-      dimension: 4
-    - stream: 2
-      offset: 16
-      format: 11
-      dimension: 4
-    m_DataSize: 320
-    _typelessdata: a4703dbe0000003e000000000000000000000000000080bf0000803f0000000000000000000080bfa4703d3e0000003e000000000000000000000000000080bf0000803f0000000000000000000080bfa4703dbe000000be000000000000000000000000000080bf0000803f0000000000000000000080bfa4703d3e000000be000000000000000000000000000080bf0000803f0000000000000000000080bf00808b3e00001c3f00009e3e00001c3f00808b3e00c0153f00009e3e00c0153f0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    m_DataSize: 192
+    _typelessdata: 8fc275be9a99193e000000000000000000000000000080bf0000803f0000000000000000000080bf8fc2753e9a99193e000000000000000000000000000080bf0000803f0000000000000000000080bf8fc275be9a9919be000000000000000000000000000080bf0000803f0000000000000000000080bf8fc2753e9a9919be000000000000000000000000000080bf0000803f0000000000000000000080bfc5f2623f7e81423e08da693f7e81423ec5f2623f7a40323e08da693f7a40323e
   m_CompressedMesh:
     m_Vertices:
       m_NumItems: 0
@@ -169,30 +194,28 @@ Mesh:
     m_UVInfo: 0
   m_LocalAABB:
     m_Center: {x: 0, y: 0, z: 0}
-    m_Extent: {x: 0.185, y: 0.125, z: 0}
+    m_Extent: {x: 0.24, y: 0.15, z: 0}
   m_MeshUsageFlags: 0
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
-  m_MeshMetrics[0]: 1
-  m_MeshMetrics[1]: 1
   m_MeshOptimized: 0
---- !u!114 &114531058604735360
+--- !u!114 &114935074392225970
 MonoBehaviour:
   m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e715ea371f114f4a8d2584ad476634d, type: 3}
-  m_Name: isis_atlas_leftEye_Data
+  m_Name: Isis_sheet3_11_Data
   m_EditorClassIdentifier: 
-  m_PivotPoint: {x: 297.5, y: 611.5}
+  m_PivotPoint: {x: 1602, y: 344}
   m_Vertices:
-  - {x: 279, y: 624}
-  - {x: 316, y: 624}
-  - {x: 279, y: 599}
-  - {x: 316, y: 599}
+  - {x: 1578, y: 359}
+  - {x: 1626, y: 359}
+  - {x: 1578, y: 329}
+  - {x: 1626, y: 329}
   m_BoneWeights: []
   m_Edges:
   - index1: 0
