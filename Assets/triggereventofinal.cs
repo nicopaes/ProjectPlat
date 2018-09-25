@@ -17,7 +17,7 @@ public class triggereventofinal : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Player.transform.position.x > 40f)
+        if (Player.transform.position.x > 48f)
         {
             if (Player.transform.position.y > 20f)
             {
