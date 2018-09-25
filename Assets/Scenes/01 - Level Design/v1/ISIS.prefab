@@ -1880,6 +1880,8 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 512
   maxSlopeAngle: 80
+  pushMaxVelocity: 0
+  pushForce: 0
   facingRight: 0
 --- !u!114 &114214134807490670
 MonoBehaviour:
@@ -2051,6 +2053,7 @@ MonoBehaviour:
   velocityXSmoothing: 0
   velocity: {x: 0, y: 0, z: 0}
   nearBox: {fileID: 0}
+  isOnDialogTrigger: 0
 --- !u!114 &114540139107042648
 MonoBehaviour:
   m_ObjectHideFlags: 1
