@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using System.Text.RegularExpressions;
 
 // This class will manage all the text tha appears in the bubble text
 public class ManageText : MonoBehaviour
@@ -139,17 +140,20 @@ public class ManageText : MonoBehaviour
             if (currentLetter == ':')
             {
                 dialogLine.Remove(currentLetter);
+                string textSpeaker = new string(dialogLine.ToArray());
 
                 // Check if not the first speaker
                 if (dialogLine.Contains('\n'))
                 {
-                    dialogLine.Remove('\n');
+                    textSpeaker = Regex.Replace(textSpeaker, "[^\\w\\.]", "");
+
+                    //dialogLine.Remove('\n');
                     //dialogLine.RemoveAt(0);
                 }
 
                 foreach (Characters speaker in TalkableCharacters)
                 {
-                    if (speaker.codeInDocument == new string(dialogLine.ToArray()))
+                    if (speaker.codeInDocument == textSpeaker)
                     {
                         currentSpeakers.Add(speaker.character);
                         break;
