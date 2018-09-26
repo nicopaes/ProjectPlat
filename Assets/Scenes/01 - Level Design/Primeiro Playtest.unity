@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311953, g: 0.38074014, b: 0.3587274, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5889,6 +5889,66 @@ Prefab:
     - target: {fileID: 4928955668365110, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
       propertyPath: m_RootOrder
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 137209629620844182, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137445270524333500, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137987044518251546, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137871707483673608, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137877640421053058, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137074714099448496, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137460558451604742, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137777429874827660, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137488140632269476, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 137909788725108290, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 33788987034144386, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 33637542079667960, guid: e80d1e25de665496180c1d6a9098755d,
+        type: 2}
+      propertyPath: m_Mesh
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 137598211448819394, guid: e80d1e25de665496180c1d6a9098755d,
         type: 2}
@@ -14497,13 +14557,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1835355641407878, guid: e80d1e25de665496180c1d6a9098755d,
     type: 2}
   m_PrefabInternal: {fileID: 550231906}
---- !u!81 &1329022481
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1329022480}
-  m_Enabled: 1
 --- !u!4 &1329022489 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4331507967544784, guid: e80d1e25de665496180c1d6a9098755d,
