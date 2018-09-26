@@ -43,6 +43,7 @@ public class PlayerComponent : MonoBehaviour {
 	Vector3 velocity;
 
 	Controller2D controller;
+    Animator anim;
 
 	Vector2 directionalInput;
     [SerializeField]
@@ -61,6 +62,7 @@ public class PlayerComponent : MonoBehaviour {
 
 	void Start() {
 		controller = GetComponent<Controller2D> ();
+        anim = GetComponentInChildren<Animator> ();
 
         spawnPoint = GameObject.FindWithTag("Respawn").transform;
 
@@ -83,6 +85,9 @@ public class PlayerComponent : MonoBehaviour {
 		if (controller.collisionsInf.above || controller.collisionsInf.below) {
 			velocity.y = 0;
 		}
+
+        //Entregando valores ao animator
+        anim.SetFloat("velH", velocity.x);
 	}
 
 	public void SetDirectionalInput (Vector2 input) {
