@@ -8,18 +8,21 @@ public class EnemyChase : MonoBehaviour {
     [Tooltip ("Time the enemy will take till give up to chase target")]
     public float ChaseTime;
 
+    [SerializeField]
     private Transform target;
 
     private float currentChaseTime = 0;
 
     // Activate or deactivate the chase
+    [SerializeField]
     private bool keepChasing = false;
 
+    [SerializeField]
     private EnemyPatrol pausePatrol;
 
 	// Use this for initialization
-	void Start () {
-
+	void Start ()
+    {
         target = GameObject.FindWithTag("Player").transform;
         pausePatrol = this.GetComponent<EnemyPatrol>();
 	}
@@ -34,16 +37,20 @@ public class EnemyChase : MonoBehaviour {
             currentChaseTime += Time.deltaTime;
         }
 
-        if (currentChaseTime >= ChaseTime){
+        if (currentChaseTime >= ChaseTime)
+        {
             keepChasing = false;
-            pausePatrol.isChasingTarget = false;
+            //pausePatrol.isChasingTarget = false;
+            pausePatrol.enabled = true;
             currentChaseTime = 0;
+            //this.enabled = false;
         }
 	}
 
-    public void StartChasingTarget() {
+    public void StartChasingTarget()
+    {
         keepChasing = true;
-        pausePatrol.isChasingTarget = true;
+        //pausePatrol.isChasingTarget = true;
     }
 
 	private void OnTriggerEnter2D(Collider2D collision)
@@ -52,6 +59,8 @@ public class EnemyChase : MonoBehaviour {
         if (collision.transform.CompareTag("Player"))
         {
             collision.gameObject.SetActive(false);
+            pausePatrol.enabled = true;
+            this.enabled = false;
         }
 	}
 

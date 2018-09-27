@@ -51,6 +51,7 @@ public class FieldOfView : MonoBehaviour {
     private float inViewTime = 0;
 
     private EnemyChase attack;
+    private EnemyPatrol patrol;
 
 
     private bool isSecurityCamera = false;
@@ -74,6 +75,7 @@ public class FieldOfView : MonoBehaviour {
         }
 
         attack = this.GetComponentInParent<EnemyChase>();
+        patrol = this.GetComponentInParent<EnemyPatrol>();
 
         viewMesh = new Mesh();
         viewMesh.name ="View Mesh";
@@ -94,18 +96,20 @@ public class FieldOfView : MonoBehaviour {
     }*/
 
     // Add targets being saw
-    void FindVisibleTargets()
+    internal void FindVisibleTargets()
     {
         visibleTargets.Clear();
-        Collider2D[] oldTargetsInViewRadious = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
-        //Collider2D[] newTargetInViewRadious = Physics2D.OverlapBoxAll(transform.position, new Vector2(viewRadius,5f),0,targetMask);
+        Collider2D[] TargetsInViewRadious;
+        if(isSecurityCamera)
+            TargetsInViewRadious = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
+        else
+            TargetsInViewRadious = Physics2D.OverlapBoxAll(transform.position, new Vector2(viewRadius, 5f), 0, targetMask);
         
-
-        for (int i = 0; i < oldTargetsInViewRadious.Length; i++) //Change to old back if error
+        for (int i = 0; i < TargetsInViewRadious.Length; i++) //Change to old back if error
         {
-            Transform target = oldTargetsInViewRadious[i].transform;
+            Transform target = TargetsInViewRadious[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
-            //Debug.DrawLine(transform.position,target.position,Color.red,0.3f);
+            Debug.DrawLine(transform.position,target.position,Color.red,0.01f);
 
             if(Vector3.Angle(transform.up, dirToTarget) < viewAngle/2)
             {
@@ -146,7 +150,7 @@ public class FieldOfView : MonoBehaviour {
     private void Update()
     {
         // Draw FOV
-        DrawFOV();
+        if(!isSecurityCamera)DrawFOV();
 
         // Search for targets
         FindVisibleTargets();
@@ -229,7 +233,9 @@ public class FieldOfView : MonoBehaviour {
                     // Start following Player
 
                     if (!isSecurityCamera) {
+                        attack.enabled = true;
                         attack.StartChasingTarget();
+                        patrol.enabled = false;
                     }
                     // Kills her if touches her
                     //visObj.gameObject.SetActive(false);
@@ -241,11 +247,11 @@ public class FieldOfView : MonoBehaviour {
 
     void OnDrawGizmos()
     {
-        Gizmos.DrawWireCube(transform.position,new Vector3(viewRadius,5,0));
+        if(!isSecurityCamera) Gizmos.DrawWireCube(transform.position,new Vector3(viewRadius,5,0));
     }
 
     // Draw FOV in Game
-    void DrawFOV()
+    internal void DrawFOV()
     {
         int stepCount = Mathf.RoundToInt(viewAngle * meshResolution);
         float stepAngleSize = viewAngle / stepCount;

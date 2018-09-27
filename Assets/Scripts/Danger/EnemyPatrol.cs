@@ -45,7 +45,8 @@ public class EnemyPatrol : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (!isChasingTarget) {
+        if (!isChasingTarget)
+        {
             GotoPoint();
 
             // Choose the next destination point when the agent gets
@@ -115,6 +116,7 @@ public class EnemyPatrol : MonoBehaviour {
 
     void GotoPoint()
     {
+        Debug.Log("Going to point");
         // Returns if no points have been set up
         if (points.Length == 0)
             return;
