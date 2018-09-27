@@ -49,4 +49,11 @@ public class GameMaster : MonoBehaviour
 		Player.SetActive(true);
 		_respawning = false;
 	}
+
+
+
+    public void Exit()
+    {
+        Application.Quit();
+    }
 }
