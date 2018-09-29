@@ -7,7 +7,10 @@ public class TriggerTalk : MonoBehaviour {
     public GameObject DialogObject;
     public int DialogNumber;
 
+    public GameObject DialogCamera;
+
     private bool talkActivated = false;
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -15,7 +18,9 @@ public class TriggerTalk : MonoBehaviour {
 
             if(collision.GetComponent<PlayerComponent>().isOnDialogTrigger){
 
+                ChooseCamera();
                 activateDialog();
+
             }
         }
     }
@@ -26,6 +31,7 @@ public class TriggerTalk : MonoBehaviour {
         {
             if (collision.GetComponent<PlayerComponent>().isOnDialogTrigger)
             {
+                ChooseCamera();
                 activateDialog();
             }
         } 
@@ -33,7 +39,7 @@ public class TriggerTalk : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        
+        DialogCamera.SetActive(false);
     }
 
     void activateDialog()
@@ -43,6 +49,13 @@ public class TriggerTalk : MonoBehaviour {
             talkActivated = true;
             DialogObject.GetComponent<ManageText>().startDialog(DialogNumber);
         }
+    }
+
+    public void ChooseCamera()
+    {
+        DialogCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Priority = 50;
+        DialogCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().MoveToTopOfPrioritySubqueue();
+
     }
 
 }

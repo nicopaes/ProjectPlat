@@ -26,6 +26,8 @@ public class Begin : MonoBehaviour, IState
     public bool EnableFadeOut;
     public float FadeInSpeed;
     public float FadeOutSpeed;
+    public GameObject DialogCamera;
+
 
     // help with the parallax effect - Require FollowTarget
     [Header("Rotation Settings (Require Follow Target): TO DO")]
@@ -122,6 +124,7 @@ public class Begin : MonoBehaviour, IState
         gameObject.transform.parent = null;
         ManageText mt = this.GetComponent<ManageText>();
         mt.endedBubble = true;
+
     }
 
     IEnumerator CheckCommand(Action callback)
