@@ -8,6 +8,7 @@ public class TriggerTalk : MonoBehaviour {
     public int DialogNumber;
 
     public GameObject DialogCamera;
+    private bool HasHappened = false;
 
     private bool talkActivated = false;
 
@@ -32,6 +33,7 @@ public class TriggerTalk : MonoBehaviour {
             if (collision.GetComponent<PlayerComponent>().isOnDialogTrigger)
             {
                 ChooseCamera();
+                HasHappened = true;
                 activateDialog();
             }
         } 
@@ -39,7 +41,8 @@ public class TriggerTalk : MonoBehaviour {
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        DialogCamera.SetActive(false);
+        if (HasHappened == true)
+        { DialogCamera.SetActive(false); }
     }
 
     void activateDialog()
