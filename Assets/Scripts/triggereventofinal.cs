@@ -8,22 +8,33 @@ public class triggereventofinal : MonoBehaviour {
     public GameObject Guarda;
     public GameObject Alarme;
     public GameObject Platforma;
+    public GameObject Passos;
 
 	// Use this for initialization
 	void Start () {
 		
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    IEnumerator Wait ()
+    {
+        Debug.Log("wait");
+        Passos.SetActive(true);
+        yield return new WaitForSeconds(1.5f);
+        Guarda.SetActive(true);
+        Platforma.SetActive(false);
+
+    }
+
+    // Update is called once per frame
+    void Update () {
 
         if (Player.transform.position.x > 48f)
         {
             if (Player.transform.position.y > 20f)
             {
                 Debug.Log("Foi");
-                Guarda.SetActive(true);
-                Platforma.SetActive(false);
+                StartCoroutine(Wait());
+
             }
 
         }
