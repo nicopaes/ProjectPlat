@@ -9,6 +9,7 @@ public class triggereventofinal : MonoBehaviour {
     public GameObject Alarme;
     public GameObject Platforma;
     public GameObject Passos;
+    public float waittime;
 
 	// Use this for initialization
 	void Start () {
@@ -19,7 +20,7 @@ public class triggereventofinal : MonoBehaviour {
     {
         Debug.Log("wait");
         Passos.SetActive(true);
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(waittime);
         Guarda.SetActive(true);
         Platforma.SetActive(false);
 
