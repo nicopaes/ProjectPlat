@@ -6,6 +6,8 @@ public class GameMaster : MonoBehaviour
 {
 	public static GameMaster gm;
 	public GameObject Player;
+    public GameObject Dangers;
+    public GameObject speed;
 
     //public int spawnDelay;
 	
@@ -23,6 +25,18 @@ public class GameMaster : MonoBehaviour
 	}
 	void Update()
 	{
+
+        if (Input.GetKey("l"))
+        {
+            Dangers.SetActive(false);
+            speed.GetComponent<PlayerComponent>().moveSpeed = 20f;
+
+        }
+        else { Dangers.SetActive(true);
+            speed.GetComponent<PlayerComponent>().moveSpeed = 6.5f;
+        }
+
+
 		if(!Player.activeInHierarchy)
 		{
             // Se o player não está ativo e não começou a respawnar, ele começa a fazer a animação de respawn
