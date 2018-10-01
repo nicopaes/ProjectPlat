@@ -77,6 +77,7 @@ public class HidePlayer : MonoBehaviour {
             playerTranform = collision.transform;
             _playerPresence = true;
             collision.gameObject.GetComponent<PlayerComponent>().nearBox = this.gameObject;
+            collision.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", true);
 
         }
 	}
@@ -87,6 +88,7 @@ public class HidePlayer : MonoBehaviour {
         {
             _playerPresence = false;
             collision.gameObject.GetComponent<PlayerComponent>().nearBox = null;
+            collision.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", false);
         }
 	}
 

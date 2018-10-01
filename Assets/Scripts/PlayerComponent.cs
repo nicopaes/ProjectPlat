@@ -43,7 +43,7 @@ public class PlayerComponent : MonoBehaviour {
 	Vector3 velocity;
 
 	Controller2D controller;
-    Animator anim;
+    public Animator anim;
 
 	Vector2 directionalInput;
     [SerializeField]
@@ -83,12 +83,19 @@ public class PlayerComponent : MonoBehaviour {
 
 		controller.Move (velocity * Time.deltaTime);
 		if (controller.collisionsInf.above || controller.collisionsInf.below) {
-			velocity.y = 0;
-		}
+            velocity.y = 0;
+            anim.SetBool("onFloor", true);
+        }
+
+        if (!controller.collisionsInf.below)
+        {
+            anim.SetBool("onFloor", false);
+        }
+
 
         //Entregando valores ao animator
         anim.SetFloat("velH", velocity.x);
-	}
+    }
 
 	public void SetDirectionalInput (Vector2 input) {
 		directionalInput = input;
@@ -147,7 +154,6 @@ public class PlayerComponent : MonoBehaviour {
     public void GrabBox(){
 
         if(nearBox){
-
             nearBox.GetComponent<PushObject>().checkBox(this.gameObject);
         }
     }

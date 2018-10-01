@@ -160,7 +160,7 @@ public class Controller2D : RaycastController {
 					{
 						if(facingRight) hit.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(pushForce,0));
 						else hit.transform.GetComponent<Rigidbody2D>().AddForce(new Vector2(-pushForce,0));
-					}
+                    }
 						
 				}
 			}
