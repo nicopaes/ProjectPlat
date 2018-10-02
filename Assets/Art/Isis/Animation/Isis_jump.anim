@@ -500,16 +500,16 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.6666667
-        value: {x: 0, y: 0, z: 104.20801}
-        inSlope: {x: 0, y: 0, z: 0}
-        outSlope: {x: 0, y: 0, z: 0}
+        value: {x: 0, y: 0, z: 93.546005}
+        inSlope: {x: 0, y: 0, z: -9.527333}
+        outSlope: {x: 0, y: 0, z: -9.527333}
         tangentMode: 0
         weightedMode: 0
         inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.5
-        value: {x: 0, y: 0, z: 104.20801}
+        value: {x: 0, y: 0, z: 89.91701}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -577,7 +577,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.6666667
-        value: {x: 0, y: 0, z: 275.685}
+        value: {x: 0, y: 0, z: 288.651}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -586,7 +586,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 1.5
-        value: {x: 0, y: 0, z: 275.685}
+        value: {x: 0, y: 0, z: 283.47}
         inSlope: {x: 0, y: 0, z: 0}
         outSlope: {x: 0, y: 0, z: 0}
         tangentMode: 0
@@ -1537,7 +1537,21 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
+      path: 37286055
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+    - serializedVersion: 2
       path: 854064593
+      attribute: 4
+      script: {fileID: 0}
+      typeID: 4
+      customType: 4
+      isPPtrCurve: 0
+    - serializedVersion: 2
+      path: 719204849
       attribute: 4
       script: {fileID: 0}
       typeID: 4
@@ -1598,20 +1612,6 @@ AnimationClip:
       script: {fileID: 0}
       typeID: 4
       customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 37286055
-      attribute: 4
-      script: {fileID: 0}
-      typeID: 4
-      customType: 4
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 719204849
-      attribute: 4
-      script: {fileID: 0}
-      typeID: 4
-      customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 1980463863
@@ -3386,16 +3386,16 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.6666667
-        value: 104.20801
-        inSlope: 0
-        outSlope: 0
+        value: 93.546005
+        inSlope: -9.527333
+        outSlope: -9.527333
         tangentMode: 136
         weightedMode: 0
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.5
-        value: 104.20801
+        value: 89.91701
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3635,7 +3635,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.6666667
-        value: 275.685
+        value: 288.651
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -3644,7 +3644,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 1.5
-        value: 275.685
+        value: 283.47
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -6162,7 +6162,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/cintura/tronco1/tronco2/ombroDir
+    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6172,7 +6172,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/cintura/tronco1/tronco2/ombroDir
+    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6182,7 +6182,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/cintura/tronco1/tronco2/ombroDir
+    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6672,7 +6672,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
+    path: Bones/cintura/tronco1/tronco2/ombroDir
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6682,7 +6682,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
+    path: Bones/cintura/tronco1/tronco2/ombroDir
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -6692,7 +6692,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
+    path: Bones/cintura/tronco1/tronco2/ombroDir
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0
