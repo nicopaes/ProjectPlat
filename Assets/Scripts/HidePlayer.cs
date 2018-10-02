@@ -39,6 +39,7 @@ public class HidePlayer : MonoBehaviour {
                     playerTranform.GetComponent<Collider2D>().enabled = false;
                     playerTranform.GetComponent<PlayerComponent>().enabled = false;
                     playerTranform.GetComponent<Controller2D>().enabled = false;
+                    playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", true);
                     playerTranform.gameObject.layer = LayerMask.NameToLayer("Hide");
                     playerTranform.position = this.transform.position;
 
@@ -54,6 +55,7 @@ public class HidePlayer : MonoBehaviour {
                 playerTranform.GetComponent<PlayerComponent>().enabled = true;
                 playerTranform.GetComponent<Controller2D>().enabled = true;
                 playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");
+                playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", false);
                 if (!_fromTheRight)
                     playerTranform.position = this.transform.position + Vector3.right * 2.5f;
                 else
