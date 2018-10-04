@@ -7396,7 +7396,7 @@ Prefab:
     - target: {fileID: 114019412640372044, guid: e80d1e25de665496180c1d6a9098755d,
         type: 2}
       propertyPath: m_Length
-      value: 0.9849345
+      value: 0.98492974
       objectReference: {fileID: 0}
     - target: {fileID: 114124475905320758, guid: e80d1e25de665496180c1d6a9098755d,
         type: 2}
@@ -7411,12 +7411,12 @@ Prefab:
     - target: {fileID: 114773071916833476, guid: e80d1e25de665496180c1d6a9098755d,
         type: 2}
       propertyPath: m_Length
-      value: 2.605899
+      value: 2.6059034
       objectReference: {fileID: 0}
     - target: {fileID: 114193029614875348, guid: e80d1e25de665496180c1d6a9098755d,
         type: 2}
       propertyPath: m_Length
-      value: 0.51267946
+      value: 0.5126749
       objectReference: {fileID: 0}
     - target: {fileID: 114341336652111610, guid: e80d1e25de665496180c1d6a9098755d,
         type: 2}
@@ -23568,6 +23568,11 @@ Prefab:
         type: 2}
       propertyPath: obstacleMask.m_Bits
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114305541911989002, guid: 04ee458747e0b214cb113bb0aaec735f,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04ee458747e0b214cb113bb0aaec735f, type: 2}
