@@ -14,22 +14,32 @@ public class PushObject : MonoBehaviour {
 
     void Update()
     {
+
         _boxSpeed = Mathf.Abs(GetComponent<Rigidbody2D>().velocity.x);
     }
+
+    //REMOÇÃO DO GRAB NA CAIXA:
+    //queria remover esse componente todo: porém, tem um if no script FieldOfView que usa a função checkbox...
+    //imagino que sirva pra alguma coisa, né? Vou tentar descobrir e qquer coisa removo depois.
+    //de qquer maneira, já removi do componente PlayerComponent ele poder acionar isso aqui
 
     public void checkBox(GameObject obj)
     {
 
-        if (holdingBox) {
+        if (holdingBox)
+        {
             leaveBox();
-        } else {
+        }
+        else
+        {
             holdBox(obj);
-        } 
+        }
 
     }
 
-    public void holdBox(GameObject obj){
-        
+    public void holdBox(GameObject obj)
+    {
+
         originalBoxParent = this.transform.parent.gameObject;
         originalWeight = this.GetComponent<Rigidbody2D>().mass;
         this.GetComponent<Rigidbody2D>().mass = originalWeight / 2;

@@ -54,9 +54,10 @@ public class InputController : MonoBehaviour
             {
                 playerComp.OnActionUp();
             }
-            if(device.Action3.WasPressed){
-                playerComp.GrabBox();
-            }
+            //remoção da mecanica de grab
+            //if(device.Action3.WasPressed){
+            //    playerComp.GrabBox();
+            //}
 		}
 
 		Vector2 directionalInput;
@@ -89,9 +90,10 @@ public class InputController : MonoBehaviour
         {
             playerComp.OnActionUp();
         }
-        if(Input.GetKeyDown(pKeys.grabKey)){
-            playerComp.GrabBox();
-        }
+        //remoção da mecanica de grab
+        //if(Input.GetKeyDown(pKeys.grabKey)){
+        //    playerComp.GrabBox();
+        //}
     }
 }
 [System.Serializable]

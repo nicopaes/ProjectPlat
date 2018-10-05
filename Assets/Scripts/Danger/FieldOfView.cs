@@ -195,7 +195,10 @@ public class FieldOfView : MonoBehaviour {
                     foreach (Transform target in visibleTargets){
                         if (target.tag == "Player"){
                             GameObject box = target.GetComponent<PlayerComponent>().nearBox;
-                            if(box && box.GetComponent<PushObject>().holdingBox){
+
+                            //o que é esse if? Porque a funcao checkbox eh usada aqui? (ass. Krauss)
+                            //o que isso tudo tem a ver com o StartCountDownAlarm?
+                            if (box && box.GetComponent<PushObject>().holdingBox){
                                 box.GetComponent<PushObject>().checkBox(target.gameObject);
                             }
                             target.gameObject.SetActive(false);

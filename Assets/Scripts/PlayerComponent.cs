@@ -150,15 +150,17 @@ public class PlayerComponent : MonoBehaviour {
         //StartCoroutine(DoMeleeAttack(activeAttackTime));
     }
 
-    // Gruda o player colado a caixa e desfreeza a posição x da caixa
-    public void GrabBox(){
 
-        if(nearBox){
-            nearBox.GetComponent<PushObject>().checkBox(this.gameObject);
-        }
-    }
+    //REMOÇÃO DA MECANICA DE GRAB
+    //// Gruda o player colado a caixa e desfreeza a posição x da caixa
+    //public void GrabBox(){
 
-	/*IEnumerator DoMeleeAttack(float activeTime)
+    //    if(nearBox){
+    //        nearBox.GetComponent<PushObject>().checkBox(this.gameObject);
+    //    }
+    //}
+
+    /*IEnumerator DoMeleeAttack(float activeTime)
 	{
 		meleeAtt.startCheckingCollision();
 		Debug.Log("ATTACK");
