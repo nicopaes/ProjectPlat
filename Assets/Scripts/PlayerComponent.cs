@@ -78,7 +78,11 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 	void Update() {
-		RecalculatePhysics(debug);
+
+        //se jogo está pausado, não faz nada
+        if (Time.timeScale == 0.0f) return;
+
+        RecalculatePhysics(debug);
 		CalculateVelocity ();
 
 		controller.Move (velocity * Time.deltaTime);
@@ -115,9 +119,10 @@ public class PlayerComponent : MonoBehaviour {
 	}
 
 	void CalculateVelocity() {
-		float targetVelocityX = directionalInput.x * moveSpeed;
-		velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisionsInf.below)?accelerationTimeGrounded:accelerationTimeAirborne);
-		if(velocity.y < 0f)
+         
+        float targetVelocityX = directionalInput.x * moveSpeed;
+        velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisionsInf.below)?accelerationTimeGrounded:accelerationTimeAirborne);
+        if (velocity.y < 0f)
 		{
 			velocity.y += gravity * fallMultipler * Time.deltaTime;
 		}
