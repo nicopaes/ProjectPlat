@@ -74,7 +74,9 @@ public class PlayerComponent : MonoBehaviour {
 	void OnEnable()
 	{
 		//transform.parent.position = spawnPoint.position;
-		transform.localPosition = Vector3.zero;
+		
+        //desnecessário após rework no que acontece quando o player morre (ass. Krauss)
+        //transform.localPosition = Vector3.zero;
 	}
 
 	void Update() {

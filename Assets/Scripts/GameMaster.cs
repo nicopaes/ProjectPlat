@@ -9,6 +9,8 @@ public class GameMaster : MonoBehaviour
     public GameObject Dangers;
     public GameObject speed;
 
+    private ResetOnDeath[] resetableObjects;
+
     //public int spawnDelay;
 	
 	[Header("REVIEW THIS")]
@@ -22,7 +24,10 @@ public class GameMaster : MonoBehaviour
 		if (gm == null) {
 			gm = GameObject.FindGameObjectWithTag ("GM").GetComponent<GameMaster>();
 		}
-	}
+
+        resetableObjects = GameObject.FindObjectsOfType<ResetOnDeath>();
+
+    }
 	void Update()
 	{
 
@@ -55,12 +60,25 @@ public class GameMaster : MonoBehaviour
 		Debug.Log ("TO DO: Add Spawn Particles");
 	}*/
 
+    
+    //certamente esse não é o melhor lugar para esse código.
+        
     // Realiza o respawn do player com um delay
 	public IEnumerator RespawnPlayerWithDelay(float delay)
 	{
 		_respawning = true;
 		yield return new WaitForSeconds(delay);
 		Player.SetActive(true);
+        //principalmente esse aqui, que está mandando resetar todos os objetos resetáveis da cena(ass. Krauss)
+        foreach (ResetOnDeath r in resetableObjects)
+        {
+            //checa só para o caso de o objeto ter sido destruído
+            if (r != null)
+            {
+                r.ResetObject();
+            }           
+            
+        }
 		_respawning = false;
 	}
 
