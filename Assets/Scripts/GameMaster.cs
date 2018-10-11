@@ -39,12 +39,17 @@ public class GameMaster : MonoBehaviour
 
 		if(!Player.activeInHierarchy)
 		{
-            // Se o player não está ativo e não começou a respawnar, ele começa a fazer a animação de respawn
-			if(!_respawning) 
-			{
-				Debug.Log("Respawning");
-				StartCoroutine(RespawnPlayerWithDelay(0.5f));
-			}
+            //         // Se o player não está ativo e não começou a respawnar, ele começa a fazer a animação de respawn
+            //if(!_respawning) 
+            //{
+            //	Debug.Log("Respawning");
+            //	StartCoroutine(RespawnPlayerWithDelay(0.5f));
+            //}
+
+            Player.GetComponent<PlayerComponent>().KillPlayer();
+
+            
+
 		}
 	}
 
@@ -54,15 +59,6 @@ public class GameMaster : MonoBehaviour
 		Debug.Log (spawnPosition + " SpawnPosition");
 		Debug.Log ("TO DO: Add Spawn Particles");
 	}*/
-
-    // Realiza o respawn do player com um delay
-	public IEnumerator RespawnPlayerWithDelay(float delay)
-	{
-		_respawning = true;
-		yield return new WaitForSeconds(delay);
-		Player.SetActive(true);
-		_respawning = false;
-	}
 
 
 

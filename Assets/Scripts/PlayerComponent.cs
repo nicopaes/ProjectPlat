@@ -2,6 +2,7 @@
 using System.Collections;
 using System;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 [RequireComponent (typeof (Controller2D))]
 public class PlayerComponent : MonoBehaviour {
@@ -60,7 +61,11 @@ public class PlayerComponent : MonoBehaviour {
 
     private GameObject originalBoxParent;
 
-	void Start() {
+    //diz se o player está respawning ou não. 
+    private bool _respawning;
+
+
+    void Start() {
 		controller = GetComponent<Controller2D> ();
         anim = GetComponentInChildren<Animator> ();
 
@@ -73,8 +78,10 @@ public class PlayerComponent : MonoBehaviour {
 
 	void OnEnable()
 	{
-		//transform.parent.position = spawnPoint.position;
-		transform.localPosition = Vector3.zero;
+        //transform.parent.position = spawnPoint.position;
+        
+        //desnecessário com reload da cena para respawnar o player
+        //transform.localPosition = Vector3.zero;
 	}
 
 	void Update() {
@@ -155,6 +162,21 @@ public class PlayerComponent : MonoBehaviour {
         //StartCoroutine(DoMeleeAttack(activeAttackTime));
     }
 
+    public void KillPlayer()
+    {
+        //StartCoroutine(RespawnPlayerWithDelay(0.5f));
+        //reloada scene atual
+        GameObject.Find("SceneManager").GetComponent<ChangeScene>().ChangeSingleScene(SceneManager.GetActiveScene().name);
+    }
+
+    //// Realiza o respawn do player com um delay
+    //public IEnumerator RespawnPlayerWithDelay(float delay)
+    //{
+    //    _respawning = true;
+    //    yield return new WaitForSeconds(delay);
+    //    Player.SetActive(true);
+    //    _respawning = false;
+    //}
 
     //REMOÇÃO DA MECANICA DE GRAB
     //// Gruda o player colado a caixa e desfreeza a posição x da caixa
