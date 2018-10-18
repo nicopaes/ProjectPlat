@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PauseManager : MonoBehaviour {
 
     private GameObject _pauseInterface;
+    private GameObject _optionMenu;
 
     private bool isPaused;
     public bool IsPaused
@@ -52,6 +53,14 @@ public class PauseManager : MonoBehaviour {
         {
             Debug.LogWarning("Interface da pausa não encontrado. Ele esta presente no canvas com o nome \"PauseInteface\"? ");
         }
+
+        _optionMenu = this.gameObject.transform.Find("OptionsPanel").gameObject;
+        if(_optionMenu == null)
+        {
+            Debug.LogWarning("Menu de opções não encontrado. Ele esta presente no canvas com o nome \"OptionsPanel\"? ");
+        }
+
+
     }
 
     private void Update()
@@ -73,6 +82,12 @@ public class PauseManager : MonoBehaviour {
     //        Time.timeScale = 1f;
     //    }
     //}
+
+    //usada para abrir e fechar o menuzinho de opções(dentro do jogo! No menu principal acho que vai ser melhor fazer diferente)
+    public void EnableOptionMenu(bool enabled)
+    {
+        _optionMenu.SetActive(enabled);
+    }
 
 
 }
