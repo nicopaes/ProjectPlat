@@ -64,6 +64,9 @@ public class PlayerComponent : MonoBehaviour {
     //diz se o player está respawning ou não. 
     private bool _respawning;
 
+    //diz se o movemento do player está bloqueado ou não
+    private bool _movementBlocked;
+
 
     void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -74,6 +77,8 @@ public class PlayerComponent : MonoBehaviour {
 		gravity = -(2 * maxJumpHeight) / Mathf.Pow (timeToJumpApex, 2);
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
+
+        _movementBlocked = false;
 	}
 
 	void OnEnable()
@@ -86,14 +91,15 @@ public class PlayerComponent : MonoBehaviour {
 
 	void Update() {
 
-        //se jogo está pausado, não faz nada
-        if (Time.timeScale == 0.0f) return;
+        //se movemento do player está desabilitado, não faz nada
+        if(_movementBlocked) return;
 
         RecalculatePhysics(debug);
 		CalculateVelocity ();
 
-		controller.Move (velocity * Time.deltaTime);
-		if (controller.collisionsInf.above || controller.collisionsInf.below) {
+        controller.Move (velocity * Time.deltaTime);
+                
+        if (controller.collisionsInf.above || controller.collisionsInf.below) {
             velocity.y = 0;
             anim.SetBool("onFloor", true);
         }
@@ -167,6 +173,11 @@ public class PlayerComponent : MonoBehaviour {
         //StartCoroutine(RespawnPlayerWithDelay(0.5f));
         //reloada scene atual
         GameObject.Find("SceneManager").GetComponent<ChangeScene>().ChangeSingleScene(SceneManager.GetActiveScene().name);
+    }
+
+    public void BlockPlayerMovement(bool block)
+    {
+        _movementBlocked = block;
     }
 
     //// Realiza o respawn do player com um delay

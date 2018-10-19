@@ -9,6 +9,8 @@ public class PauseManager : MonoBehaviour {
     private GameObject _pauseInterface;
     private GameObject _optionMenu;
 
+    private PlayerComponent _player;
+
     private bool isPaused;
     public bool IsPaused
     {
@@ -21,6 +23,7 @@ public class PauseManager : MonoBehaviour {
             {
                 _pauseInterface.SetActive(true);
                 Time.timeScale = 0f;
+                _player.BlockPlayerMovement(true);
             }
             //despausa
             else if (!value)
@@ -28,6 +31,7 @@ public class PauseManager : MonoBehaviour {
                 _pauseInterface.SetActive(false);
                 //time scale é sempre 1f o jogo inteiro, certo?
                 Time.timeScale = 1f;
+                _player.BlockPlayerMovement(false);
             }
             isPaused = value;
 
@@ -58,6 +62,12 @@ public class PauseManager : MonoBehaviour {
         if(_optionMenu == null)
         {
             Debug.LogWarning("Menu de opções não encontrado. Ele esta presente no canvas com o nome \"OptionsPanel\"? ");
+        }
+
+        _player = GameObject.FindObjectOfType<PlayerComponent>();
+        if(_player == null)
+        {
+            Debug.LogWarning("Player component não encontrado.");
         }
 
 
