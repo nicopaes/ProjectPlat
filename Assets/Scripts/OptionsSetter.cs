@@ -7,10 +7,13 @@ public class OptionsSetter : MonoBehaviour {
 	private GameObject _generalOptionsPanel;
 	private GameObject _controlOptionsPanel;
 	private GameObject _audioOptionsPanel;
+
+	private GameObject _mainPanel;
 	
 	
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+
 		_generalOptionsPanel = transform.Find("GeneralOptions").gameObject;
 		if(_generalOptionsPanel == null)
         {
@@ -27,6 +30,12 @@ public class OptionsSetter : MonoBehaviour {
 		if(_audioOptionsPanel == null)
         {
             Debug.LogWarning("Painel de opções de aúdio não encontrado. Ele esta presente no painel de opções com o nome \"AudioOptions\"? ");
+        }
+
+		_mainPanel = transform.parent.Find("MainPanel").gameObject;
+		if(_mainPanel == null)
+        {
+            Debug.LogWarning("MainPanel não encontrado. Ele esta presente no canvas com o nome \"MainPanel\"? ");
         }
 
 	}
@@ -50,7 +59,11 @@ public class OptionsSetter : MonoBehaviour {
 		_audioOptionsPanel.SetActive(enabled);
 	}
 
-
+	public void ReturnToMainPanel()
+	{
+		_mainPanel.SetActive(true);
+		this.gameObject.SetActive(false);
+	}
 
 
 }
