@@ -19,7 +19,7 @@ public class CameraSelection : MonoBehaviour {
             if (ThisCamera.GetComponent<Animator>())
             {
                 ThisCamera.GetComponent<Animator>().enabled = true;
-                Debug.Log("existe");
+                Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
             }
         }
     }

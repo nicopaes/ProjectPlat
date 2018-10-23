@@ -68,6 +68,7 @@ public class ManageText : MonoBehaviour
 
             } else
             {
+                Debug.Log("Cabou o dialogo?");
                 endedDialog = false;
                 currentDialogLine = 0;
                 totalTextWidth = 0;
