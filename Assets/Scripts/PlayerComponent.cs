@@ -91,11 +91,20 @@ public class PlayerComponent : MonoBehaviour {
 
 	void Update() {
 
-        //se movemento do player está desabilitado, não faz nada
-        if(_movementBlocked) return;
-
+       
         RecalculatePhysics(debug);
 		CalculateVelocity ();
+        
+        if(_movementBlocked)
+        {
+            //se movemento está bloqueado, 
+            //zera velocity.x
+            velocity.x = 0.0f;
+
+            //mantem velocidade x só pra baixo. É uma maneira simplista de garantir que o player não vai ficar flutuando mas também não vai poder pular
+            velocity.y = velocity.y <= 0.0f ? velocity.y : 0.0f;
+            //o problema com isso: animação de início do pulo ainda é feita... bloquear depois
+        }
 
         controller.Move (velocity * Time.deltaTime);
                 
