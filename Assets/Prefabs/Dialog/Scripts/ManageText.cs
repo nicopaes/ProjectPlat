@@ -38,6 +38,8 @@ public class ManageText : MonoBehaviour
     [HideInInspector]
     public bool endedDialog;
 
+    private bool _playerMovementBlocked;
+
     private string newText;
     private int totalTextWidth = 0;
     private int totalTextHeight = 0;
@@ -45,11 +47,15 @@ public class ManageText : MonoBehaviour
     private DialogControl dialogController;
     
     private List<GameObject> currentSpeakers = new List<GameObject>(); 
-    private List<string> currentLines = new List<string>();       
+    private List<string> currentLines = new List<string>();
+
+    private PlayerComponent _player;    
 
     void Start()
     {
         dialogController = this.GetComponent<DialogControl>();
+        _player = GameObject.FindObjectOfType<PlayerComponent>();
+        _playerMovementBlocked = false;
     }
 
     private void Update() {
@@ -68,7 +74,13 @@ public class ManageText : MonoBehaviour
 
             } else
             {
-                Debug.Log("Cabou o dialogo?");
+                //se, quando acabou o diálogo, eu ainda não tiver desbloqueado o movimento, desbloqueio
+                if(_playerMovementBlocked)
+                {
+                    _player.BlockPlayerMovement(false);
+                    _playerMovementBlocked = false;
+                }
+
                 endedDialog = false;
                 currentDialogLine = 0;
                 totalTextWidth = 0;
@@ -88,6 +100,11 @@ public class ManageText : MonoBehaviour
         //Debug.Log(currentSpeakers[1].name);
         endedBubble = true; 
         endedDialog = true; 
+
+        //no início de qualquer dialogo, bloqueia movimento do player
+        _player.BlockPlayerMovement(true);
+        _playerMovementBlocked = true;
+        
     }
 
 

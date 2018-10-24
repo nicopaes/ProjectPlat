@@ -7,13 +7,10 @@ public class trancaIsis : MonoBehaviour {
     private PlayerComponent _player;
 
     // Use this for initialization
-	void Start () {
-        _player = GameObject.FindObjectOfType<PlayerComponent>();
-	}
-
+	
 	private void OnEnable()
 	{
-        Debug.Log("ON ENABLW bloq");
+        _player = GameObject.FindObjectOfType<PlayerComponent>();
         _player.BlockPlayerMovement(true);
 	}
 
