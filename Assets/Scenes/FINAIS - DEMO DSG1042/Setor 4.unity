@@ -1446,6 +1446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 2083031095}
   LookAhead: {fileID: 0}
+  AlternativeAnim: {fileID: 0}
 --- !u!212 &102780290
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -9566,6 +9567,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1680872424}
   LookAhead: {fileID: 0}
+  AlternativeAnim: {fileID: 0}
 --- !u!1 &737467985
 GameObject:
   m_ObjectHideFlags: 0
@@ -11538,6 +11540,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1587099538}
   LookAhead: {fileID: 0}
+  AlternativeAnim: {fileID: 0}
 --- !u!212 &902128896
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -14193,6 +14196,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 2033011414}
   LookAhead: {fileID: 0}
+  AlternativeAnim: {fileID: 0}
 --- !u!212 &1126282234
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -16589,6 +16593,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1936170252}
   LookAhead: {fileID: 0}
+  AlternativeAnim: {fileID: 0}
 --- !u!1 &1279848732
 GameObject:
   m_ObjectHideFlags: 0
@@ -17498,6 +17503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 2033011414}
   LookAhead: {fileID: 0}
+  AlternativeAnim: {fileID: 0}
 --- !u!60 &1328589742
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -25363,6 +25369,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1419015996}
   LookAhead: {fileID: 0}
+  AlternativeAnim: {fileID: 0}
 --- !u!212 &1579577338
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -26262,6 +26269,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 2044734828}
   LookAhead: {fileID: 0}
+  AlternativeAnim: {fileID: 0}
 --- !u!60 &1639707385
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -27736,7 +27744,7 @@ SpriteRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1758905105}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
