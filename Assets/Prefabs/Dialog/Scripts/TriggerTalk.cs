@@ -7,6 +7,8 @@ public class TriggerTalk : MonoBehaviour {
     public GameObject DialogObject;
     public int DialogNumber;
 
+    public bool StartOnApproach;
+
     public GameObject DialogCamera;
     private bool HasHappened = false;
 
@@ -17,7 +19,8 @@ public class TriggerTalk : MonoBehaviour {
     {
         if(collision.CompareTag("Player")){
 
-            if(collision.GetComponent<PlayerComponent>().isOnDialogTrigger){
+            //se player está interagindo OU eu o dialogo deve começar por proximidade,
+            if(collision.GetComponent<PlayerComponent>().isOnDialogTrigger || StartOnApproach){
 
                 ChooseCamera();
                 activateDialog();
@@ -30,8 +33,10 @@ public class TriggerTalk : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
+            Debug.LogWarning("OnTriggerStay");
             if (collision.GetComponent<PlayerComponent>().isOnDialogTrigger)
             {
+                Debug.LogWarning("Start Dialog");
                 ChooseCamera();
                 HasHappened = true;
                 activateDialog();
