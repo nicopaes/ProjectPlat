@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -17022,6 +17022,11 @@ Prefab:
       propertyPath: DialogTexts.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 224250501265350778, guid: dd846d8d158faa7418d6f90759240708,
         type: 2}
       propertyPath: m_LocalPosition.x
@@ -17272,6 +17277,36 @@ Prefab:
         type: 2}
       propertyPath: RotateTowards
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1787371567}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetActive
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd846d8d158faa7418d6f90759240708, type: 2}
@@ -28013,7 +28048,7 @@ Prefab:
     - target: {fileID: 114547445921840132, guid: 07ac9b4b0181ac8498db7d69252e36a9,
         type: 2}
       propertyPath: localWaypoints.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4956652848337300, guid: 07ac9b4b0181ac8498db7d69252e36a9, type: 2}
       propertyPath: m_LocalPosition.x
@@ -28021,7 +28056,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4956652848337300, guid: 07ac9b4b0181ac8498db7d69252e36a9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.023221493
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 4956652848337300, guid: 07ac9b4b0181ac8498db7d69252e36a9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -28060,7 +28095,7 @@ Prefab:
     - target: {fileID: 114547445921840132, guid: 07ac9b4b0181ac8498db7d69252e36a9,
         type: 2}
       propertyPath: localWaypoints.Array.data[1].y
-      value: 19.8
+      value: -19.8
       objectReference: {fileID: 0}
     - target: {fileID: 114547445921840132, guid: 07ac9b4b0181ac8498db7d69252e36a9,
         type: 2}
@@ -28074,7 +28109,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 1479608917108964, guid: 07ac9b4b0181ac8498db7d69252e36a9, type: 2}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 23268341726817946, guid: 07ac9b4b0181ac8498db7d69252e36a9,
         type: 2}
@@ -28105,6 +28140,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114547445921840132, guid: 07ac9b4b0181ac8498db7d69252e36a9,
+        type: 2}
+      propertyPath: localWaypoints.Array.data[0].x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07ac9b4b0181ac8498db7d69252e36a9, type: 2}

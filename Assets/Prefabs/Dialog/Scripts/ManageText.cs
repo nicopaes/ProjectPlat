@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
+using UnityEngine.Events;
 
 // This class will manage all the text tha appears in the bubble text
 public class ManageText : MonoBehaviour
@@ -51,6 +52,9 @@ public class ManageText : MonoBehaviour
 
     private PlayerComponent _player;    
 
+    [Header("Função chamada ao término do diálogo:")]
+    public UnityEvent Event;
+
     void Start()
     {
         dialogController = this.GetComponent<DialogControl>();
@@ -75,10 +79,12 @@ public class ManageText : MonoBehaviour
             } else
             {
                 //se, quando acabou o diálogo, eu ainda não tiver desbloqueado o movimento, desbloqueio
+                //além disso, aciono o evento Event
                 if(_playerMovementBlocked)
                 {
                     _player.BlockPlayerMovement(false);
                     _playerMovementBlocked = false;
+                    Event.Invoke();
                 }
 
                 endedDialog = false;
