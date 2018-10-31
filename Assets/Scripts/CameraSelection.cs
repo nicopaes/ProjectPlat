@@ -10,6 +10,12 @@ public class CameraSelection : MonoBehaviour {
     public GameObject AlternativeAnim;
     public bool IsAnimated;
 
+    private Animator tcAnim;
+    private Animator altAnim;
+    
+    private StateMachineBehaviour[] smb;
+    private StateMachineBehaviour[] altsmb;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
@@ -20,18 +26,45 @@ public class CameraSelection : MonoBehaviour {
             ThisCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().MoveToTopOfPrioritySubqueue();
             if (IsAnimated)
             {
-                if (ThisCamera.GetComponent<Animator>())
+                tcAnim = ThisCamera.GetComponent<Animator>();
+                if (tcAnim != null)
                 {
-                    ThisCamera.GetComponent<Animator>().enabled = true;
+                    tcAnim.enabled = true;
                     Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
+
+                    //desativa o animator quando a animação tiver 'acabado':
+                    StartCoroutine("MovementBlocker");
+
                 }
-                if (AlternativeAnim.GetComponent<Animator>())
+                altAnim = AlternativeAnim.GetComponent<Animator>();
+                if (altAnim != null)
                 {
-                    AlternativeAnim.GetComponent<Animator>().enabled = true;
+                    altAnim.enabled = true;
                     Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
+                    StartCoroutine("MovementBlocker");
                 }
             }
         }
+    }
+
+    IEnumerator  MovementBlocker()
+    {
+        GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(true);
+        while(true)
+        {
+            if(altAnim.GetBool("NotEnded"))
+            {
+                GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(true);
+                yield return new WaitForSeconds(0.1f);
+            }
+            else
+            {
+                GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(false);
+                //disable animator?
+                yield break;
+            }
+        }
+        
     }
 
 }

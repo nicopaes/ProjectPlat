@@ -65,7 +65,7 @@ public class PlayerComponent : MonoBehaviour {
     private bool _respawning;
 
     //diz se o movemento do player está bloqueado ou não
-    public bool _movementBlocked;
+    private bool _movementBlocked;
 
 
     void Start() {
