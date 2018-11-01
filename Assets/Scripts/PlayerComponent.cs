@@ -127,6 +127,11 @@ public class PlayerComponent : MonoBehaviour {
 		directionalInput = input;
 	}
 
+    public Vector2 GetDirectionalInput()
+    {
+        return directionalInput;
+    }
+
 	public void OnJumpInputDown() 
 	{		
 		if (controller.collisionsInf.below) {

@@ -22,7 +22,20 @@ public class HidePlayer : MonoBehaviour {
     }
 	void Update()
 	{
-		
+		//se o player está escondido, atualiza o lado para qual o player deseja sair da caixa, baseado no input corrente
+        //se não houver input, mantem a saida baseada no lado que ele entrou originalmente
+        if(_playerHidden)
+        {
+            float xInput = playerTranform.GetComponent<PlayerComponent>().GetDirectionalInput().x;
+            float tol = 0.3f;
+            if(Mathf.Abs(xInput) >= tol)
+            {
+                _fromTheRight = xInput > 0 ? false : true;
+                //equivalente a 
+                //_fromTheRight = !(xInput > 0);
+                //mas achei mais claro assim
+            }
+        }
 	}
 	void Action()
 	{
@@ -37,6 +50,8 @@ public class HidePlayer : MonoBehaviour {
                 if (playerTranform.gameObject.layer != LayerMask.NameToLayer("Hide"))
                 {
                     playerTranform.GetComponent<Collider2D>().enabled = false;
+                    //em vez de desligar o componente, habilita o freeze
+                    //playerTranform.GetComponent<PlayerComponent>().BlockPlayerMovement(true);
                     playerTranform.GetComponent<PlayerComponent>().enabled = false;
                     playerTranform.GetComponent<Controller2D>().enabled = false;
                     playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", true);
@@ -52,14 +67,20 @@ public class HidePlayer : MonoBehaviour {
                 GetComponent<Rigidbody2D>().velocity = Vector2.zero;
 
                 playerTranform.GetComponent<Collider2D>().enabled = true;
+                //em vez de religar o componente, desliga o block
+                //playerTranform.GetComponent<PlayerComponent>().BlockPlayerMovement(false);
                 playerTranform.GetComponent<PlayerComponent>().enabled = true;
                 playerTranform.GetComponent<Controller2D>().enabled = true;
                 playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");
                 playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", false);
                 if (!_fromTheRight)
+                {
                     playerTranform.position = this.transform.position + Vector3.right * 2.5f;
+                }
                 else
+                {
                     playerTranform.position = this.transform.position + Vector3.left * 2.5f;
+                }
                 _playerHidden = false;
                 _fromTheRight = false;
             }
