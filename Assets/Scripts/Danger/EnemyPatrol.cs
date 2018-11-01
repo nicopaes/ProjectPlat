@@ -102,13 +102,23 @@ public class EnemyPatrol : MonoBehaviour {
 
             if (points[destPoint].position.x > transform.position.x)
             {
-                transform.rotation = Quaternion.Euler(0, 180, 0);
-                FOV.transform.rotation = Quaternion.Euler(0, 0, 235);
+                
+                //estamos rotacionando pela scale pra não estragar visualmente o patrulha e o campo de visão
+                transform.localScale = new Vector3(- Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                FOV.transform.localScale = new Vector3( - Mathf.Abs(FOV.transform.localScale.x), FOV.transform.localScale.y, FOV.transform.localScale.z);
+
+
+                //transform.rotation = Quaternion.Euler(0, 180, 0);
+                //FOV.transform.rotation = Quaternion.Euler(0, 0, 235);
             }
             else
             {
-                transform.rotation = Quaternion.Euler(0, 0, 0);
-                FOV.transform.rotation = Quaternion.Euler(0, 0, 125);
+                //estamos rotacionando pela scale pra não estragar visualmente o patrulha e o campo de visão
+                transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+                FOV.transform.localScale = new Vector3(Mathf.Abs(FOV.transform.localScale.x), FOV.transform.localScale.y, FOV.transform.localScale.z);
+
+                //transform.rotation = Quaternion.Euler(0, 0, 0);
+                //FOV.transform.rotation = Quaternion.Euler(0, 0, 125);
             }
         }
     }
