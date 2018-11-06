@@ -56,7 +56,7 @@ public class HidePlayer : MonoBehaviour {
                     playerTranform.GetComponent<Controller2D>().enabled = false;
                     playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", true);
                     playerTranform.gameObject.layer = LayerMask.NameToLayer("Hide");
-                    playerTranform.position = this.transform.position;
+                    playerTranform.position = new Vector3(this.transform.position.x, playerTranform.position.y+0.5f, playerTranform.position.z);
 
                     _playerHidden = true;
                 }
@@ -75,11 +75,13 @@ public class HidePlayer : MonoBehaviour {
                 playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", false);
                 if (!_fromTheRight)
                 {
-                    playerTranform.position = this.transform.position + Vector3.right * 2.5f;
+                    playerTranform.position = new Vector3(this.transform.position.x, playerTranform.position.y, playerTranform.position.z)
+                    +Vector3.right * 3.2f;
                 }
                 else
                 {
-                    playerTranform.position = this.transform.position + Vector3.left * 2.5f;
+                    playerTranform.position = new Vector3(this.transform.position.x, playerTranform.position.y, playerTranform.position.z)
+                    +Vector3.left * 3.2f;
                 }
                 _playerHidden = false;
                 _fromTheRight = false;
