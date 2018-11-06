@@ -13,7 +13,9 @@ public class TriggerTalk : MonoBehaviour {
     private bool HasHappened = false;
 
     private bool talkActivated = false;
-
+    public bool PrivateTalk = false;
+    public GameObject Dangers;
+    public bool MorteAoPatrulha = false;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -26,6 +28,11 @@ public class TriggerTalk : MonoBehaviour {
                 activateDialog();
 
             }
+
+        }
+        if(PrivateTalk)
+        {
+            MorteAoPatrulha = true;
         }
     }
 
@@ -66,4 +73,12 @@ public class TriggerTalk : MonoBehaviour {
 
     }
 
+
+    private void Update()
+    {
+        if(MorteAoPatrulha)
+        {
+            Dangers.SetActive(false);
+        }
+    }
 }
