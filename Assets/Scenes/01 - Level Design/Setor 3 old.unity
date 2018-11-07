@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3768,7 +3768,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 527723726}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -69.5, y: 30.800003, z: -9.957031}
+  m_LocalPosition: {x: 0.28301197, y: 1.5639718, z: -9.999999}
   m_LocalScale: {x: 0.99999994, y: 0.99999994, z: 0.99999994}
   m_Children:
   - {fileID: 1564411177}
@@ -4507,7 +4507,7 @@ Transform:
   m_LocalScale: {x: 1.6616818, y: 1.6616818, z: 1.6616818}
   m_Children:
   - {fileID: 1438955227}
-  - {fileID: 2099894031}
+  - {fileID: 1968330836}
   - {fileID: 771474325}
   m_Father: {fileID: 1249682716}
   m_RootOrder: 3
@@ -11573,7 +11573,6 @@ MonoBehaviour:
   anim: {fileID: 0}
   nearBox: {fileID: 0}
   isOnDialogTrigger: 0
-  _movementBlocked: 0
 --- !u!114 &1329022486
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18217,8 +18216,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1594404328}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -84, y: 55.83, z: 0}
-  m_LocalScale: {x: -77.00939, y: 15.752288, z: 0.19554503}
+  m_LocalPosition: {x: -110.091, y: 55.83, z: 0}
+  m_LocalScale: {x: -129.1909, y: 15.752288, z: 0.19554503}
   m_Children: []
   m_Father: {fileID: 712052790}
   m_RootOrder: 3
@@ -20310,6 +20309,10 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04ee458747e0b214cb113bb0aaec735f, type: 2}
   m_IsPrefabParent: 0
+--- !u!4 &1968330836 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 1968330835}
 --- !u!1 &1983779417
 GameObject:
   m_ObjectHideFlags: 0
