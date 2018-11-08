@@ -29,8 +29,15 @@ public class EnemyChase : MonoBehaviour {
 
         if (keepChasing){
             Debug.Log("Following Target");
-            transform.position = Vector2.MoveTowards(transform.position, new Vector2(target.position.x, transform.position.y), ChaseSpeed * Time.deltaTime);
-
+            
+            Vector2 desiredPos = new Vector2(target.position.x, transform.position.y);
+            //antes de se mover, checa se há mais chão
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle"));
+            if(hit)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, desiredPos, ChaseSpeed * Time.deltaTime);
+            }
+            
             currentChaseTime += Time.deltaTime;
         }
 
