@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5420,11 +5420,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -50.81861
+      value: -52.623825
       objectReference: {fileID: 0}
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 27.74828
+      value: 32.940002
       objectReference: {fileID: 0}
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -5458,7 +5458,7 @@ Prefab:
     - target: {fileID: 20665758589367518, guid: e7ffed41cc03749a587c8cb122880da4,
         type: 2}
       propertyPath: orthographic size
-      value: 6.8
+      value: 5.67
       objectReference: {fileID: 0}
     - target: {fileID: 1907830156008922, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_IsActive
@@ -14611,8 +14611,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1285635548}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -47.157, y: 27.416, z: -9.388672}
-  m_LocalScale: {x: 31.501001, y: 14.264566, z: 0.99999994}
+  m_LocalPosition: {x: -52.345, y: 27.119, z: -9.388672}
+  m_LocalScale: {x: 19.602331, y: 11.722398, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 567425142}
   m_RootOrder: 6
@@ -25344,7 +25344,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1329022490}
   m_Lens:
     FieldOfView: 40
-    OrthographicSize: 6.8
+    OrthographicSize: 5.67
     NearClipPlane: 0.1
     FarClipPlane: 5000
     Dutch: 0
