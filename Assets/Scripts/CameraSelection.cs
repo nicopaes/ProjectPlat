@@ -26,39 +26,47 @@ public class CameraSelection : MonoBehaviour {
             ThisCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().MoveToTopOfPrioritySubqueue();
             if (IsAnimated)
             {
-                tcAnim = ThisCamera.GetComponent<Animator>();
-                if (tcAnim != null)
+                if(ThisCamera)
                 {
-                    tcAnim.enabled = true;
-                    Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
+                    tcAnim = ThisCamera.GetComponent<Animator>();
+                    //Debug.LogWarning(tcAnim);
+                    if (tcAnim != null)
+                    {
+                        tcAnim.enabled = true;
+                        Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
 
-                    //desativa o animator quando a animação tiver 'acabado':
-                    StartCoroutine("MovementBlocker");
+                        //desativa o animator quando a animação tiver 'acabado':
+                        StartCoroutine(MovementBlocker(tcAnim));
 
+                    }
                 }
-                altAnim = AlternativeAnim.GetComponent<Animator>();
-                if (altAnim != null)
+                if(AlternativeAnim)
                 {
-                    altAnim.enabled = true;
-                    Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
-                    StartCoroutine("MovementBlocker");
+                    altAnim = AlternativeAnim.GetComponent<Animator>();
+                    if (altAnim != null)
+                    {
+                        altAnim.enabled = true;
+                        Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
+                        StartCoroutine(MovementBlocker(altAnim));
+                    }
                 }
             }
         }
     }
 
-    IEnumerator  MovementBlocker()
+    IEnumerator  MovementBlocker(Animator anim)
     {
         GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(true);
         while(true)
         {
-            if(altAnim.GetBool("NotEnded"))
+            if(anim.GetBool("NotEnded"))
             {
                 GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(true);
                 yield return new WaitForSeconds(0.1f);
             }
             else
             {
+                Debug.LogWarning("end coroutine");
                 GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(false);
                 //disable animator?
                 yield break;
