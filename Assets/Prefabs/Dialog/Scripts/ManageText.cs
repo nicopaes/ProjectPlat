@@ -52,6 +52,9 @@ public class ManageText : MonoBehaviour
 
     private PlayerComponent _player;    
 
+    [Header("Função chamada no inicio do diálogo:")]
+    public UnityEvent Event_inicio;
+
     [Header("Função chamada ao término do diálogo:")]
     public UnityEvent Event;
 
@@ -110,6 +113,10 @@ public class ManageText : MonoBehaviour
         //no início de qualquer dialogo, bloqueia movimento do player
         _player.BlockPlayerMovement(true);
         _playerMovementBlocked = true;
+
+        //aciona evento no inicio do dialogo
+        Event_inicio.Invoke();
+
         
     }
 
