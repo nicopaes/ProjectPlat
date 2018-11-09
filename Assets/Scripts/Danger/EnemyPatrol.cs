@@ -17,6 +17,7 @@ public class EnemyPatrol : MonoBehaviour {
 
     [HideInInspector] // CPause the patrol to chase target
     public bool isChasingTarget = false;
+    public Animator patrolAnim;
 
     // Current point the enemy is folllowing
     private int destPoint = 0;
@@ -32,6 +33,7 @@ public class EnemyPatrol : MonoBehaviour {
 	void Start () {
 
         timeWaiting = WaitTime;
+        patrolAnim = GetComponentInChildren<Animator>();
 
         // Set the next point the enemy will follow
         if (!isChasingTarget) {
@@ -47,6 +49,7 @@ public class EnemyPatrol : MonoBehaviour {
 
         if (!isChasingTarget) {
             GotoPoint();
+            patrolAnim.SetBool("hasTarget", false);
 
             // Choose the next destination point when the agent gets
             // close to the current one.
@@ -54,9 +57,9 @@ public class EnemyPatrol : MonoBehaviour {
             {
                 waitTimeToContinue();
             }
-        }
+        } else patrolAnim.SetBool("hasTarget", true);
 
-	}
+    }
 
     void waitTimeToContinue(){
 
@@ -65,6 +68,7 @@ public class EnemyPatrol : MonoBehaviour {
             timeWaiting = WaitTime;
 
             stopped = false;
+            patrolAnim.SetBool("idle", false);
 
             // If not allowed the enemy will turn as soon he starts to
             // follow the next point
@@ -78,6 +82,7 @@ public class EnemyPatrol : MonoBehaviour {
         else
         {
             stopped = true;
+            patrolAnim.SetBool("idle", true);
 
             // If allowed the enemy will turn as soon as he gets
             // in the current point
