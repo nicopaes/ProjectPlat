@@ -95,6 +95,11 @@ public class InputController : MonoBehaviour
         //    playerComp.GrabBox();
         //}
     }
+
+	public playerKeyBindings GetPKeys()
+	{
+		return pKeys;
+	}
 }
 [System.Serializable]
 public class playerKeyBindings

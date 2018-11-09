@@ -9,6 +9,9 @@ public class GameMaster : MonoBehaviour
     public GameObject Dangers;
     public GameObject speed;
 
+    [Tooltip("Usado para ter persistencia de informações entre as cenas")]
+    public GameObject dontDestroyOnLoadPrefab;
+
     //public int spawnDelay;
 	
 	[Header("REVIEW THIS")]
@@ -22,6 +25,13 @@ public class GameMaster : MonoBehaviour
 		if (gm == null) {
 			gm = GameObject.FindGameObjectWithTag ("GM").GetComponent<GameMaster>();
 		}
+
+        //se não houver um objeto DontDestroyOnLoad na cena, instancia um
+        var dont = GameObject.FindObjectOfType<PersistentInfo>();
+        if(dont == null)
+        {
+            GameObject.Instantiate(dontDestroyOnLoadPrefab);
+        }
 	}
 	void Update()
 	{
