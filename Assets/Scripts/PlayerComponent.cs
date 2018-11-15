@@ -89,13 +89,17 @@ public class PlayerComponent : MonoBehaviour {
         //transform.localPosition = Vector3.zero;
 	}
 
-	void Update() {
+    private void FixedUpdate()
+    {
+        anim.SetBool("onPush", false);
+    }
 
+    void Update() {
        
         RecalculatePhysics(debug);
 		CalculateVelocity ();
-        
-        if(_movementBlocked)
+
+        if (_movementBlocked && !gameObject.isStatic)
         {
             //se movemento está bloqueado, 
             //zera velocity.x

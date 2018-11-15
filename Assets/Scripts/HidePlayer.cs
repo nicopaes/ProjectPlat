@@ -12,6 +12,8 @@ public class HidePlayer : MonoBehaviour {
 	[SerializeField]
 	private bool _fromTheRight;
 	private Vector2 positionToGo;
+
+
 	private void OnEnable()
     {
         PlayerComponent.ActionButton += Action;
@@ -73,6 +75,9 @@ public class HidePlayer : MonoBehaviour {
                 playerTranform.GetComponent<Controller2D>().enabled = true;
                 playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");
                 playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", false);
+                playerTranform.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", false);
+
+                Debug.Log(playerTranform.gameObject.GetComponent<PlayerComponent>().anim.GetBool("onPush"));
                 if (!_fromTheRight)
                 {
                     playerTranform.position = new Vector3(this.transform.position.x, playerTranform.position.y, playerTranform.position.z)
@@ -87,9 +92,9 @@ public class HidePlayer : MonoBehaviour {
                 _fromTheRight = false;
             }
         }
-		
-	}
-
+    }
+    
+    /*
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
         if (collision.gameObject.tag == "Danger")
@@ -103,7 +108,7 @@ public class HidePlayer : MonoBehaviour {
             _playerPresence = true;
             collision.gameObject.GetComponent<PlayerComponent>().nearBox = this.gameObject;
             collision.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", true);
-
+            Debug.Log("this");
         }
 	}
 
@@ -111,33 +116,21 @@ public class HidePlayer : MonoBehaviour {
 	{
         if (collision.transform.CompareTag("Player"))
         {
+            Debug.Log("Push false");
             _playerPresence = false;
             collision.gameObject.GetComponent<PlayerComponent>().nearBox = null;
             collision.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", false);
         }
-	}
+	}*/
 
-	/*private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Danger")
-        {
-            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.collider);
-        }
-
         if (collision.transform.CompareTag("Player"))
         {
-			playerTranform = collision.transform;
+            playerTranform = collision.transform;
             _playerPresence = true;
             collision.gameObject.GetComponent<PlayerComponent>().nearBox = this.gameObject;
-
+            collision.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", true);
         }
     }
-	private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.transform.CompareTag("Player"))
-        {
-            _playerPresence = false;
-            collision.gameObject.GetComponent<PlayerComponent>().nearBox = null;
-        }
-    }*/
 }
