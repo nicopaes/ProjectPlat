@@ -90,6 +90,14 @@ public class InputController : MonoBehaviour
         {
             playerComp.OnActionUp();
         }
+        if (Input.GetKeyDown(pKeys.runKey1) || Input.GetKeyDown(pKeys.runKey2))
+        {
+            playerComp.OnRunInputDown();
+        }
+        if (Input.GetKeyUp(pKeys.runKey1) || Input.GetKeyDown(pKeys.runKey2))
+        {
+            playerComp.OnRunInputUp();
+        }
         //remoção da mecanica de grab
         //if(Input.GetKeyDown(pKeys.grabKey)){
         //    playerComp.GrabBox();
@@ -108,4 +116,6 @@ public class playerKeyBindings
 	public string jumpKey;
 	public string actionKey;
     public string grabKey;
+    public string runKey1;
+    public string runKey2;
 }
