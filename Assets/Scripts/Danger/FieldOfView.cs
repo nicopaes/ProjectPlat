@@ -75,9 +75,9 @@ public class FieldOfView : MonoBehaviour {
 
         attack = this.GetComponentInParent<EnemyChase>();
 
-        viewMesh = new Mesh();
-        viewMesh.name ="View Mesh";
-        viewMeshFilter.mesh = viewMesh;
+        //viewMesh = new Mesh();
+        //viewMesh.name ="View Mesh";
+        //viewMeshFilter.mesh = viewMesh;
 
       //  StartCoroutine("FindTargetsWithDelay", viewDelay);
     }
@@ -146,7 +146,7 @@ public class FieldOfView : MonoBehaviour {
     private void Update()
     {
         // Draw FOV
-        DrawFOV();
+        //DrawFOV();
 
         // Search for targets
         FindVisibleTargets();

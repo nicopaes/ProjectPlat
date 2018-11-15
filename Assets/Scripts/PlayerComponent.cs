@@ -23,6 +23,7 @@ public class PlayerComponent : MonoBehaviour {
 	public float accelerationTimeGrounded = .1f;
 	[Range(0.1f,50f)]
 	public float moveSpeed = 6;
+    public float runSpeed = 10;
 	[Header("MELEE ATTACK")]
 	public MeleeAttack meleeAtt;
 	public float activeAttackTime = 0.5f;
@@ -66,6 +67,7 @@ public class PlayerComponent : MonoBehaviour {
 
     //diz se o movemento do player está bloqueado ou não
     private bool _movementBlocked;
+    private float _runMultiplier = 1;
 
 
     void Start() {
@@ -151,7 +153,7 @@ public class PlayerComponent : MonoBehaviour {
 
 	void CalculateVelocity() {
          
-        float targetVelocityX = directionalInput.x * moveSpeed;
+        float targetVelocityX = directionalInput.x * moveSpeed * _runMultiplier;
         velocity.x = Mathf.SmoothDamp (velocity.x, targetVelocityX, ref velocityXSmoothing, (controller.collisionsInf.below)?accelerationTimeGrounded:accelerationTimeAirborne);
         if (velocity.y < 0f)
 		{
@@ -196,6 +198,17 @@ public class PlayerComponent : MonoBehaviour {
     public void BlockPlayerMovement(bool block)
     {
         _movementBlocked = block;
+    }
+
+    public void OnRunInputDown()
+    {
+        _runMultiplier = Mathf.Round(runSpeed / moveSpeed);
+        Debug.Log(_runMultiplier);
+    }
+
+    public void OnRunInputUp()
+    {
+        _runMultiplier = 1;
     }
 
     //// Realiza o respawn do player com um delay
