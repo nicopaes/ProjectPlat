@@ -2294,14 +2294,14 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1527044625812470}
-  m_LocalRotation: {x: -0, y: -0, z: -0.00000012479721, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: 0.0007719694, w: 0.99999976}
   m_LocalPosition: {x: 1.2857549, y: 0.000000029802322, z: 0.09863281}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4995891193654130}
   m_Father: {fileID: 4092148298707640}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0.08800001}
 --- !u!4 &4674393735134500
 Transform:
   m_ObjectHideFlags: 1
@@ -2667,7 +2667,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1164019333498854}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -97.8, y: 28.08, z: 0}
+  m_LocalPosition: {x: -102.24, y: 23.76, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 1}
   m_Children:
   - {fileID: 4331507967544784}
@@ -2681,13 +2681,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1999133613165540}
-  m_LocalRotation: {x: 0, y: 0, z: 0.7467623, w: 0.6650911}
+  m_LocalRotation: {x: 0, y: 0, z: 0.7421915, w: 0.6701879}
   m_LocalPosition: {x: 2.5554185, y: 0.000000113621354, z: 0.26513672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4608718443514518}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 96.621}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 95.837006}
 --- !u!4 &4949327597655242
 Transform:
   m_ObjectHideFlags: 1
@@ -3067,7 +3067,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.060000002, y: 0.075607955}
+  m_Offset: {x: 0.1, y: 0.11543006}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -3078,7 +3078,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.49, y: 1.8187841}
+  m_Size: {x: 0.8, y: 1.7391399}
   m_EdgeRadius: 0
 --- !u!81 &81481347114271586
 AudioListener:
@@ -3133,7 +3133,7 @@ Light:
   serializedVersion: 8
   m_Type: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 0.4
+  m_Intensity: 0.6
   m_Range: 10
   m_SpotAngle: 30
   m_CookieSize: 10
@@ -3455,6 +3455,8 @@ MonoBehaviour:
     jumpKey: 
     actionKey: 
     grabKey: 
+    runKey1: 
+    runKey2: 
 --- !u!114 &114240667423806336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3629,6 +3631,7 @@ MonoBehaviour:
   accelerationTimeAirborne: 0.1
   accelerationTimeGrounded: 0
   moveSpeed: 6.5
+  runSpeed: 10
   meleeAtt: {fileID: 0}
   activeAttackTime: 0.5
   gravity: 0
@@ -4449,7 +4452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 1.6980808
+  m_Length: 1.6980823
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4995891193654130}
   m_AttachedIK: {fileID: 0}

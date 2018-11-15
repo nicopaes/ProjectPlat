@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073993, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -517,6 +517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1876545714}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0
@@ -4565,7 +4567,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -52.85633
+      value: -61.217438
       objectReference: {fileID: 0}
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -4914,168 +4916,6 @@ Prefab:
         type: 2}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114327695263139162, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: moveSpeed
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114327695263139162, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: maxJumpHeight
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 114976944393997716, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 2.5818233
-      objectReference: {fileID: 0}
-    - target: {fileID: 114707742895349104, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 0.55052876
-      objectReference: {fileID: 0}
-    - target: {fileID: 114019412640372044, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 0.98492974
-      objectReference: {fileID: 0}
-    - target: {fileID: 114124475905320758, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 1.582011
-      objectReference: {fileID: 0}
-    - target: {fileID: 114943398152677684, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 1.6980808
-      objectReference: {fileID: 0}
-    - target: {fileID: 114773071916833476, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 2.6059034
-      objectReference: {fileID: 0}
-    - target: {fileID: 114193029614875348, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 0.5126749
-      objectReference: {fileID: 0}
-    - target: {fileID: 114341336652111610, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 1.3881985
-      objectReference: {fileID: 0}
-    - target: {fileID: 114699052923055778, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 1.2857565
-      objectReference: {fileID: 0}
-    - target: {fileID: 114257717464984352, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 1.3095405
-      objectReference: {fileID: 0}
-    - target: {fileID: 114541773832426440, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 2.5554206
-      objectReference: {fileID: 0}
-    - target: {fileID: 114760662217730126, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 0.38753012
-      objectReference: {fileID: 0}
-    - target: {fileID: 114127706889797762, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 0.36755818
-      objectReference: {fileID: 0}
-    - target: {fileID: 114277118332449746, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 2.642386
-      objectReference: {fileID: 0}
-    - target: {fileID: 114381586814718350, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Length
-      value: 1.734107
-      objectReference: {fileID: 0}
-    - target: {fileID: 61019971321814352, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Offset.y
-      value: 0.11543006
-      objectReference: {fileID: 0}
-    - target: {fileID: 61019971321814352, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Size.y
-      value: 1.7391399
-      objectReference: {fileID: 0}
-    - target: {fileID: 4678549296312712, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4782266819285706, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_RootOrder
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144574898478246, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 61019971321814352, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Size.x
-      value: 1.1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856207849924198, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.68171847
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856207849924198, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.73161465
-      objectReference: {fileID: 0}
-    - target: {fileID: 4856207849924198, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 85.956
-      objectReference: {fileID: 0}
-    - target: {fileID: 61019971321814352, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Offset.x
-      value: -0.02
-      objectReference: {fileID: 0}
-    - target: {fileID: 108733040563356424, guid: e80d1e25de665496180c1d6a9098755d,
-        type: 2}
-      propertyPath: m_Intensity
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930438285858246, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.7421915
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930438285858246, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.6701879
-      objectReference: {fileID: 0}
-    - target: {fileID: 4930438285858246, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 95.837006
-      objectReference: {fileID: 0}
-    - target: {fileID: 1164019333498854, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670305335083392, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0.0007719694
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670305335083392, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 0.99999976
-      objectReference: {fileID: 0}
-    - target: {fileID: 4670305335083392, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0.08800001
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
@@ -7882,6 +7722,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1401795673}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0
@@ -10927,6 +10769,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 563146621}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0
@@ -18691,6 +18535,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 2072240406}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0
@@ -22054,6 +21900,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1843135558}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0

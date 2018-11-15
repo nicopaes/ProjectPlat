@@ -31,6 +31,7 @@ public class CameraSelection : MonoBehaviour {
     private CinemachineVirtualCamera previousCamera;
 
     private bool _alreadyPlayedInThisLife;
+    private bool _finishedPlayingAnimation;
 
     void Start()
     {
@@ -55,6 +56,7 @@ public class CameraSelection : MonoBehaviour {
         pKeys = GameObject.FindObjectOfType<InputController>().GetPKeys();
         cmb = GameObject.FindObjectOfType<CinemachineBrain>();
         _alreadyPlayedInThisLife = false;
+        _finishedPlayingAnimation = false;
     }
 
     void Update()
@@ -63,8 +65,9 @@ public class CameraSelection : MonoBehaviour {
         //estou contando com curto circuito pra não avaliar todo frama registry.contains, o que poderia ser relativamente lento
         //não deve acontecer de o .Contains ser avaliado muitas vezes, já que ou tc.enabled == true e potencialmente cai no loop, 
         //ou tc.enable == false e curto circuito
-        //Debug.Log(tcAnim);
-        if(tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
+        //além disso, se a animação já tiver terminado, não faz nada, segue o baile
+        Debug.Log(tcAnim);
+        if(!_finishedPlayingAnimation && tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
         {
             tcAnim.enabled = false;
             //dá prioridade à camera anterior
@@ -73,7 +76,7 @@ public class CameraSelection : MonoBehaviour {
         }
 
         //o mesmo vale para o outro animator
-        if(altAnim && altAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(altName))
+        if(!_finishedPlayingAnimation && altAnim && altAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(altName))
         {
             altAnim.enabled = false;
             //dá prioridade à camera anterior
@@ -166,6 +169,9 @@ public class CameraSelection : MonoBehaviour {
                     Debug.LogWarning("added" + name);
                     pi.Registry.Add(name);
                 }
+
+                //avisa que já terminou esta animação
+                _finishedPlayingAnimation = true;
 
                 //disable animator?
 
