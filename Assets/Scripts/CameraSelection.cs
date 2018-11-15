@@ -7,6 +7,8 @@ using Cinemachine;
 public class CameraSelection : MonoBehaviour {
 
     public GameObject ThisCamera;
+    public bool IsGambiarraDaCamera;
+    public Transform playerhitbox;
 
     public Animator LookAhead;
     public GameObject AlternativeAnim;
@@ -86,49 +88,59 @@ public class CameraSelection : MonoBehaviour {
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-
-        if (collision.tag == "Player" && !_alreadyPlayedInThisLife)
+        if(IsGambiarraDaCamera)
         {
-            _alreadyPlayedInThisLife = true;
-            Debug.LogWarning("Selected");
+            Debug.Log("desculpa");
+            ThisCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Follow = playerhitbox;
 
-            previousCamera = null;
-            if(cmb.ActiveVirtualCamera != null)
-            {
-                previousCamera =  cmb.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
-                Debug.LogWarning(previousCamera);
-            }
+        }
 
+        if (collision.tag == "Player")
+        {
             ThisCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Priority = 50;
             ThisCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().MoveToTopOfPrioritySubqueue();
-
-
-            if (IsAnimated)
+            if (!_alreadyPlayedInThisLife)
             {
-                //se tem o animator, e essa animação não está registrada como já tocada, 
-                if (tcAnim != null)
+                _alreadyPlayedInThisLife = true;
+                Debug.LogWarning("Selected");
+
+                previousCamera = null;
+                if (cmb.ActiveVirtualCamera != null)
                 {
-                    tcAnim.enabled = true;
-                    Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
-
-                    
-                    StartCoroutine(MovementBlocker(tcAnim));
-
+                    previousCamera = cmb.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+                    Debug.LogWarning(previousCamera);
                 }
-                
-                if(AlternativeAnim)
+
+
+
+                if (IsAnimated)
                 {
-                    string animName = SceneManager.GetActiveScene().name + altAnim.ToString();
-                    //se tem o animator, e essa animação não está registrada como já tocada,
-                    if (altAnim != null)
+                    //se tem o animator, e essa animação não está registrada como já tocada, 
+                    if (tcAnim != null)
                     {
-                        altAnim.enabled = true;
+                        tcAnim.enabled = true;
                         Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
-                        
-                        StartCoroutine(MovementBlocker(altAnim));
+
+
+                        StartCoroutine(MovementBlocker(tcAnim));
+
+                    }
+
+                    if (AlternativeAnim)
+                    {
+                        string animName = SceneManager.GetActiveScene().name + altAnim.ToString();
+                        //se tem o animator, e essa animação não está registrada como já tocada,
+                        if (altAnim != null)
+                        {
+                            altAnim.enabled = true;
+                            Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
+
+                            StartCoroutine(MovementBlocker(altAnim));
+                        }
                     }
                 }
             }
+        
         }
     }
 
