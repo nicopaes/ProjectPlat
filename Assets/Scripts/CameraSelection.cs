@@ -29,6 +29,7 @@ public class CameraSelection : MonoBehaviour {
     private CinemachineVirtualCamera previousCamera;
 
     private bool _alreadyPlayedInThisLife;
+    private bool _alreadyFinishedAnimation;
 
     void Start()
     {
@@ -53,6 +54,7 @@ public class CameraSelection : MonoBehaviour {
         pKeys = GameObject.FindObjectOfType<InputController>().GetPKeys();
         cmb = GameObject.FindObjectOfType<CinemachineBrain>();
         _alreadyPlayedInThisLife = false;
+        _alreadyFinishedAnimation = false;
     }
 
     void Update()
@@ -62,7 +64,8 @@ public class CameraSelection : MonoBehaviour {
         //não deve acontecer de o .Contains ser avaliado muitas vezes, já que ou tc.enabled == true e potencialmente cai no loop, 
         //ou tc.enable == false e curto circuito
         //Debug.Log(tcAnim);
-        if(tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
+        //além disso, animação não pode já ter terminado, pq nesse caso só segue o baile
+        if(!_alreadyFinishedAnimation && tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
         {
             tcAnim.enabled = false;
             //dá prioridade à camera anterior
@@ -71,7 +74,7 @@ public class CameraSelection : MonoBehaviour {
         }
 
         //o mesmo vale para o outro animator
-        if(altAnim && altAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(altName))
+        if(!_alreadyFinishedAnimation && altAnim && altAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(altName))
         {
             altAnim.enabled = false;
             //dá prioridade à camera anterior
@@ -141,7 +144,7 @@ public class CameraSelection : MonoBehaviour {
         GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(true);
         while(true)
         {
-            if(!anim.GetCurrentAnimatorStateInfo(0).IsTag("End") && anim.enabled)
+            if(anim.enabled && !anim.GetCurrentAnimatorStateInfo(0).IsTag("End"))
             {
                 GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(true);
                 yield return new WaitForSeconds(0.1f);
@@ -159,7 +162,10 @@ public class CameraSelection : MonoBehaviour {
                     pi.Registry.Add(name);
                 }
 
+                //informa que já terminou a animação, e portanto é tarde demais para cancelá-la
+                _alreadyFinishedAnimation = true;
                 //disable animator?
+
 
                 yield break;
             }
