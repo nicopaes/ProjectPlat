@@ -134,7 +134,7 @@ public class EnemyPatrol : MonoBehaviour {
         if (points.Length == 0)
             return;
 
-        if (!stopped) {
+        if (!stopped && points.Length > 0) {
             // Move towars the current point
             transform.position = Vector2.MoveTowards(transform.position, points[destPoint].position, PatrolSpeed * Time.deltaTime);
         }
