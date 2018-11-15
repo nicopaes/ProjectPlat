@@ -3455,6 +3455,8 @@ MonoBehaviour:
     jumpKey: 
     actionKey: 
     grabKey: 
+    runKey1: 
+    runKey2: 
 --- !u!114 &114240667423806336
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3629,6 +3631,7 @@ MonoBehaviour:
   accelerationTimeAirborne: 0.1
   accelerationTimeGrounded: 0
   moveSpeed: 6.5
+  runSpeed: 10
   meleeAtt: {fileID: 0}
   activeAttackTime: 0.5
   gravity: 0
