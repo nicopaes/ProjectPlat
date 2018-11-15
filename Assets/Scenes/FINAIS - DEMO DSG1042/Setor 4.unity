@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -24761,16 +24761,6 @@ Prefab:
       objectReference: {fileID: 1329022480}
     - target: {fileID: 114907221487259418, guid: 39d567ee336efcf4d85f3b48b82463a1,
         type: 2}
-      propertyPath: spawnPoint
-      value: 
-      objectReference: {fileID: 906899275}
-    - target: {fileID: 114907221487259418, guid: 39d567ee336efcf4d85f3b48b82463a1,
-        type: 2}
-      propertyPath: dialogo
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 114907221487259418, guid: 39d567ee336efcf4d85f3b48b82463a1,
-        type: 2}
       propertyPath: Dangers
       value: 
       objectReference: {fileID: 622015052}
@@ -24779,6 +24769,11 @@ Prefab:
       propertyPath: speed
       value: 
       objectReference: {fileID: 1329022480}
+    - target: {fileID: 114907221487259418, guid: 39d567ee336efcf4d85f3b48b82463a1,
+        type: 2}
+      propertyPath: spawnPoint
+      value: 
+      objectReference: {fileID: 906899275}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 39d567ee336efcf4d85f3b48b82463a1, type: 2}
   m_IsPrefabParent: 0
