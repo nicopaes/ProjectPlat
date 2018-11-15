@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.3731193, g: 0.38073993, b: 0.3587269, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -517,6 +517,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1876545714}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0
@@ -4565,7 +4567,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -52.85633
+      value: -61.217438
       objectReference: {fileID: 0}
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.y
@@ -5025,7 +5027,7 @@ Prefab:
     - target: {fileID: 61019971321814352, guid: e80d1e25de665496180c1d6a9098755d,
         type: 2}
       propertyPath: m_Size.x
-      value: 1.1
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 4856207849924198, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
       propertyPath: m_LocalRotation.z
@@ -5042,7 +5044,7 @@ Prefab:
     - target: {fileID: 61019971321814352, guid: e80d1e25de665496180c1d6a9098755d,
         type: 2}
       propertyPath: m_Offset.x
-      value: -0.02
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 108733040563356424, guid: e80d1e25de665496180c1d6a9098755d,
         type: 2}
@@ -7882,6 +7884,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1401795673}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0
@@ -10927,6 +10931,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 563146621}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0
@@ -18691,6 +18697,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 2072240406}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0
@@ -22054,6 +22062,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ThisCamera: {fileID: 1843135558}
+  IsGambiarraDaCamera: 0
+  playerhitbox: {fileID: 0}
   LookAhead: {fileID: 0}
   AlternativeAnim: {fileID: 0}
   IsAnimated: 0
