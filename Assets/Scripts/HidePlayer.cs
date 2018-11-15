@@ -58,7 +58,7 @@ public class HidePlayer : MonoBehaviour {
                     playerTranform.GetComponent<Controller2D>().enabled = false;
                     playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", true);
                     playerTranform.gameObject.layer = LayerMask.NameToLayer("Hide");
-                    playerTranform.position = new Vector3(this.transform.position.x, playerTranform.position.y+0.5f, playerTranform.position.z);
+                    playerTranform.position = new Vector3(this.transform.position.x, playerTranform.position.y, playerTranform.position.z);
 
                     _playerHidden = true;
                 }
@@ -75,9 +75,7 @@ public class HidePlayer : MonoBehaviour {
                 playerTranform.GetComponent<Controller2D>().enabled = true;
                 playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");
                 playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", false);
-                playerTranform.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", false);
-
-                Debug.Log(playerTranform.gameObject.GetComponent<PlayerComponent>().anim.GetBool("onPush"));
+                playerTranform.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", false);                
                 if (!_fromTheRight)
                 {
                     playerTranform.position = new Vector3(this.transform.position.x, playerTranform.position.y, playerTranform.position.z)
@@ -93,35 +91,6 @@ public class HidePlayer : MonoBehaviour {
             }
         }
     }
-    
-    /*
-	private void OnTriggerEnter2D(Collider2D collision)
-	{
-        if (collision.gameObject.tag == "Danger")
-        {
-            Physics2D.IgnoreCollision(this.GetComponent<Collider2D>(), collision.GetComponent<Collider2D>());
-        }
-
-        if (collision.transform.CompareTag("Player"))
-        {
-            playerTranform = collision.transform;
-            _playerPresence = true;
-            collision.gameObject.GetComponent<PlayerComponent>().nearBox = this.gameObject;
-            collision.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", true);
-            Debug.Log("this");
-        }
-	}
-
-	private void OnTriggerExit2D(Collider2D collision)
-	{
-        if (collision.transform.CompareTag("Player"))
-        {
-            Debug.Log("Push false");
-            _playerPresence = false;
-            collision.gameObject.GetComponent<PlayerComponent>().nearBox = null;
-            collision.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", false);
-        }
-	}*/
 
     private void OnTriggerStay2D(Collider2D collision)
     {
