@@ -89,23 +89,36 @@ public class Begin : MonoBehaviour, IState
 
                 if (WaitForCommand)
                 {
-                    waitCommand(() =>
-                    {
-                        if (EnableFadeOut)
-                        {
-                            StartCoroutine("fadeOut");
-                        }
-                        else
-                        {
-                            CanvasGroup.alpha = 0;
-                            Exit();
-                        }
-                    });
+                    waitCommand(() => OnDialogEnd());
+                    // {
+                    //     if (EnableFadeOut)
+                    //     {
+                    //         StartCoroutine("fadeOut");
+                    //     }
+                    //     else
+                    //     {
+                    //         CanvasGroup.alpha = 0;
+                    //         Exit();
+                    //     }
+                    // });
                 }
             });
         });
 
         // FALTA FAZER A ROTAÇÃO LEMBRANDO DE ATUALIZAR A CADA FRAME
+    }
+
+    public void OnDialogEnd()
+    {
+        if (EnableFadeOut)
+        {
+            StartCoroutine("fadeOut");
+        }
+        else
+        {
+            CanvasGroup.alpha = 0;
+            Exit();
+        }
     }
 
     private void waitTime(float seconds, Action action)

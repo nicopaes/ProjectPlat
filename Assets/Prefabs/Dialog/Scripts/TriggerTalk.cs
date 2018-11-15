@@ -40,10 +40,9 @@ public class TriggerTalk : MonoBehaviour {
     {
         if (collision.CompareTag("Player"))
         {
-            Debug.LogWarning("OnTriggerStay");
             if (collision.GetComponent<PlayerComponent>().isOnDialogTrigger)
             {
-                Debug.LogWarning("Start Dialog");
+                //Debug.LogWarning("Start Dialog");
                 ChooseCamera();
                 HasHappened = true;
                 activateDialog();

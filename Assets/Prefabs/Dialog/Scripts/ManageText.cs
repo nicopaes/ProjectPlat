@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Text.RegularExpressions;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 // This class will manage all the text tha appears in the bubble text
 public class ManageText : MonoBehaviour
@@ -18,6 +19,10 @@ public class ManageText : MonoBehaviour
 
     [Header("Dialog Documents")]
     public TextAsset[] DialogTexts;
+
+    private PersistentInfo pi;
+
+    private string dialogIDString;
 
    
     [System.Serializable]
@@ -37,7 +42,7 @@ public class ManageText : MonoBehaviour
     [HideInInspector]
     public bool endedBubble;
     [HideInInspector]
-    public bool endedDialog;
+    public bool DialogHasNotEnded;
 
     private bool _playerMovementBlocked;
 
@@ -58,21 +63,43 @@ public class ManageText : MonoBehaviour
     [Header("Função chamada ao término do diálogo:")]
     public UnityEvent Event;
 
+    private playerKeyBindings pKeys;
+
     void Start()
     {
         dialogController = this.GetComponent<DialogControl>();
         _player = GameObject.FindObjectOfType<PlayerComponent>();
         _playerMovementBlocked = false;
+        pi = GameObject.FindObjectOfType<PersistentInfo>();
+        dialogIDString = SceneManager.GetActiveScene().name + this.gameObject.ToString();
+        pKeys = GameObject.FindObjectOfType<InputController>().GetPKeys();
     }
+
 
     private void Update() {
 
+       //se ainda não acabou este dialogo e ele já ta registrado, permite pular o diálogo
+       
+       if(DialogHasNotEnded && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(dialogIDString))
+       {
+           Debug.LogWarning("if1");
+           //pular o diálogo:
+           //seta linha atual para última:
+           currentDialogLine = currentLines.Count;
+           //"aperta E": apertar E => callback(CheckCommand) => Exit()
+           this.gameObject.GetComponent<Begin>().OnDialogEnd();
+
+       }
+       
        if (endedBubble)
        {
-            if (currentDialogLine < currentLines.Count && endedDialog)
+            Debug.LogWarning("if (endedBubble)");
+            if (currentDialogLine < currentLines.Count && DialogHasNotEnded)
             {
+                Debug.LogWarning("if (currentDialogLine < currentLines.Count && DialogHasNotEnded)");
                 if (currentLines[currentDialogLine].Length != 0)
                 {
+                    Debug.LogWarning("if (currentLines[currentDialogLine].Length != 0)");
                     dialogController.showSpeechBallon(currentSpeakers[currentDialogLine]);
                     presentBubbleText();
                     currentDialogLine += 1;
@@ -81,6 +108,7 @@ public class ManageText : MonoBehaviour
 
             } else
             {
+                Debug.LogWarning("else");
                 //se, quando acabou o diálogo, eu ainda não tiver desbloqueado o movimento, desbloqueio
                 //além disso, aciono o evento Event
                 if(_playerMovementBlocked)
@@ -90,7 +118,13 @@ public class ManageText : MonoBehaviour
                     Event.Invoke();
                 }
 
-                endedDialog = false;
+                //quando acabou o diálogo, registra que esse diálogo já foi visto, se ainda não tiver registrado
+                if(!pi.Registry.Contains(dialogIDString))
+                {
+                    pi.Registry.Add(dialogIDString);
+                }
+                
+                DialogHasNotEnded = false;
                 currentDialogLine = 0;
                 totalTextWidth = 0;
                 currentSpeakers.Clear();
@@ -108,7 +142,7 @@ public class ManageText : MonoBehaviour
 
         //Debug.Log(currentSpeakers[1].name);
         endedBubble = true; 
-        endedDialog = true; 
+        DialogHasNotEnded = true; 
 
         //no início de qualquer dialogo, bloqueia movimento do player
         _player.BlockPlayerMovement(true);
@@ -117,7 +151,6 @@ public class ManageText : MonoBehaviour
         //aciona evento no inicio do dialogo
         Event_inicio.Invoke();
 
-        
     }
 
 
