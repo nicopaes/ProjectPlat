@@ -87,20 +87,23 @@ public class CameraSelection : MonoBehaviour {
     private void OnTriggerEnter2D(Collider2D collision)
     {
 
-        if (collision.tag == "Player" && !_alreadyPlayedInThisLife)
+        if (collision.tag == "Player")
         {
+            if (!_alreadyPlayedInThisLife)
+            {
+                ThisCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Priority = 50;
+                ThisCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().MoveToTopOfPrioritySubqueue();
+            }
             _alreadyPlayedInThisLife = true;
             Debug.LogWarning("Selected");
 
             previousCamera = null;
-            if(cmb.ActiveVirtualCamera != null)
+            if (cmb.ActiveVirtualCamera != null)
             {
-                previousCamera =  cmb.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+                previousCamera = cmb.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
                 Debug.LogWarning(previousCamera);
             }
 
-            ThisCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().Priority = 50;
-            ThisCamera.GetComponent<Cinemachine.CinemachineVirtualCamera>().MoveToTopOfPrioritySubqueue();
 
 
             if (IsAnimated)
@@ -111,12 +114,12 @@ public class CameraSelection : MonoBehaviour {
                     tcAnim.enabled = true;
                     Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
 
-                    
+
                     StartCoroutine(MovementBlocker(tcAnim));
 
                 }
-                
-                if(AlternativeAnim)
+
+                if (AlternativeAnim)
                 {
                     string animName = SceneManager.GetActiveScene().name + altAnim.ToString();
                     //se tem o animator, e essa animação não está registrada como já tocada,
@@ -124,11 +127,12 @@ public class CameraSelection : MonoBehaviour {
                     {
                         altAnim.enabled = true;
                         Debug.Log("existe um animator na minha camera, ou seja, ela faz um look ahead");
-                        
+
                         StartCoroutine(MovementBlocker(altAnim));
                     }
                 }
             }
+        
         }
     }
 
