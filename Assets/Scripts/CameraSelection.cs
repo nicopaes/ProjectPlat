@@ -61,7 +61,7 @@ public class CameraSelection : MonoBehaviour {
         //estou contando com curto circuito pra não avaliar todo frama registry.contains, o que poderia ser relativamente lento
         //não deve acontecer de o .Contains ser avaliado muitas vezes, já que ou tc.enabled == true e potencialmente cai no loop, 
         //ou tc.enable == false e curto circuito
-        Debug.Log(tcAnim);
+        //Debug.Log(tcAnim);
         if(tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
         {
             tcAnim.enabled = false;
@@ -94,7 +94,7 @@ public class CameraSelection : MonoBehaviour {
             if (!_alreadyPlayedInThisLife)
             {
                 _alreadyPlayedInThisLife = true;
-                Debug.LogWarning("Selected");
+                //Debug.LogWarning("Selected");
 
                 previousCamera = null;
                 if (cmb.ActiveVirtualCamera != null)
