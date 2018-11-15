@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3774,8 +3774,6 @@ GameObject:
   - component: {fileID: 414281205}
   - component: {fileID: 414281204}
   - component: {fileID: 414281203}
-  - component: {fileID: 414281202}
-  - component: {fileID: 414281201}
   m_Layer: 0
   m_Name: Patrol (1)
   m_TagString: Danger
@@ -3799,40 +3797,6 @@ Transform:
   m_Father: {fileID: 1438955227}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &414281201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114673820921371524, guid: 04ee458747e0b214cb113bb0aaec735f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414281199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad9d5b92ab7e41d4a8ab81b455c6778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChaseSpeed: 9
-  ChaseTime: 4
---- !u!114 &414281202
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114034848430891280, guid: 04ee458747e0b214cb113bb0aaec735f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 414281199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18a7e3da0d5c4fcdadffd3c9de658ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatrolSpeed: 5
-  WaitTime: 1
-  allowTurningOnPoint: 1
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  isChasingTarget: 0
-  patrolAnim: {fileID: 0}
 --- !u!61 &414281203
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -22418,8 +22382,6 @@ GameObject:
   - component: {fileID: 1770593343}
   - component: {fileID: 1770593342}
   - component: {fileID: 1770593341}
-  - component: {fileID: 1770593340}
-  - component: {fileID: 1770593339}
   m_Layer: 0
   m_Name: Patrol
   m_TagString: Danger
@@ -22443,40 +22405,6 @@ Transform:
   m_Father: {fileID: 1438955227}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1770593339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114673820921371524, guid: 04ee458747e0b214cb113bb0aaec735f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1770593337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bad9d5b92ab7e41d4a8ab81b455c6778, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ChaseSpeed: 9
-  ChaseTime: 4
---- !u!114 &1770593340
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 114034848430891280, guid: 04ee458747e0b214cb113bb0aaec735f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1770593337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d18a7e3da0d5c4fcdadffd3c9de658ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  PatrolSpeed: 5
-  WaitTime: 1
-  allowTurningOnPoint: 1
-  points:
-  - {fileID: 0}
-  - {fileID: 0}
-  isChasingTarget: 0
-  patrolAnim: {fileID: 0}
 --- !u!61 &1770593341
 BoxCollider2D:
   m_ObjectHideFlags: 0
