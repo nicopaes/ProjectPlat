@@ -137,7 +137,7 @@ public class CameraSelection : MonoBehaviour {
         GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(true);
         while(true)
         {
-            if(anim.GetBool("NotEnded") && anim.enabled)
+            if(!anim.GetCurrentAnimatorStateInfo(0).IsTag("End") && anim.enabled)
             {
                 GameObject.FindObjectOfType<PlayerComponent>().BlockPlayerMovement(true);
                 yield return new WaitForSeconds(0.1f);
