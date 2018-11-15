@@ -22,7 +22,11 @@ public class HidePlayer : MonoBehaviour {
     {
         PlayerComponent.ActionButton -= Action;
     }
-	void Update()
+    private void FixedUpdate()
+    {
+        _playerPresence = false;
+    }
+    void Update()
 	{
 		//se o player está escondido, atualiza o lado para qual o player deseja sair da caixa, baseado no input corrente
         //se não houver input, mantem a saida baseada no lado que ele entrou originalmente
@@ -74,8 +78,7 @@ public class HidePlayer : MonoBehaviour {
                 playerTranform.GetComponent<PlayerComponent>().enabled = true;
                 playerTranform.GetComponent<Controller2D>().enabled = true;
                 playerTranform.gameObject.layer = LayerMask.NameToLayer("Player");
-                playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", false);
-                playerTranform.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", false);                
+                playerTranform.GetComponent<PlayerComponent>().anim.SetBool("hide", false);          
                 if (!_fromTheRight)
                 {
                     playerTranform.position = new Vector3(this.transform.position.x, playerTranform.position.y, playerTranform.position.z)
