@@ -29,7 +29,6 @@ public class CameraSelection : MonoBehaviour {
     private CinemachineVirtualCamera previousCamera;
 
     private bool _alreadyPlayedInThisLife;
-    private bool _alreadyFinishedAnimation;
 
     void Start()
     {
@@ -54,7 +53,6 @@ public class CameraSelection : MonoBehaviour {
         pKeys = GameObject.FindObjectOfType<InputController>().GetPKeys();
         cmb = GameObject.FindObjectOfType<CinemachineBrain>();
         _alreadyPlayedInThisLife = false;
-        _alreadyFinishedAnimation = false;
     }
 
     void Update()
@@ -63,25 +61,22 @@ public class CameraSelection : MonoBehaviour {
         //estou contando com curto circuito pra não avaliar todo frama registry.contains, o que poderia ser relativamente lento
         //não deve acontecer de o .Contains ser avaliado muitas vezes, já que ou tc.enabled == true e potencialmente cai no loop, 
         //ou tc.enable == false e curto circuito
-        //além disso, a animação não pode já ter terminado, porque nesse caso só seguimos com o jogo de boas
-        Debug.Log(tcAnim);
-        if(!_alreadyFinishedAnimation && tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
+        //Debug.Log(tcAnim);
+        if(tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
         {
             tcAnim.enabled = false;
             //dá prioridade à camera anterior
             previousCamera.Priority = 50;
             previousCamera.MoveToTopOfPrioritySubqueue();
-            Debug.LogWarning("Go back to previous cam");
         }
 
         //o mesmo vale para o outro animator
-        if(_alreadyFinishedAnimation && altAnim && altAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(altName))
+        if(altAnim && altAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(altName))
         {
             altAnim.enabled = false;
             //dá prioridade à camera anterior
             previousCamera.Priority = 50;
             previousCamera.MoveToTopOfPrioritySubqueue();
-            Debug.LogWarning("Go back to previous cam");
         }
 
         //ps: aqui botei que a tecla para pular a animação é a mesma para pular com a Isis (no pun intended)
@@ -99,7 +94,7 @@ public class CameraSelection : MonoBehaviour {
             if (!_alreadyPlayedInThisLife)
             {
                 _alreadyPlayedInThisLife = true;
-                Debug.LogWarning("Selected");
+                //Debug.LogWarning("Selected");
 
                 previousCamera = null;
                 if (cmb.ActiveVirtualCamera != null)
@@ -164,10 +159,7 @@ public class CameraSelection : MonoBehaviour {
                     pi.Registry.Add(name);
                 }
 
-                _alreadyFinishedAnimation = true;
-
-                //disable animator? SIM!
-                anim.enabled = false;
+                //disable animator?
 
                 yield break;
             }
