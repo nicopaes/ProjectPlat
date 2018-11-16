@@ -29,6 +29,7 @@ public class CameraSelection : MonoBehaviour {
 
     private CinemachineBrain cmb;
     private CinemachineVirtualCamera previousCamera;
+    private Transform pcFollow;
 
     private bool _alreadyPlayedInThisLife;
     private bool _finishedPlayingAnimation;
@@ -66,22 +67,36 @@ public class CameraSelection : MonoBehaviour {
         //não deve acontecer de o .Contains ser avaliado muitas vezes, já que ou tc.enabled == true e potencialmente cai no loop, 
         //ou tc.enable == false e curto circuito
         //além disso, se a animação já tiver terminado, não faz nada, segue o baile
+        //além daquilo, eu mesmo tenho que estar sendo animado, senão eu vou só bugar fora de hora
         Debug.Log(tcAnim);
-        if(!_finishedPlayingAnimation && tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
+        if(IsAnimated && !_finishedPlayingAnimation && tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
         {
-            tcAnim.enabled = false;
-            //dá prioridade à camera anterior
-            previousCamera.Priority = 50;
-            previousCamera.MoveToTopOfPrioritySubqueue();
+            Debug.LogWarning("Cancel Animation!");
+            
+            tcAnim.SetTrigger("Skip");
+
+            //hacky solution by Krauss and Homsi solution by 
+            //tcAnim.speed = 100000f;
+
+            // tcAnim.enabled = false;
+            // //dá prioridade à camera anterior
+            // previousCamera.Priority = 50;
+            // previousCamera.MoveToTopOfPrioritySubqueue();
         }
 
         //o mesmo vale para o outro animator
-        if(!_finishedPlayingAnimation && altAnim && altAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(altName))
+        if(IsAnimated && !_finishedPlayingAnimation && altAnim && altAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(altName))
         {
-            altAnim.enabled = false;
-            //dá prioridade à camera anterior
-            previousCamera.Priority = 50;
-            previousCamera.MoveToTopOfPrioritySubqueue();
+            Debug.LogWarning("Cancel Animation!");
+            
+            //altAnim.speed = 100000f;
+
+            altAnim.SetTrigger("Skip");
+            
+            // altAnim.enabled = false;
+            // //dá prioridade à camera anterior
+            // previousCamera.Priority = 50;
+            // previousCamera.MoveToTopOfPrioritySubqueue();
         }
 
         //ps: aqui botei que a tecla para pular a animação é a mesma para pular com a Isis (no pun intended)
@@ -112,6 +127,9 @@ public class CameraSelection : MonoBehaviour {
                 {
                     previousCamera = cmb.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
                     Debug.LogWarning(previousCamera);
+
+                    //antes de tocar a animação, pega o follow da camera antiga pra restaurar depois
+                    pcFollow = previousCamera.Follow;
                 }
 
 
@@ -172,6 +190,7 @@ public class CameraSelection : MonoBehaviour {
 
                 //avisa que já terminou esta animação
                 _finishedPlayingAnimation = true;
+                Debug.LogWarning("_finishedPlayingAnimation:" +  _finishedPlayingAnimation);
 
                 //disable animator?
 
