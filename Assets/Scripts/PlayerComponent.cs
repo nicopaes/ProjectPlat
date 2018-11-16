@@ -83,7 +83,9 @@ public class PlayerComponent : MonoBehaviour {
 		maxJumpVelocity = Mathf.Abs(gravity) * timeToJumpApex;
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 
-        _movementBlocked = false;
+        //_movementBlocked = false;
+        BlockPlayerMovement(false);
+
         _alreadyKilledThisScene = false;
 	}
 
