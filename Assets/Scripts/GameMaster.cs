@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class GameMaster : MonoBehaviour 
 {
@@ -23,6 +24,9 @@ public class GameMaster : MonoBehaviour
 
     private float speedNormal;
 
+    [Tooltip("Usado para setar a camera inicial da cena")]
+    public CinemachineVirtualCamera initialCamera;
+
 	void Start () {
 		if (gm == null) {
 			gm = GameObject.FindGameObjectWithTag ("GM").GetComponent<GameMaster>();
@@ -36,6 +40,13 @@ public class GameMaster : MonoBehaviour
         }
 
         speedNormal = speed.GetComponent<PlayerComponent>().moveSpeed;
+
+        if(initialCamera != null)
+        {
+            //seta pra primeira prioridade
+            initialCamera.Priority = 50;
+            initialCamera.MoveToTopOfPrioritySubqueue();
+        }
 	}
 	void Update()
 	{

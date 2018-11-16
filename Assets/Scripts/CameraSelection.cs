@@ -34,6 +34,7 @@ public class CameraSelection : MonoBehaviour {
     private bool _alreadyPlayedInThisLife;
     private bool _finishedPlayingAnimation;
 
+
     void Start()
     {
         if(ThisCamera)
@@ -58,6 +59,7 @@ public class CameraSelection : MonoBehaviour {
         cmb = GameObject.FindObjectOfType<CinemachineBrain>();
         _alreadyPlayedInThisLife = false;
         _finishedPlayingAnimation = false;
+
     }
 
     void Update()
@@ -75,7 +77,6 @@ public class CameraSelection : MonoBehaviour {
             
             tcAnim.SetTrigger("Skip");
 
-            //hacky solution by Krauss and Homsi solution by 
             //tcAnim.speed = 100000f;
 
             // tcAnim.enabled = false;
