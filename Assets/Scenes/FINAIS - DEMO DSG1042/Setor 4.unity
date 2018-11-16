@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2135,7 +2135,8 @@ AudioSource:
   m_GameObject: {fileID: 176729224}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 5c0f09964a53d4fd4b911a9b276283c3,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: e947f38d497d4462ea08b3ffbe10d904, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.2
@@ -6539,11 +6540,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4928955668365110, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -46.1
+      value: -110
       objectReference: {fileID: 0}
     - target: {fileID: 4928955668365110, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 10.1
+      value: 27.5
       objectReference: {fileID: 0}
     - target: {fileID: 4928955668365110, guid: e80d1e25de665496180c1d6a9098755d, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6772,11 +6773,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -88.771645
+      value: -96.480354
       objectReference: {fileID: 0}
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 21.381212
+      value: 31.342789
       objectReference: {fileID: 0}
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -9871,7 +9872,8 @@ AudioSource:
   m_GameObject: {fileID: 829486826}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 5c0f09964a53d4fd4b911a9b276283c3,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 270ed5355b1fa4d9db19ec01c8efe924, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.44
@@ -11798,6 +11800,18 @@ Prefab:
     - target: {fileID: 1765420153234202, guid: 04ee458747e0b214cb113bb0aaec735f, type: 2}
       propertyPath: m_Name
       value: Patrol (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4478949411777072, guid: 04ee458747e0b214cb113bb0aaec735f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239593642894742, guid: 04ee458747e0b214cb113bb0aaec735f, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: -135.85374
+      objectReference: {fileID: 0}
+    - target: {fileID: 4239593642894742, guid: 04ee458747e0b214cb113bb0aaec735f, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 15.71787
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04ee458747e0b214cb113bb0aaec735f, type: 2}
@@ -23458,7 +23472,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1419015996}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -56.501217, y: 19.419014, z: -9.388672}
+  m_LocalPosition: {x: -120.40122, y: 36.819016, z: -9.388672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1249021123}
@@ -26003,7 +26017,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1587099538}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.656773, y: 18.619013, z: -9.388672}
+  m_LocalPosition: {x: -117.55678, y: 36.019012, z: -9.388672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 777868008}
@@ -27363,7 +27377,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1680872424}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.656773, y: 14.619013, z: -9.388672}
+  m_LocalPosition: {x: -117.55678, y: 32.019012, z: -9.388672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 995159880}
@@ -30771,6 +30785,10 @@ Prefab:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -60.816
       objectReference: {fileID: 0}
+    - target: {fileID: 4478949411777072, guid: 04ee458747e0b214cb113bb0aaec735f, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 1.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 04ee458747e0b214cb113bb0aaec735f, type: 2}
   m_IsPrefabParent: 0
@@ -31952,7 +31970,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2033011414}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.656773, y: 14.619013, z: -9.388672}
+  m_LocalPosition: {x: -117.55678, y: 32.019012, z: -9.388672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1854697222}
@@ -32366,7 +32384,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2083031095}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -53.656773, y: 14.619013, z: -9.388672}
+  m_LocalPosition: {x: -117.55678, y: 32.019012, z: -9.388672}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2088716236}

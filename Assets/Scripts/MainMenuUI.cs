@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class MainMenuUI : MonoBehaviour {
 
 	private GameObject _mainPanel;
 	private GameObject _optionsPanel;
+
+    public AudioMixer MusicVol;
 	
 	// Use this for initialization
 	void Start () {
@@ -23,10 +26,19 @@ public class MainMenuUI : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void SetVolume (float volume)
+    {
+        Debug.Log(volume);
+        MusicVol.SetFloat("MusicVol", volume);
+        if(volume < -29.5f)
+        {
+            MusicVol.SetFloat("MusicVol", -80.0f);
+        }
+
+    }
+
+
 
 	public void EnableOptionPanel(bool enabled)
 	{
