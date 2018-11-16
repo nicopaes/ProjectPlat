@@ -27,7 +27,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.25
-        value: {x: 0, y: 0, z: -107.189}
+        value: {x: 0, y: 0, z: -108.48193}
         inSlope: {x: 0, y: 0, z: 69.54201}
         outSlope: {x: 0, y: 0, z: 69.54201}
         tangentMode: 0
@@ -79,7 +79,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.25
-        value: {x: 0, y: 0, z: -117.25101}
+        value: {x: 0, y: 0, z: -118.12108}
         inSlope: {x: 0, y: 0, z: 62.556}
         outSlope: {x: 0, y: 0, z: 62.556}
         tangentMode: 0
@@ -251,7 +251,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.25
-        value: {x: 0, y: 0, z: -41.279003}
+        value: {x: 0, y: 0, z: -41.26956}
         inSlope: {x: 0, y: 0, z: 0.14399719}
         outSlope: {x: 0, y: 0, z: 0.14399719}
         tangentMode: 0
@@ -303,7 +303,7 @@ AnimationClip:
         outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
       - serializedVersion: 3
         time: 0.25
-        value: {x: 0, y: 0, z: 14.985625}
+        value: {x: 0, y: 0, z: 14.940343}
         inSlope: {x: 0, y: 0, z: 2.6900005}
         outSlope: {x: 0, y: 0, z: 2.6900005}
         tangentMode: 0
@@ -1460,7 +1460,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.25
-        value: -107.189
+        value: -108.48193
         inSlope: 69.54201
         outSlope: 69.54201
         tangentMode: 34
@@ -1625,7 +1625,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.25
-        value: -117.25101
+        value: -118.12108
         inSlope: 62.556
         outSlope: 62.556
         tangentMode: 34
@@ -2177,7 +2177,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.25
-        value: -41.279003
+        value: -41.26956
         inSlope: 0.14399719
         outSlope: 0.14399719
         tangentMode: 34
@@ -2324,7 +2324,7 @@ AnimationClip:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 0.25
-        value: 14.985625
+        value: 14.940343
         inSlope: 2.6900005
         outSlope: 2.6900005
         tangentMode: 34
@@ -4926,7 +4926,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/cintura/pernaDir
+    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4936,7 +4936,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/cintura/pernaDir
+    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -4946,7 +4946,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/cintura/pernaDir
+    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5076,7 +5076,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/cintura/tronco1/tronco2
+    path: Bones/cintura/pernaDir/canelaDir
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5086,7 +5086,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/cintura/tronco1/tronco2
+    path: Bones/cintura/pernaDir/canelaDir
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5096,7 +5096,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/cintura/tronco1/tronco2
+    path: Bones/cintura/pernaDir/canelaDir
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5226,7 +5226,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/cintura/tronco1
+    path: Bones/cintura/pernaDir
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5236,7 +5236,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/cintura/tronco1
+    path: Bones/cintura/pernaDir
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5246,7 +5246,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/cintura/tronco1
+    path: Bones/cintura/pernaDir
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5286,7 +5286,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/cintura/pernaDir/canelaDir
+    path: Bones/cintura/tronco1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5296,7 +5296,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/cintura/pernaDir/canelaDir
+    path: Bones/cintura/tronco1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5306,7 +5306,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/cintura/pernaDir/canelaDir
+    path: Bones/cintura/tronco1
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5466,7 +5466,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.x
-    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
+    path: Bones/cintura/tronco1/tronco2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5476,7 +5476,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.y
-    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
+    path: Bones/cintura/tronco1/tronco2
     classID: 4
     script: {fileID: 0}
   - curve:
@@ -5486,7 +5486,7 @@ AnimationClip:
       m_PostInfinity: 2
       m_RotationOrder: 4
     attribute: m_LocalEulerAngles.z
-    path: Bones/cintura/tronco1/tronco2/pescoco/cabeca/topCabelo
+    path: Bones/cintura/tronco1/tronco2
     classID: 4
     script: {fileID: 0}
   m_HasGenericRootTransform: 0

@@ -22,8 +22,8 @@ public class PlayerComponent : MonoBehaviour {
 	public float accelerationTimeAirborne = .2f;	
 	public float accelerationTimeGrounded = .1f;
 	[Range(0.1f,50f)]
-	public float moveSpeed = 6;
-    public float runSpeed = 10;
+	public float moveSpeed = 4;
+    public float runSpeed = 8;
 	[Header("MELEE ATTACK")]
 	public MeleeAttack meleeAtt;
 	public float activeAttackTime = 0.5f;
@@ -211,6 +211,7 @@ public class PlayerComponent : MonoBehaviour {
     {
         _runMultiplier = 1;
         anim.SetBool("running", false);
+        
     }
 
     //// Realiza o respawn do player com um delay
