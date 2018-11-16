@@ -24,7 +24,13 @@ public class ManageText : MonoBehaviour
 
     private string dialogIDString;
 
-   
+    [Range(0.0f, 1.0f)]
+    public float SFXVolume;
+    public AudioSource Template;
+    public AudioClip NextLine;
+    public Transform AudioListener;
+
+
     [System.Serializable]
     public struct Characters
     {
@@ -104,6 +110,11 @@ public class ManageText : MonoBehaviour
                     presentBubbleText();
                     currentDialogLine += 1;
                     totalTextWidth = 0;
+
+                    //Fazer  barulho
+                    //PlayClipAt(NextLine, AudioListener.position);
+
+
                 }
 
             } else
@@ -299,4 +310,24 @@ public class ManageText : MonoBehaviour
         string txt = new string(lst.ToArray());
         newText = txt;
     }
+
+
+    public AudioSource PlayClipAt(AudioClip clip, Vector3 pos)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create the temp object
+        tempGO.transform.position = pos; // set its position
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add an audio source
+        aSource.clip = clip; // define the clip
+
+
+        aSource.outputAudioMixerGroup = Template.outputAudioMixerGroup;
+        aSource.volume = SFXVolume;
+
+
+        aSource.Play(); // start the sound
+        Destroy(tempGO, clip.length); // destroy object after clip duration
+        return aSource; // return the AudioSource reference
+    }
+
+
 }

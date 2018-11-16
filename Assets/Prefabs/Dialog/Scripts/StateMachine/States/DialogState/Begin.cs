@@ -44,6 +44,12 @@ public class Begin : MonoBehaviour, IState
     public IState Faded;
     public IState Neverend;
 
+    [Range(0.0f, 1.0f)]
+    public float SFXVolume;
+    public AudioSource Template;
+    public AudioClip NextLine;
+    public Transform AudioListener;
+
     [HideInInspector]
     public GameObject Target;
 
@@ -119,6 +125,7 @@ public class Begin : MonoBehaviour, IState
             CanvasGroup.alpha = 0;
             Exit();
         }
+        PlayClipAt(NextLine, AudioListener.position);
     }
 
     private void waitTime(float seconds, Action action)
@@ -177,4 +184,22 @@ public class Begin : MonoBehaviour, IState
         }
         Exit();
     }
+
+    public AudioSource PlayClipAt(AudioClip clip, Vector3 pos)
+    {
+        GameObject tempGO = new GameObject("TempAudio"); // create the temp object
+        tempGO.transform.position = pos; // set its position
+        AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add an audio source
+        aSource.clip = clip; // define the clip
+
+
+        aSource.outputAudioMixerGroup = Template.outputAudioMixerGroup;
+        aSource.volume = SFXVolume;
+
+
+        aSource.Play(); // start the sound
+        Destroy(tempGO, clip.length); // destroy object after clip duration
+        return aSource; // return the AudioSource reference
+    }
+
 }
