@@ -44,7 +44,8 @@ public class PlayerComponent : MonoBehaviour {
     [SerializeField]
 	Vector3 velocity;
 
-	Controller2D controller;
+	public Controller2D controller {get; private set;}
+
     public Animator anim;
 
 	Vector2 directionalInput;
