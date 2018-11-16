@@ -204,11 +204,13 @@ public class PlayerComponent : MonoBehaviour {
     {
         _runMultiplier = Mathf.Round(runSpeed / moveSpeed);
         Debug.Log(_runMultiplier);
+        anim.SetBool("running", true);
     }
 
     public void OnRunInputUp()
     {
         _runMultiplier = 1;
+        anim.SetBool("running", false);
     }
 
     //// Realiza o respawn do player com um delay
