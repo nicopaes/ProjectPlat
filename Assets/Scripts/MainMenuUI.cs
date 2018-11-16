@@ -23,10 +23,14 @@ public class MainMenuUI : MonoBehaviour {
 
 	}
 	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+
+    public void SetVolume (float volume)
+    {
+        Debug.Log(volume);
+
+    }
+
+
 
 	public void EnableOptionPanel(bool enabled)
 	{
