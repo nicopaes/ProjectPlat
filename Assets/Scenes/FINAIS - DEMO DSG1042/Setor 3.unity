@@ -9262,11 +9262,11 @@ Prefab:
         type: 2}
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 2065708695}
+      objectReference: {fileID: 1244105854}
     - target: {fileID: 114763608032787210, guid: 664858ca313a94841aff173dcd2c1d44,
         type: 2}
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: ChangeSingleScene
+      value: TriggerChangeScene
       objectReference: {fileID: 0}
     - target: {fileID: 114763608032787210, guid: 664858ca313a94841aff173dcd2c1d44,
         type: 2}
@@ -9281,6 +9281,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224868228447284554, guid: 664858ca313a94841aff173dcd2c1d44,
     type: 2}
   m_PrefabInternal: {fileID: 1244105852}
+--- !u!114 &1244105854 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114763608032787210, guid: 664858ca313a94841aff173dcd2c1d44,
+    type: 2}
+  m_PrefabInternal: {fileID: 1244105852}
+  m_Script: {fileID: 11500000, guid: 81d892125f74e8b40bf724b21d249a48, type: 3}
 --- !u!1 &1248288664
 GameObject:
   m_ObjectHideFlags: 0
