@@ -21,6 +21,8 @@ public class GameMaster : MonoBehaviour
 
 	private bool _respawning;   // Verifica se o player está no processo de respawnar
 
+    private float speedNormal;
+
 	void Start () {
 		if (gm == null) {
 			gm = GameObject.FindGameObjectWithTag ("GM").GetComponent<GameMaster>();
@@ -32,6 +34,8 @@ public class GameMaster : MonoBehaviour
         {
             GameObject.Instantiate(dontDestroyOnLoadPrefab);
         }
+
+        speedNormal = speed.GetComponent<PlayerComponent>().moveSpeed;
 	}
 	void Update()
 	{
@@ -43,7 +47,7 @@ public class GameMaster : MonoBehaviour
 
         }
         else { Dangers.SetActive(true);
-            speed.GetComponent<PlayerComponent>().moveSpeed = 6.5f;
+            speed.GetComponent<PlayerComponent>().moveSpeed = speedNormal;
         }
 
 

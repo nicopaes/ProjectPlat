@@ -202,7 +202,7 @@ public class PlayerComponent : MonoBehaviour {
 
     public void OnRunInputDown()
     {
-        _runMultiplier = Mathf.Round(runSpeed / moveSpeed);
+        _runMultiplier = runSpeed / moveSpeed;
         Debug.Log(_runMultiplier);
         anim.SetBool("running", true);
     }
