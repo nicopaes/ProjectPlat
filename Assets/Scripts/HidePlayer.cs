@@ -46,7 +46,9 @@ public class HidePlayer : MonoBehaviour {
 	void Action()
 	{
         if(!this.GetComponent<PushObject>().holdingBox){
-            if (_playerPresence && !_playerHidden)
+            // para poder se esconder, player tem que estar próximo(_playerPresence), não já estar escondido(!_playerHidden)
+            // e, além disso, o jogador tem que estar no chão
+            if (_playerPresence && !_playerHidden && playerTranform.gameObject.GetComponent<PlayerComponent>().controller.collisionsInf.below)
             {
                 positionToGo = new Vector2(this.transform.position.x - playerTranform.position.x, playerTranform.position.y);
                 if (positionToGo.x < 0)
