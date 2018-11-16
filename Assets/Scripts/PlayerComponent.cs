@@ -69,6 +69,8 @@ public class PlayerComponent : MonoBehaviour {
     private bool _movementBlocked;
     private float _runMultiplier = 1;
 
+    private bool _alreadyKilledThisScene;
+
 
     void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -81,6 +83,7 @@ public class PlayerComponent : MonoBehaviour {
 		minJumpVelocity = Mathf.Sqrt (2 * Mathf.Abs (gravity) * minJumpHeight);
 
         _movementBlocked = false;
+        _alreadyKilledThisScene = false;
 	}
 
 	void OnEnable()
@@ -190,9 +193,11 @@ public class PlayerComponent : MonoBehaviour {
 
     public void KillPlayer()
     {
+        if(_alreadyKilledThisScene) return;
         //StartCoroutine(RespawnPlayerWithDelay(0.5f));
         //reloada scene atual
-        GameObject.Find("SceneManager").GetComponent<ChangeScene>().ChangeSingleScene(SceneManager.GetActiveScene().name);
+        GameObject.FindObjectOfType<ChangeScene>().ChangeSingleScene(SceneManager.GetActiveScene().name);
+        _alreadyKilledThisScene = true;
     }
 
     public void BlockPlayerMovement(bool block)

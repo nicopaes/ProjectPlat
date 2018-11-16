@@ -8,20 +8,41 @@ public class ChangeScene : MonoBehaviour
 {
     private Animator FadeAnimator;
     private string _targetScene;
+    private bool _changeStarted;
 
     private void OnEnable()
     {
+        
+        //garante que só tenha um go desse tipo na cena
+        ChangeScene[] arr = GameObject.FindObjectsOfType<ChangeScene>();
+        if(arr.Length > 1)
+        {
+            for(int i = arr.Length - 1; i >= 1; i--)
+            {
+                GameObject.Destroy(arr[i].gameObject);
+            }
+        }
+        
         FadeAnimator = GetComponent<Animator>();
         DontDestroyOnLoad(this.gameObject);
     }
 
     public void ChangeSingleScene(string name)
     {
+        //se esse processo já começou, não deixa começar de novo
+        if(_changeStarted) return;
+
+        //senão, avisa que já começou
+        _changeStarted = true;
+        Debug.LogWarning("change to" + name);
         FadeAnimator.SetTrigger("FadeIn");
         _targetScene = name;
 
+
+
         //certamente não é o ideal fazer isso aqui, mas foi um quick-fix prum bug
         //o bug é que, quando saímos pro menu principal atraves da pause, o Time.deltaTime continua sendo igual a zero.
+        //rever isso pelo amor de, acho que esse nome Mockup já mudou
         if(name == "Mockup")
         {
             Debug.LogWarning("bug fix");
@@ -39,6 +60,9 @@ public class ChangeScene : MonoBehaviour
         //SceneManager.LoadScene(name, LoadSceneMode.Single);
         FadeAnimator.SetTrigger("FadeOut");
         //Time.timeScale = 0f;
+
+        //avisa que já acabou esse processo:
+        _changeStarted = false;
     }
 
     public void UnloadScene(string name){
