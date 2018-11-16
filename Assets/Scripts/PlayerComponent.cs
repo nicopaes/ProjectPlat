@@ -204,6 +204,7 @@ public class PlayerComponent : MonoBehaviour {
     public void BlockPlayerMovement(bool block)
     {
         _movementBlocked = block;
+        anim.SetBool("isFrozen", block);
     }
 
     public void OnRunInputDown()
