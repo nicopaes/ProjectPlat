@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class ChangeScene : MonoBehaviour
 {
     private Animator FadeAnimator;
+    private string _targetScene;
 
     private void OnEnable()
     {
@@ -16,9 +17,8 @@ public class ChangeScene : MonoBehaviour
 
     public void ChangeSingleScene(string name)
     {
-        //FadeAnimator.gameObject.SetActive(true);
         FadeAnimator.SetTrigger("FadeIn");
-        //SceneManager.LoadScene(name, LoadSceneMode.Single);
+        _targetScene = name;
 
         //certamente não é o ideal fazer isso aqui, mas foi um quick-fix prum bug
         //o bug é que, quando saímos pro menu principal atraves da pause, o Time.deltaTime continua sendo igual a zero.
@@ -30,10 +30,10 @@ public class ChangeScene : MonoBehaviour
         }
     }
 
-    public void ChangeAdditiveScene(string name)
+    public void ChangeAdditiveScene()
     {        
         Scene LastScene = SceneManager.GetActiveScene();
-        SceneManager.LoadSceneAsync(name, LoadSceneMode.Single);//LoadSceneMode.Additive);
+        SceneManager.LoadSceneAsync(_targetScene, LoadSceneMode.Single);//LoadSceneMode.Additive);
         //SceneManager.UnloadSceneAsync(LastScene);
 
         //SceneManager.LoadScene(name, LoadSceneMode.Single);

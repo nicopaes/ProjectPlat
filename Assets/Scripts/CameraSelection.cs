@@ -68,7 +68,7 @@ public class CameraSelection : MonoBehaviour {
         //ou tc.enable == false e curto circuito
         //além disso, se a animação já tiver terminado, não faz nada, segue o baile
         //além daquilo, eu mesmo tenho que estar sendo animado, senão eu vou só bugar fora de hora
-        Debug.Log(tcAnim);
+        //Debug.Log(tcAnim);
         if(IsAnimated && !_finishedPlayingAnimation && tcAnim && tcAnim.enabled && Input.GetKeyDown(pKeys.jumpKey.ToLower()) && pi.Registry.Contains(tcName))
         {
             Debug.LogWarning("Cancel Animation!");
