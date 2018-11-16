@@ -10,6 +10,7 @@ public class ButtonComponent : InteractiveComponent
 
     public GameObject DestructableObject01;
     public GameObject ConstructableObject01;
+    public AudioClip DoorOpen;
 
     [SerializeField]
     private bool playerPresence;
@@ -38,7 +39,9 @@ public class ButtonComponent : InteractiveComponent
         //base.Action();
         if (playerPresence && currentState == buttonState.active)
         {
+
             Debug.Log("DoorOpen");
+            AudioSource.PlayClipAtPoint(DoorOpen, this.transform.position, .4f);
             ChangeState();
             ConstructableObject01.SetActive(true);
             DestructableObject01.SetActive(false);
