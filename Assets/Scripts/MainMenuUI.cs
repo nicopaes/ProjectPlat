@@ -9,12 +9,13 @@ public class MainMenuUI : MonoBehaviour {
 	private GameObject _optionsPanel;
     public Transform AudioListener;
 
+    public AudioSource Template;
     public AudioMixer MusicVol;
-    public AudioMixer SFXVol;
+    //public AudioMixer SFXVol;
 
 
     [Range(0.0f,1.0f)]
-    public float SfxVol;
+    public float SFXVolume;
 
     public AudioClip select;
 
@@ -74,7 +75,12 @@ public class MainMenuUI : MonoBehaviour {
         tempGO.transform.position = pos; // set its position
         AudioSource aSource = tempGO.AddComponent<AudioSource>(); // add an audio source
         aSource.clip = clip; // define the clip
-        //aSource.outputAudioMixerGroup = SfxVol;
+
+
+        aSource.outputAudioMixerGroup = Template.outputAudioMixerGroup;
+        aSource.volume = SFXVolume;
+
+
         aSource.Play(); // start the sound
         Destroy(tempGO, clip.length); // destroy object after clip duration
         return aSource; // return the AudioSource reference
