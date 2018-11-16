@@ -6869,11 +6869,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -13.213988
+      value: -96.48036
       objectReference: {fileID: 0}
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 22.542
+      value: 30.819012
       objectReference: {fileID: 0}
     - target: {fileID: 4864658292968558, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6902,7 +6902,7 @@ Prefab:
     - target: {fileID: 20665758589367518, guid: e7ffed41cc03749a587c8cb122880da4,
         type: 2}
       propertyPath: orthographic size
-      value: 6
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: e7ffed41cc03749a587c8cb122880da4, type: 2}
@@ -15004,6 +15004,10 @@ Prefab:
         type: 2}
       propertyPath: m_UsedByEffector
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1479608917108964, guid: 07ac9b4b0181ac8498db7d69252e36a9, type: 2}
+      propertyPath: m_TagString
+      value: SpecialElevator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07ac9b4b0181ac8498db7d69252e36a9, type: 2}
@@ -27988,6 +27992,25 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
+--- !u!1 &1741526427 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1461973298892316, guid: 2579a201f9e9a194ca05bc246ae45780,
+    type: 2}
+  m_PrefabInternal: {fileID: 623206813}
+--- !u!114 &1741526433
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1741526427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db8913ed42e34de48a8bb4938ecfb460, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpecialElevator: {fileID: 1441242280}
+  attachGravityScale: 5
+  normalGravityScale: 1
 --- !u!1 &1752680134
 GameObject:
   m_ObjectHideFlags: 0
