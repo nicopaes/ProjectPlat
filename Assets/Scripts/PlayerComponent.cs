@@ -199,7 +199,7 @@ public class PlayerComponent : MonoBehaviour {
         if(_alreadyKilledThisScene) return;
         //StartCoroutine(RespawnPlayerWithDelay(0.5f));
         //reloada scene atual
-        GameObject.FindObjectOfType<ChangeScene>().ChangeSingleScene(SceneManager.GetActiveScene().name);
+        GameObject.FindObjectOfType<ChangeScene>().ChangeSingleScene(SceneManager.GetActiveScene().name, false);
         _alreadyKilledThisScene = true;
     }
 

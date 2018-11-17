@@ -27,15 +27,24 @@ public class ChangeScene : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
-    public void ChangeSingleScene(string name)
+    public void ChangeSingleScene(string name, bool sceneTransition = false)
     {
         //se esse processo já começou, não deixa começar de novo
         if(_changeStarted) return;
 
         //senão, avisa que já começou
         _changeStarted = true;
-        Debug.LogWarning("change to" + name);
-        FadeAnimator.SetTrigger("FadeIn");
+        Debug.Log("change to" + name);
+        if(!sceneTransition)
+        {
+            Debug.Log("Trigger fadein Transition!");
+            FadeAnimator.SetTrigger("FadeIn");
+        }
+        else
+        {
+            Debug.Log("Trigger scene Transition!");
+            FadeAnimator.SetTrigger("FadeInSceneTransition");
+        }
         _targetScene = name;
 
 
