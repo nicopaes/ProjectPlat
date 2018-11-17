@@ -39,7 +39,7 @@ public class MainMenuUI : MonoBehaviour {
 
     public void SetVolume (float volume)
     {
-        Debug.Log(volume);
+//        Debug.Log(volume);
         MusicVol.SetFloat("MusicVol", volume);
         if(volume < -29.5f)
         {
@@ -50,7 +50,7 @@ public class MainMenuUI : MonoBehaviour {
 
     public void SetVolumeSFX(float volume)
     {
-        Debug.Log(volume);
+      //  Debug.Log(volume);
         MusicVol.SetFloat("SFXVol", volume);
         if (volume < -29.5f)
         {
@@ -62,7 +62,7 @@ public class MainMenuUI : MonoBehaviour {
     public void PlaySound (AudioClip sfx)
 
     {
-        Debug.Log("barulho");
+       // Debug.Log("barulho");
         //AudioSource.PlayClipAtPoint(sfx, AudioListener.position, SfxVol);
         PlayClipAt(sfx, AudioListener.position);
 
