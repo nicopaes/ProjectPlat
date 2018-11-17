@@ -18,7 +18,7 @@ public class triggereventofinal : MonoBehaviour {
 
     IEnumerator Wait ()
     {
-        Debug.Log("wait");
+        //Debug.Log("wait");
         Passos.SetActive(true);
         yield return new WaitForSeconds(waittime);
         Guarda.SetActive(true);
@@ -29,11 +29,15 @@ public class triggereventofinal : MonoBehaviour {
     // Update is called once per frame
     void Update () {
 
+        Debug.Log("x =" + Guarda.transform.position.x + "y =" + Guarda.transform.position.y);
+        //Debug.Log("y =" + Guarda.transform.position.y);
+
+
         if (Player.transform.position.x > 48f)
         {
             if (Player.transform.position.y > 20f)
             {
-                Debug.Log("Foi");
+                //Debug.Log("Foi");
                 StartCoroutine(Wait());
 
             }
@@ -41,9 +45,9 @@ public class triggereventofinal : MonoBehaviour {
         }
 
 
-        if (Guarda.transform.position.x < 45f)
+        if (Guarda.transform.position.x < 43.5f)
         {
-            if (Guarda.transform.position.y < 20f)
+            if (Guarda.transform.position.y < 26f)
             {
                 Debug.Log("eta porra");
                 Alarme.SetActive(true);
