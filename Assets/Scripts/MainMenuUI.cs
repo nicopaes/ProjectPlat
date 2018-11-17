@@ -91,8 +91,6 @@ public class MainMenuUI : MonoBehaviour {
 	{
 		_optionsPanel.SetActive(enabled);
 		_mainPanel.SetActive(!enabled);
-	}
-
-	
+	}	
 
 }
