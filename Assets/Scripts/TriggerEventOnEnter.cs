@@ -19,7 +19,7 @@ public class TriggerEventOnEnter : MonoBehaviour {
 
 	public void TriggerChangeScene(string name)
 	{
-		GameObject.FindObjectOfType<ChangeScene>().ChangeSingleScene(name);
+		GameObject.FindObjectOfType<ChangeScene>().ChangeSingleScene(name, true);
 	}
 
 	private void OnTriggerEnter2D(Collider2D collision)
