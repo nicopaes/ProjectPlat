@@ -13,15 +13,17 @@ public class ChangeScene : MonoBehaviour
     private void OnEnable()
     {
         
+        //to fazendo isso no script sceneManagerInstancer, pra evitar que "troque" o ativo no meio de uma animação e tal
+
         //garante que só tenha um go desse tipo na cena
-        ChangeScene[] arr = GameObject.FindObjectsOfType<ChangeScene>();
-        if(arr.Length > 1)
-        {
-            for(int i = arr.Length - 1; i >= 1; i--)
-            {
-                GameObject.Destroy(arr[i].gameObject);
-            }
-        }
+        // ChangeScene[] arr = GameObject.FindObjectsOfType<ChangeScene>();
+        // if(arr.Length > 1)
+        // {
+        //     for(int i = arr.Length - 1; i >= 1; i--)
+        //     {
+        //         GameObject.Destroy(arr[i].gameObject);
+        //     }
+        // }
         
         FadeAnimator = GetComponent<Animator>();
         DontDestroyOnLoad(this.gameObject);
