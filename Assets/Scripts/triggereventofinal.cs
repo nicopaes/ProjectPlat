@@ -49,6 +49,7 @@ public class triggereventofinal : MonoBehaviour {
         {
             if (Guarda.transform.position.y < 26f)
             {
+                Player.GetComponent<PlayerComponent>().BlockPlayerMovement(true);
                 Debug.Log("eta porra");
                 Alarme.SetActive(true);
 
