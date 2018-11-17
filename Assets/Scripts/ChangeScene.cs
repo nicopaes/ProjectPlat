@@ -27,6 +27,11 @@ public class ChangeScene : MonoBehaviour
         DontDestroyOnLoad(this.gameObject);
     }
 
+    public void ChangeSingleScene_inspector(string name)
+    {
+        ChangeSingleScene(name, true);
+    }
+
     public void ChangeSingleScene(string name, bool sceneTransition = false)
     {
         //se esse processo já começou, não deixa começar de novo
