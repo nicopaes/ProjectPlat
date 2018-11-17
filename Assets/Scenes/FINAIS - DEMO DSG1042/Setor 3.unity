@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311918, g: 0.3807398, b: 0.35872716, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1680,7 +1680,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 308367153}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -3.5, z: 0}
+  m_LocalPosition: {x: 0, y: 5.8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 340090825}
@@ -4179,7 +4179,7 @@ SpriteRenderer:
   m_SortingLayer: -4
   m_SortingOrder: -7
   m_Sprite: {fileID: 21300000, guid: fe2f5b1e2dca4dd459d33d7be314f1b6, type: 3}
-  m_Color: {r: 0.7294118, g: 0.627451, b: 0.627451, a: 0.11372549}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.11372549}
   m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
@@ -4389,7 +4389,7 @@ Prefab:
     - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
         type: 2}
       propertyPath: Event_inicio.m_PersistentCalls.m_Calls.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 224250501265350778, guid: dd846d8d158faa7418d6f90759240708,
         type: 2}
@@ -4509,7 +4509,7 @@ Prefab:
     - target: {fileID: 114436218503711364, guid: dd846d8d158faa7418d6f90759240708,
         type: 2}
       propertyPath: m_FontData.m_FontSize
-      value: 230
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 114436218503711364, guid: dd846d8d158faa7418d6f90759240708,
         type: 2}
@@ -4590,7 +4590,7 @@ Prefab:
         type: 2}
       propertyPath: m_FontData.m_Font
       value: 
-      objectReference: {fileID: 12800000, guid: 674ddfd38fcf4934780d36616d92b040,
+      objectReference: {fileID: 12800000, guid: 428d1facee36c4020a700e28aea3c5ba,
         type: 3}
     - target: {fileID: 114436218503711364, guid: dd846d8d158faa7418d6f90759240708,
         type: 2}
@@ -4877,6 +4877,40 @@ Prefab:
       propertyPath: Event.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
       objectReference: {fileID: 308367153}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event_inicio.m_PersistentCalls.m_Calls.Array.data[3].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event_inicio.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event_inicio.m_PersistentCalls.m_Calls.Array.data[3].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event_inicio.m_PersistentCalls.m_Calls.Array.data[3].m_Target
+      value: 
+      objectReference: {fileID: 209305618}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event_inicio.m_PersistentCalls.m_Calls.Array.data[3].m_MethodName
+      value: set_enabled
+      objectReference: {fileID: 0}
+    - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
+        type: 2}
+      propertyPath: Event_inicio.m_PersistentCalls.m_Calls.Array.data[3].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1248830807632812, guid: dd846d8d158faa7418d6f90759240708, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: dd846d8d158faa7418d6f90759240708, type: 2}
   m_IsPrefabParent: 0
@@ -15615,8 +15649,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1609590393}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -47.142, y: 25.416998, z: 0.030733274}
-  m_LocalScale: {x: 4.6273003, y: 12.42202, z: 5.1139116}
+  m_LocalPosition: {x: -46.631, y: 25.416998, z: 0.030733274}
+  m_LocalScale: {x: 3.606205, y: 12.42202, z: 5.1139116}
   m_Children: []
   m_Father: {fileID: 749532807}
   m_RootOrder: 15
@@ -15655,7 +15689,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1004229495
   m_SortingLayer: -4
-  m_SortingOrder: 0
+  m_SortingOrder: 51
   m_Sprite: {fileID: 21300000, guid: 5abdd372862304bd487af0a898336dc3, type: 3}
   m_Color: {r: 0.24528301, g: 0.21432348, b: 0.19321822, a: 1}
   m_FlipX: 0
