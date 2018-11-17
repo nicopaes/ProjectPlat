@@ -2,15 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 
 public class MainMenuUI : MonoBehaviour {
 
 	private GameObject _mainPanel;
 	private GameObject _optionsPanel;
-
-    public Selectable _mainPanelFirstSelection;
-    public Selectable _optionsPanelFirstSelection;
     public Transform AudioListener;
 
     public AudioSource Template;
@@ -91,20 +87,10 @@ public class MainMenuUI : MonoBehaviour {
     }
 
 
-    public void EnterMainPanel()
-    {
-        _mainPanel.SetActive(true);
-        _optionsPanel.SetActive(false);
-        //_mainPanelFirstSelection.Select();
-
-    }
-
-    public void EnterOptionPanel()
-    {
-        _mainPanel.SetActive(false);
-        _optionsPanel.SetActive(true);
-        //_optionsPanelFirstSelection.Select();
-
-    }
+    public void EnableOptionPanel(bool enabled)
+	{
+		_optionsPanel.SetActive(enabled);
+		_mainPanel.SetActive(!enabled);
+	}	
 
 }

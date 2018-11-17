@@ -14,7 +14,7 @@ public class SplashController : MonoBehaviour {
 		
 		if(Input.anyKeyDown)
 		{
-			GameObject.Find("Canvas").GetComponent<MainMenuUI>().EnterMainPanel();
+			GameObject.Find("Canvas").GetComponent<MainMenuUI>().EnableOptionPanel(false);
 			this.gameObject.SetActive(false);
 		}
 	}
