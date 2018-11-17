@@ -32,7 +32,7 @@ public class EnemyChase : MonoBehaviour {
             
             Vector2 desiredPos = new Vector2(target.position.x, transform.position.y);
             //antes de se mover, checa se há mais chão
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle"));
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2*this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle"));
             if(hit)
             {
                 transform.position = Vector2.MoveTowards(transform.position, desiredPos, ChaseSpeed * Time.deltaTime);
