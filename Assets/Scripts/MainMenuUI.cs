@@ -93,4 +93,9 @@ public class MainMenuUI : MonoBehaviour {
 		_mainPanel.SetActive(!enabled);
 	}	
 
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
 }
