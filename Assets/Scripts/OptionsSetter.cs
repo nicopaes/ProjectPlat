@@ -47,21 +47,21 @@ public class OptionsSetter : MonoBehaviour {
 
 	public void EnableControlOptionPanel(bool enabled)
 	{
-		
-		_generalOptionsPanel.SetActive(!enabled);
-		_controlOptionsPanel.SetActive(enabled);
+		//meio que tenho que checar null pq senão pode dar problemas de alguem tentar pausar em transições de cena
+		if(_generalOptionsPanel != null) _generalOptionsPanel.SetActive(!enabled);
+		if(_controlOptionsPanel != null) _controlOptionsPanel.SetActive(enabled);
 	}
 
 	public void EnableAudioOptionPanel(bool enabled)
 	{
 		
-		_generalOptionsPanel.SetActive(!enabled);
-		_audioOptionsPanel.SetActive(enabled);
+		if(_generalOptionsPanel != null) _generalOptionsPanel.SetActive(!enabled);
+		if(_audioOptionsPanel != null) _audioOptionsPanel.SetActive(enabled);
 	}
 
 	public void ReturnToMainPanel()
 	{
-		_mainPanel.SetActive(true);
+		if(_mainPanel != null) _mainPanel.SetActive(true);
 		this.gameObject.SetActive(false);
 	}
 

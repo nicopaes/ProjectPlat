@@ -37,6 +37,10 @@ public class PauseManager : MonoBehaviour {
                 _player.BlockPlayerMovement(false);
                 //backgournd da pausa
                 _background.SetActive(false);
+                _optionMenu.GetComponent<OptionsSetter>().EnableAudioOptionPanel(false);
+                _optionMenu.GetComponent<OptionsSetter>().EnableControlOptionPanel(false);
+                _optionMenu.SetActive(false);
+                
             }
             isPaused = value;
 
