@@ -19,16 +19,9 @@ public class TriggerEventOnEnter : MonoBehaviour {
 		
 	}
 
-    IEnumerator WaitALittle()
-    {
-        yield return new WaitForSeconds(0.35f);
-    }
-
 
 	public void TriggerChangeScene(string name)
 	{
-        WaitALittle();
-
         GameObject.FindObjectOfType<ChangeScene>().ChangeSingleScene(name, true);
 	}
 

@@ -65,7 +65,7 @@ public class MainMenuUI : MonoBehaviour {
        // Debug.Log("barulho");
         //AudioSource.PlayClipAtPoint(sfx, AudioListener.position, SfxVol);
         //PlayClipAt(sfx, AudioListener.position);
-        AudioSource.PlayClipAtPoint(sfx, AudioListener.position, 0.5f);
+        AudioSource.PlayClipAtPoint(sfx, AudioListener.position, 0.25f);
 
     }
 
