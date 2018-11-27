@@ -99,13 +99,13 @@ public class ManageText : MonoBehaviour
        
        if (endedBubble)
        {
-            Debug.LogWarning("if (endedBubble)");
+            //Debug.LogWarning("if (endedBubble)");
             if (currentDialogLine < currentLines.Count && DialogHasNotEnded)
             {
-                Debug.LogWarning("if (currentDialogLine < currentLines.Count && DialogHasNotEnded)");
+                //Debug.LogWarning("if (currentDialogLine < currentLines.Count && DialogHasNotEnded)");
                 if (currentLines[currentDialogLine].Length != 0)
                 {
-                    Debug.LogWarning("if (currentLines[currentDialogLine].Length != 0)");
+                    //Debug.LogWarning("if (currentLines[currentDialogLine].Length != 0)");
                     dialogController.showSpeechBallon(currentSpeakers[currentDialogLine]);
                     presentBubbleText();
                     currentDialogLine += 1;
@@ -147,6 +147,14 @@ public class ManageText : MonoBehaviour
 
     public void startDialog(int number)
     {
+        //garante cleanup da última vez:
+        DialogHasNotEnded = false;
+        currentDialogLine = 0;
+        totalTextWidth = 0;
+        currentSpeakers.Clear();
+        currentLines.Clear();
+        /**************************** */
+
         currentText = number - 1;
         FindSpeaker(DialogTexts[currentText]);
         //Debug.Log(currentSpeakers[0].name);
@@ -158,6 +166,7 @@ public class ManageText : MonoBehaviour
         //no início de qualquer dialogo, bloqueia movimento do player
         _player.BlockPlayerMovement(true);
         _playerMovementBlocked = true;
+
 
         //aciona evento no inicio do dialogo
         Event_inicio.Invoke();
@@ -175,12 +184,15 @@ public class ManageText : MonoBehaviour
         BubbleText.text = newText;
         totalTextHeight = (int)(BubbleText.preferredHeight);
 
+
         if (totalTextWidth < MaxTextWidth)
         {
+            Debug.Log("if");
             BubbleBox.sizeDelta = new Vector2(totalTextWidth + OffSetWidth, totalTextHeight + OffSetHeight);
         }
         else
         {
+            Debug.Log("else");
             BubbleBox.sizeDelta = new Vector2(MaxTextWidth + OffSetWidth, totalTextHeight + OffSetHeight);
         }
     }
@@ -269,11 +281,13 @@ public class ManageText : MonoBehaviour
         char[] arr = message.ToCharArray();
         foreach (char c in arr) { lst.Add(c); }
 
+        bool b;
+
         for (int i = 0; i < lst.Count; i++)
         {
-            myFont.GetCharacterInfo(lst[i], out characterInfo, BubbleText.fontSize);
+            b = myFont.GetCharacterInfo(lst[i], out characterInfo, BubbleText.fontSize);
             totalTextWidth += characterInfo.advance;
-            lineText += characterInfo.advance;            
+            lineText += characterInfo.advance;
 
             // Don't let the text pass it's maximum
             if (lineText > MaxTextWidth)
