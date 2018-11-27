@@ -14,6 +14,10 @@ public class CreditsManager : MonoBehaviour
     public void GoBack()
     {
 
+        //limpa registro, impedindo que o próximo jogador possa pular cutscenes e diálogos:
+        var pi = GameObject.FindObjectOfType<PersistentInfo>();
+        if(pi != null) pi.Registry.Clear();
+        
         //CreditsSong.SetActive(true);
         SceneManager.LoadScene(SceneNumber);
 
