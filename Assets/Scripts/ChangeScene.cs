@@ -70,13 +70,36 @@ public class ChangeScene : MonoBehaviour
     public void ChangeAdditiveScene()
     {        
         Scene LastScene = SceneManager.GetActiveScene();
-        SceneManager.LoadSceneAsync(_targetScene, LoadSceneMode.Single);//LoadSceneMode.Additive);
+
+        StartCoroutine(LoadYourAsyncScene());
+
+        //SceneManager.LoadSceneAsync(_targetScene, LoadSceneMode.Single);//LoadSceneMode.Additive);
         //SceneManager.UnloadSceneAsync(LastScene);
 
         //SceneManager.LoadScene(name, LoadSceneMode.Single);
-        FadeAnimator.SetTrigger("FadeOut");
+        //FadeAnimator.SetTrigger("FadeOut");
         //Time.timeScale = 0f;
 
+        //avisa que já acabou esse processo:
+        //_changeStarted = false;
+    }
+
+    IEnumerator LoadYourAsyncScene()
+    {
+        // The Application loads the Scene in the background as the current Scene runs.
+        // This is particularly good for creating loading screens.
+        // You could also load the Scene by using sceneBuildIndex. In this case Scene2 has
+        // a sceneBuildIndex of 1 as shown in Build Settings.
+
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync(_targetScene);
+
+        // Wait until the asynchronous scene fully loads
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+        //when done, set animation trigger
+        FadeAnimator.SetTrigger("FadeOut");
         //avisa que já acabou esse processo:
         _changeStarted = false;
     }
