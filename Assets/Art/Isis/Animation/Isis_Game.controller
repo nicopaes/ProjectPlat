@@ -115,6 +115,9 @@ AnimatorStateTransition:
   - m_ConditionMode: 3
     m_ConditionEvent: velH
     m_EventTreshold: 0.1
+  - m_ConditionMode: 2
+    m_ConditionEvent: isFrozen
+    m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102222910829850872}
   m_Solo: 0
@@ -444,9 +447,6 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 2
     m_ConditionEvent: onPush
-    m_EventTreshold: 0
-  - m_ConditionMode: 1
-    m_ConditionEvent: isFrozen
     m_EventTreshold: 0
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 1102272271886914832}
