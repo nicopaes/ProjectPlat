@@ -635,6 +635,7 @@ GameObject:
   - component: {fileID: 114017938873156452}
   - component: {fileID: 114576665597544040}
   - component: {fileID: 82469310151237940}
+  - component: {fileID: 82089647652578578}
   m_Layer: 0
   m_Name: Patrol
   m_TagString: Danger
@@ -1042,7 +1043,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765420153234202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -75.791115, y: 24.01, z: 0.021484373}
+  m_LocalPosition: {x: -20.5, y: 7.3560324, z: 0.021484375}
   m_LocalScale: {x: 0.60179996, y: 0.60179996, z: 0.60179996}
   m_Children:
   - {fileID: 4012291264300232}
@@ -1102,7 +1103,7 @@ Transform:
   m_GameObject: {fileID: 1908802590860668}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.000012677626, y: -0.000006338813, z: -0.0000000030951235}
-  m_LocalScale: {x: 1.0607812, y: 0.99999994, z: 0.99999994}
+  m_LocalScale: {x: 0.6851994, y: 0.99999994, z: 0.99999994}
   m_Children: []
   m_Father: {fileID: 4012291264300232}
   m_RootOrder: 0
@@ -1694,8 +1695,8 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 12, y: 10}
-      - {x: -12, y: 10}
+    - - {x: 12, y: 6}
+      - {x: -12, y: 6}
       - {x: -12, y: -10}
       - {x: 12, y: -10}
 --- !u!61 &61016533162975186
@@ -1748,6 +1749,111 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.973434, y: 8.925201}
   m_EdgeRadius: 0
+--- !u!82 &82089647652578578
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1765420153234202}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 5c0f09964a53d4fd4b911a9b276283c3,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0e3a2763630e549acab9b8976697e187, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.35
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.33333334
+      value: 0.3942566
+      inSlope: -3.0011995
+      outSlope: -3.0011995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5184733
+      value: 0.09837341
+      inSlope: -0.3679477
+      outSlope: -0.3679477
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.08118536
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.028240124
+      outSlope: -0.028240124
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08040958
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &82469310151237940
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2045,7 +2151,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.51267755
+  m_Length: 0.5126793
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4626109553680970}
   m_AttachedIK: {fileID: 0}
@@ -2154,7 +2260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5411765, g: 0.8117647, b: 1, a: 1}
-  m_Length: 1.4668214
+  m_Length: 1.4668179
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4284546091062248}
   m_AttachedIK: {fileID: 0}
@@ -2278,7 +2384,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5424528, g: 0.8133984, b: 1, a: 1}
-  m_Length: 1.9512912
+  m_Length: 1.951281
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4215905443425478}
   m_AttachedIK: {fileID: 0}
@@ -2352,7 +2458,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
-  m_Length: 2.3083978
+  m_Length: 2.308393
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4527813063036974}
   m_AttachedIK: {fileID: 0}
@@ -2391,7 +2497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.9849259
+  m_Length: 0.98493147
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4831196875488888}
   m_AttachedIK: {fileID: 0}
@@ -2484,7 +2590,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.5820237
+  m_Length: 1.5820252
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4963580210262928}
   m_AttachedIK: {fileID: 0}
@@ -2534,7 +2640,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5411765, g: 0.8117647, b: 1, a: 1}
-  m_Length: 1.1118976
+  m_Length: 1.1118845
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4551673167965628}
   m_AttachedIK: {fileID: 0}
@@ -2579,7 +2685,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
-  m_Length: 1.9436151
+  m_Length: 1.9436127
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4726102156096310}
   m_AttachedIK: {fileID: 0}
@@ -2595,7 +2701,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 1.7934785
+  m_Length: 1.7934766
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4315582649070552}
   m_AttachedIK: {fileID: 0}
@@ -2611,7 +2717,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5411765, g: 0.8117647, b: 1, a: 1}
-  m_Length: 1.9012744
+  m_Length: 1.9012693
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4964226396479452}
   m_AttachedIK: {fileID: 0}
@@ -2724,7 +2830,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 0.85934424
+  m_Length: 0.8593737
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4060967099831344}
   m_AttachedIK: {fileID: 0}
@@ -2809,7 +2915,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.55058587
+  m_Length: 0.5505843
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4200354629691502}
   m_AttachedIK: {fileID: 0}
@@ -2874,7 +2980,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 1.3427773
+  m_Length: 1.3427733
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4917052215819338}
   m_AttachedIK: {fileID: 0}
@@ -2911,7 +3017,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5424528, g: 0.8133984, b: 1, a: 1}
-  m_Length: 2.373027
+  m_Length: 2.3730235
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4332540411622746}
   m_AttachedIK: {fileID: 0}
