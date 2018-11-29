@@ -26,4 +26,9 @@ public class InPauseMainPanel : MonoBehaviour {
 		//isso faz com que o trigger usado para o animator seja o mesmo da morte, não o de passar de level
 		GameObject.FindObjectOfType<PlayerComponent>().gameObject.SetActive(false);
 	}
+
+	public void ExitGame()
+	{
+		Application.Quit();
+	}
 }
