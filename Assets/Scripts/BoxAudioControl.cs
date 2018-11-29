@@ -6,16 +6,19 @@ using UnityEngine;
 public class BoxAudioControl : MonoBehaviour {
 
 	public AudioSource audioSource;
+	[Tooltip("O valor a ser subtraido do volume da caixa, até chegar a 0.")]
+	public float decrement;
 	//[Tooltip("O volume desejado pra quando a caixa ser arrastada")]
 	private float normalVolume;
 	private Rigidbody2D rb;
 
 	
 
-	// Use this for initialization
-	void Start () {
+	void Awake ()
+	{
 		rb = GetComponent<Rigidbody2D>();
 		normalVolume = audioSource.volume;
+		audioSource.volume = 0.0f;
 
 	}
 	
@@ -27,7 +30,7 @@ public class BoxAudioControl : MonoBehaviour {
 		}
 		else
 		{
-			audioSource.volume = 0.0f;
+			audioSource.volume = Mathf.Max(audioSource.volume - decrement, 0.0f);
 		}
 		
 	}
