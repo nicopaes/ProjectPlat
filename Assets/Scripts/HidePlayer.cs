@@ -70,6 +70,8 @@ public class HidePlayer : MonoBehaviour {
                     playerTranform.position = new Vector3(this.transform.position.x, playerTranform.position.y, playerTranform.position.z);
 
                     _playerHidden = true;
+                    playerTranform.GetComponent<PlayerComponent>().IsHidden = true;
+
                 }
 
             }
@@ -97,6 +99,7 @@ public class HidePlayer : MonoBehaviour {
                     +Vector3.left * 3.2f;
                 }
                 _playerHidden = false;
+                playerTranform.GetComponent<PlayerComponent>().IsHidden = false;
                 _fromTheRight = false;
             }
         }

@@ -29,6 +29,8 @@ public class EnemyPatrol : MonoBehaviour {
     private bool turnAround = false;
     // Check if stoped on the point
     private bool stopped = false;
+    private EnemyChase _enemyChase;
+    private PlayerComponent _player;
 
 	void Start () {
 
@@ -42,6 +44,8 @@ public class EnemyPatrol : MonoBehaviour {
 
         // Find the FOV to turn with the enemy
         FOV = this.transform.Find("FOV").gameObject;
+        _enemyChase = GetComponent<EnemyChase>();
+        _player = GameObject.FindObjectOfType<PlayerComponent>();
 	}
 	
 	// Update is called once per frame
@@ -50,6 +54,7 @@ public class EnemyPatrol : MonoBehaviour {
         if (!isChasingTarget) {
             GotoPoint();
             patrolAnim.SetBool("hasTarget", false);
+            patrolAnim.SetBool("idle", false);
 
             // Choose the next destination point when the agent gets
             // close to the current one.
@@ -57,7 +62,22 @@ public class EnemyPatrol : MonoBehaviour {
             {
                 waitTimeToContinue();
             }
-        } else patrolAnim.SetBool("hasTarget", true);
+        } 
+        //senão, se eu ainda estou perseguindo o inimigo, mas ele está muito perto de mim horizontalmente, 
+        //seto no animator para idle porque vou acabar por parar de andar
+        //isso é um caso comum quando o player se esconde atras de objetos o patrol estava perseguindo ele
+        else if(isChasingTarget && _player.IsHidden && _enemyChase.HorizontalDistanceToTarget() < 0.1f)
+        {
+            //patrulha: "cade o player???"
+            patrolAnim.SetBool("hasTarget", false);
+            patrolAnim.SetBool("idle", true);
+        }
+        //senão, estou perseguindo o player
+        else
+        {
+            patrolAnim.SetBool("idle", false);
+            patrolAnim.SetBool("hasTarget", true);
+        } 
 
     }
 

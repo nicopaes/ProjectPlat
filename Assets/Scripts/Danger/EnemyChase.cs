@@ -62,4 +62,10 @@ public class EnemyChase : MonoBehaviour {
         }
 	}
 
+    //calcula a distancia até o target
+    public float HorizontalDistanceToTarget()
+    {
+        return Mathf.Abs(this.transform.position.x - target.position.x);
+    }
+
 }
