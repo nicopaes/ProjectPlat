@@ -9,6 +9,8 @@ public class ChangeScene : MonoBehaviour
     private Animator FadeAnimator;
     private string _targetScene;
     private bool _changeStarted;
+    private AudioSource caughtSound;
+    public AudioListener audioListener;
 
     private void OnEnable()
     {
@@ -26,6 +28,9 @@ public class ChangeScene : MonoBehaviour
         // }
         
         FadeAnimator = GetComponent<Animator>();
+        caughtSound = GetComponent<AudioSource>();
+        audioListener = GetComponent<AudioListener>();
+
         DontDestroyOnLoad(this.gameObject);
     }
 
@@ -117,4 +122,11 @@ public class ChangeScene : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void PlayCaughtSound()
+    {
+        audioListener.enabled = true;
+        caughtSound.Play();
+    }
+
 }

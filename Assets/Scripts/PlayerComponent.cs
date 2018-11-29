@@ -86,6 +86,10 @@ public class PlayerComponent : MonoBehaviour {
         //_movementBlocked = false;
         BlockPlayerMovement(false);
 
+        //garante que só o meu audio listener esta ligado no começo de uma cena
+        GameObject.FindObjectOfType<ChangeScene>().audioListener.enabled = false;
+        this.GetComponent<AudioListener>().enabled = true;
+
         _alreadyKilledThisScene = false;
 	}
 
@@ -197,11 +201,18 @@ public class PlayerComponent : MonoBehaviour {
     public void KillPlayer()
     {
         if(_alreadyKilledThisScene) return;
-        //StartCoroutine(RespawnPlayerWithDelay(0.5f));
+
+        //toca som
+        //preciso desligar o meu audio listener antes
+        this.GetComponent<AudioListener>().enabled = false;
+        GameObject.FindObjectOfType<ChangeScene>().PlayCaughtSound();
         //reloada scene atual
         GameObject.FindObjectOfType<ChangeScene>().ChangeSingleScene(SceneManager.GetActiveScene().name, false);
+        
         _alreadyKilledThisScene = true;
     }
+
+    
 
     public void BlockPlayerMovement(bool block)
     {
