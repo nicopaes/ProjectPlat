@@ -92,7 +92,6 @@ GameObject:
   - component: {fileID: 114834005929582132}
   - component: {fileID: 82329319707786020}
   - component: {fileID: 82858553769925024}
-  - component: {fileID: 114244212435140174}
   - component: {fileID: 114722741031006172}
   m_Layer: 9
   m_Name: Box
@@ -342,13 +341,13 @@ AudioSource:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1461973298892316}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 24300002, guid: 5c0f09964a53d4fd4b911a9b276283c3,
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 01f6c9f78cf1e4584a23e43a32b40e9d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -504,24 +503,6 @@ Light:
   m_UseColorTemperature: 0
   m_ShadowRadius: 0
   m_ShadowAngle: 0
---- !u!114 &114244212435140174
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1461973298892316}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 832824db7bcc9e94daeb28cb0269f250, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collisionMask:
-    serializedVersion: 2
-    m_Bits: 0
-  maxSlopeAngle: 0
-  pushMaxVelocity: 0
-  pushForce: 0
-  facingRight: 0
 --- !u!114 &114381066491047644
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -541,12 +522,13 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1461973298892316}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3a4b5b24d3e3438459a8c094a591d7c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   audioSource: {fileID: 82858553769925024}
+  decrement: 0.1
 --- !u!114 &114834005929582132
 MonoBehaviour:
   m_ObjectHideFlags: 1
