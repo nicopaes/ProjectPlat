@@ -72,6 +72,9 @@ public class PlayerComponent : MonoBehaviour {
 
     private bool _alreadyKilledThisScene;
 
+    //diz se o player esta escondido em alguma caixa
+    public bool IsHidden;
+
 
     void Start() {
 		controller = GetComponent<Controller2D> ();
@@ -91,6 +94,7 @@ public class PlayerComponent : MonoBehaviour {
         this.GetComponent<AudioListener>().enabled = true;
 
         _alreadyKilledThisScene = false;
+        IsHidden = false;
 	}
 
 	void OnEnable()

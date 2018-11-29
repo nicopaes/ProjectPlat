@@ -20,7 +20,7 @@ public class EnemyChase : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-        target = GameObject.FindWithTag("Player").transform;
+        target = GameObject.FindObjectOfType<PlayerComponent>().transform;
         pausePatrol = this.GetComponent<EnemyPatrol>();
 	}
 	
@@ -61,5 +61,11 @@ public class EnemyChase : MonoBehaviour {
             collision.gameObject.SetActive(false);
         }
 	}
+
+    //calcula a distancia até o target
+    public float HorizontalDistanceToTarget()
+    {
+        return Mathf.Abs(this.transform.position.x - target.position.x);
+    }
 
 }
