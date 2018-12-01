@@ -92,6 +92,19 @@ public class MainMenuUI : MonoBehaviour {
 	{
 		_optionsPanel.SetActive(enabled);
 		_mainPanel.SetActive(!enabled);
+
+        // Debug.Log("?????????????");
+        // if(enabled)
+        // {
+        //     //option panel
+        //     //seta o botão que será selecionado primeiro, pra conseguirmos usar com o teclado
+        //     Debug.Log("Selecting");
+        //     EventSystem.current.SetSelectedGameObject(_optionsPanel.transform.Find("GeneralOptions/AudiosOptionsButton").gameObject);
+        // }
+        // else
+        // {
+        //     //main panel
+        // }
 	}	
 
     public void QuitGame()
