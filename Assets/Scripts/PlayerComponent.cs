@@ -224,6 +224,11 @@ public class PlayerComponent : MonoBehaviour {
         anim.SetBool("isFrozen", block);
     }
 
+    public bool MovementIsBlocked()
+    {
+        return _movementBlocked;
+    }
+
     public void OnRunInputDown()
     {
         _runMultiplier = runSpeed / moveSpeed;

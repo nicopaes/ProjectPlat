@@ -47,10 +47,12 @@ public class HidePlayer : MonoBehaviour {
 	}
 	void Action()
 	{
+
         if(!this.GetComponent<PushObject>().holdingBox){
             // para poder se esconder, player tem que estar próximo(_playerPresence), não já estar escondido(!_playerHidden)
             // e, além disso, o jogador tem que estar no chão
-            if (_playerPresence && !_playerHidden && playerTranform.gameObject.GetComponent<PlayerComponent>().controller.collisionsInf.below)
+            //e além disso, o movimento do jogador não pode estar bloqueado
+            if (_playerPresence && !_playerHidden && playerTranform.gameObject.GetComponent<PlayerComponent>().controller.collisionsInf.below && !playerTranform.gameObject.GetComponent<PlayerComponent>().MovementIsBlocked())
             {
                 HIDESFX.Play();
                 positionToGo = new Vector2(this.transform.position.x - playerTranform.position.x, playerTranform.position.y);
@@ -75,7 +77,7 @@ public class HidePlayer : MonoBehaviour {
                 }
 
             }
-            else if (_playerHidden)
+            else if (_playerHidden && !playerTranform.gameObject.GetComponent<PlayerComponent>().MovementIsBlocked())
             {
                 HIDESFX.Play();
 
@@ -114,5 +116,10 @@ public class HidePlayer : MonoBehaviour {
             collision.gameObject.GetComponent<PlayerComponent>().nearBox = this.gameObject;
             collision.gameObject.GetComponent<PlayerComponent>().anim.SetBool("onPush", true);
         }
+    }
+
+    public bool IsPlayerHiddenHere()
+    {
+        return _playerHidden;
     }
 }
