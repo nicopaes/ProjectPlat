@@ -51,15 +51,16 @@ public class GameMaster : MonoBehaviour
 	void Update()
 	{
 
-        if (Input.GetKey("l"))
-        {
-            Dangers.SetActive(false);
-            speed.GetComponent<PlayerComponent>().moveSpeed = 20f;
+        //cheat da tecla l, deixar desabilitado pra build final
+        // if (Input.GetKey("l"))
+        // {
+        //     Dangers.SetActive(false);
+        //     speed.GetComponent<PlayerComponent>().moveSpeed = 20f;
 
-        }
-        else { Dangers.SetActive(true);
-            speed.GetComponent<PlayerComponent>().moveSpeed = speedNormal;
-        }
+        // }
+        // else { Dangers.SetActive(true);
+        //     speed.GetComponent<PlayerComponent>().moveSpeed = speedNormal;
+        // }
 
 
 		if(!Player.activeInHierarchy)
