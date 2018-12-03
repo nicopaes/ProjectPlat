@@ -34,6 +34,9 @@ public class PauseManager : MonoBehaviour {
                 //seta primeira opção como a selecionada, para podermos mexer com o teclado
                 EventSystem.current.SetSelectedGameObject(_returnButton);
                 
+                //seta visibilidade do cursor
+                Cursor.visible = true;
+                
             }
             //despausa
             else if (!value)
@@ -47,6 +50,9 @@ public class PauseManager : MonoBehaviour {
                 _optionMenu.GetComponent<OptionsSetter>().EnableAudioOptionPanel(false);
                 _optionMenu.GetComponent<OptionsSetter>().EnableControlOptionPanel(false);
                 _optionMenu.SetActive(false);
+
+                //seta visibilidade do cursor
+                Cursor.visible = false;
                 
             }
             isPaused = value;

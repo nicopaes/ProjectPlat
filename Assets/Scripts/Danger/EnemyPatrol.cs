@@ -32,6 +32,11 @@ public class EnemyPatrol : MonoBehaviour {
     private EnemyChase _enemyChase;
     private PlayerComponent _player;
 
+    private Collider2D coll2D;
+
+    [Tooltip("O espaço extra usado para a checagem de se o patrulha já ultrapassou a borda. Ajuda o patrulha a não ficar muito rente à borda")]
+    public float ExtraHorizontalSpaceForGroudCheck;
+
 	void Start () {
 
         timeWaiting = WaitTime;
@@ -46,11 +51,17 @@ public class EnemyPatrol : MonoBehaviour {
         FOV = this.transform.Find("FOV").gameObject;
         _enemyChase = GetComponent<EnemyChase>();
         _player = GameObject.FindObjectOfType<PlayerComponent>();
+
+        coll2D = this.GetComponent<Collider2D>();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 
+        //meio que repetindo o raycast já feito no script EnemyChase, mas é uma redundância tolerável
+        RaycastHit2D hit = Physics2D.Raycast(new Vector2(coll2D.bounds.min.x - ExtraHorizontalSpaceForGroudCheck, transform.position.y), Vector2.down, 2*this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle"));
+        RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(coll2D.bounds.max.x + ExtraHorizontalSpaceForGroudCheck, transform.position.y), Vector2.down, 2*this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle"));
+        
         if (!isChasingTarget) {
             GotoPoint();
             patrolAnim.SetBool("hasTarget", false);
@@ -72,9 +83,9 @@ public class EnemyPatrol : MonoBehaviour {
             patrolAnim.SetBool("hasTarget", false);
             patrolAnim.SetBool("idle", true);
         }
-        //meio que repetindo o raycast já feito no script EnemyChase, mas é uma redundância tolerável
-        //se tenho mais chão para andar ainda, sigo persiguindo o player
-        else if(Physics2D.Raycast(transform.position, Vector2.down, 2*this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle")))
+        
+        //se tenho mais chão para andar ainda, sigo perseguindo o player
+        else if(hit && hit2)
         {
             patrolAnim.SetBool("idle", false);
             patrolAnim.SetBool("hasTarget", true);

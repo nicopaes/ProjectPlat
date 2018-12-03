@@ -47,6 +47,9 @@ public class GameMaster : MonoBehaviour
             initialCamera.Priority = 50;
             initialCamera.MoveToTopOfPrioritySubqueue();
         }
+
+        //some com o cursor
+        Cursor.visible = false;
 	}
 	void Update()
 	{

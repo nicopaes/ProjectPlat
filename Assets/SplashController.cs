@@ -6,6 +6,8 @@ public class SplashController : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		//some com o cursor
+        Cursor.visible = false;
 		
 	}
 	

@@ -636,6 +636,7 @@ GameObject:
   - component: {fileID: 114576665597544040}
   - component: {fileID: 82469310151237940}
   - component: {fileID: 82089647652578578}
+  - component: {fileID: 82022878700211962}
   m_Layer: 0
   m_Name: Patrol
   m_TagString: Danger
@@ -1043,8 +1044,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1765420153234202}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -20.5, y: 7.3560324, z: 0.021484375}
-  m_LocalScale: {x: 0.60179996, y: 0.60179996, z: 0.60179996}
+  m_LocalPosition: {x: -33.03, y: 22.26, z: 0.021484375}
+  m_LocalScale: {x: 0.6018, y: 0.60179996, z: 0.60179996}
   m_Children:
   - {fileID: 4012291264300232}
   - {fileID: 4443470371432694}
@@ -1635,7 +1636,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1998839138000036}
-  m_Mesh: {fileID: 43387479889148024, guid: 8c065ca4b10adbc4ba58731af0852562, type: 2}
+  m_Mesh: {fileID: 0}
 --- !u!33 &33731556704834258
 MeshFilter:
   m_ObjectHideFlags: 1
@@ -1749,6 +1750,111 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.973434, y: 8.925201}
   m_EdgeRadius: 0
+--- !u!82 &82022878700211962
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1765420153234202}
+  m_Enabled: 0
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 24300002, guid: 5c0f09964a53d4fd4b911a9b276283c3,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0e3a2763630e549acab9b8976697e187, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.35
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 5
+  MaxDistance: 15
+  Pan2D: 0
+  rolloffMode: 2
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0.33333334
+      value: 0.3942566
+      inSlope: -3.0011995
+      outSlope: -3.0011995
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5184733
+      value: 0.09837341
+      inSlope: -0.3679477
+      outSlope: -0.3679477
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.08118536
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -0.028240124
+      outSlope: -0.028240124
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.08040958
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &82089647652578578
 AudioSource:
   m_ObjectHideFlags: 1
@@ -2151,7 +2257,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.5126793
+  m_Length: 0.5126806
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4626109553680970}
   m_AttachedIK: {fileID: 0}
@@ -2174,6 +2280,7 @@ MonoBehaviour:
   - {fileID: 0}
   isChasingTarget: 0
   patrolAnim: {fileID: 0}
+  ExtraHorizontalSpaceForGroudCheck: 0.7
 --- !u!114 &114022423243719358
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2260,7 +2367,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5411765, g: 0.8117647, b: 1, a: 1}
-  m_Length: 1.4668179
+  m_Length: 1.4668187
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4284546091062248}
   m_AttachedIK: {fileID: 0}
@@ -2384,7 +2491,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5424528, g: 0.8133984, b: 1, a: 1}
-  m_Length: 1.951281
+  m_Length: 1.9512817
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4215905443425478}
   m_AttachedIK: {fileID: 0}
@@ -2458,7 +2565,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
-  m_Length: 2.308393
+  m_Length: 2.3083944
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4527813063036974}
   m_AttachedIK: {fileID: 0}
@@ -2497,7 +2604,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.98493147
+  m_Length: 0.9849307
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4831196875488888}
   m_AttachedIK: {fileID: 0}
@@ -2590,7 +2697,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 1.5820252
+  m_Length: 1.5820268
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4963580210262928}
   m_AttachedIK: {fileID: 0}
@@ -2640,7 +2747,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5411765, g: 0.8117647, b: 1, a: 1}
-  m_Length: 1.1118845
+  m_Length: 1.1118875
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4551673167965628}
   m_AttachedIK: {fileID: 0}
@@ -2685,7 +2792,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.5707547, b: 0.5707547, a: 1}
-  m_Length: 1.9436127
+  m_Length: 1.9436117
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4726102156096310}
   m_AttachedIK: {fileID: 0}
@@ -2701,7 +2808,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 1.7934766
+  m_Length: 1.7934772
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4315582649070552}
   m_AttachedIK: {fileID: 0}
@@ -2717,7 +2824,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5411765, g: 0.8117647, b: 1, a: 1}
-  m_Length: 1.9012693
+  m_Length: 1.9012698
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4964226396479452}
   m_AttachedIK: {fileID: 0}
@@ -2830,7 +2937,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 0.8593737
+  m_Length: 0.8593735
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4060967099831344}
   m_AttachedIK: {fileID: 0}
@@ -2915,7 +3022,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Length: 0.5505843
+  m_Length: 0.55058587
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4200354629691502}
   m_AttachedIK: {fileID: 0}
@@ -2980,7 +3087,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 1, g: 0.57254905, b: 0.57254905, a: 1}
-  m_Length: 1.3427733
+  m_Length: 1.342776
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4917052215819338}
   m_AttachedIK: {fileID: 0}
@@ -3017,7 +3124,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Color: {r: 0.5424528, g: 0.8133984, b: 1, a: 1}
-  m_Length: 2.3730235
+  m_Length: 2.373025
   m_Child: {fileID: 0}
   m_ChildTransform: {fileID: 4332540411622746}
   m_AttachedIK: {fileID: 0}
@@ -3244,7 +3351,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43034168409644552, guid: 49b2767ee59568349809586a63d6c6c7, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4626109553680970}
   m_BlendShapeWeights: []
@@ -3292,7 +3399,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43563831573987268, guid: 7f7755c5615a3ad41b155be97f9d451a, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4846785762024780}
   - {fileID: 4726102156096310}
@@ -3342,7 +3449,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43784990664431760, guid: d143552f2e4b7c148acd5d438e9ced04, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4917052215819338}
   m_BlendShapeWeights: []
@@ -3390,7 +3497,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43405601998533778, guid: 288f2dda13942924898522590be35ea1, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4200354629691502}
   - {fileID: 4831196875488888}
@@ -3441,7 +3548,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43613580091007232, guid: 56cac0f83b8883a4585129b752a6aad8, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4200354629691502}
   - {fileID: 4831196875488888}
@@ -3494,7 +3601,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43654294111705446, guid: 3a0a3ebb88921e241bcd840ad598f3d7, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4844323088921228}
   - {fileID: 4215905443425478}
@@ -3544,7 +3651,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43440517507084664, guid: 8ffc5948a4fe45c4d81d26f8cb768ae4, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4963580210262928}
   - {fileID: 4626109553680970}
@@ -3593,7 +3700,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43324735795543708, guid: 86d3dba741ff240409d4e226c117e0d5, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4200354629691502}
   - {fileID: 4831196875488888}
@@ -3642,7 +3749,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43650646703805892, guid: 97693354fc207ed4c94968b4c31c47e3, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4316594806905866}
   - {fileID: 4060967099831344}
@@ -3693,7 +3800,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43738923712153404, guid: 809217ecb52128f4c8385591ce306a2c, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4917052215819338}
   m_BlendShapeWeights: []
@@ -3741,7 +3848,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43627472743222890, guid: 08855d3db70e95c4392274d45d55d56b, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4513983125167514}
   - {fileID: 4551673167965628}
@@ -3792,7 +3899,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: 43875040669430602, guid: 8b313354ff9ccfd47a637853223dc70d, type: 2}
+  m_Mesh: {fileID: 0}
   m_Bones:
   - {fileID: 4200354629691502}
   - {fileID: 4831196875488888}

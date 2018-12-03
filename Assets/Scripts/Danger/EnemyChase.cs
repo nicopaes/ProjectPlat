@@ -17,11 +17,14 @@ public class EnemyChase : MonoBehaviour {
 
     private EnemyPatrol pausePatrol;
 
+    private Collider2D coll2D;
+
 	// Use this for initialization
 	void Start () {
 
         target = GameObject.FindObjectOfType<PlayerComponent>().transform;
         pausePatrol = this.GetComponent<EnemyPatrol>();
+        coll2D = this.GetComponent<Collider2D>();
 	}
 	
 	// Update is called once per frame
@@ -32,8 +35,10 @@ public class EnemyChase : MonoBehaviour {
             
             Vector2 desiredPos = new Vector2(target.position.x, transform.position.y);
             //antes de se mover, checa se há mais chão
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, Vector2.down, 2*this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle"));
-            if(hit)
+            RaycastHit2D hit = Physics2D.Raycast(new Vector2(coll2D.bounds.min.x - pausePatrol.ExtraHorizontalSpaceForGroudCheck, transform.position.y), Vector2.down, 2*this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle"));
+            RaycastHit2D hit2 = Physics2D.Raycast(new Vector2(coll2D.bounds.max.x + pausePatrol.ExtraHorizontalSpaceForGroudCheck, transform.position.y), Vector2.down, 2*this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle"));
+        
+            if(hit && hit2)
             {
                 transform.position = Vector2.MoveTowards(transform.position, desiredPos, ChaseSpeed * Time.deltaTime);
             }
