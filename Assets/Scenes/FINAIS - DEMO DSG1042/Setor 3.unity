@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.37311992, g: 0.38074034, b: 0.35872713, a: 1}
+  m_IndirectSpecularColor: {r: 0.37311947, g: 0.38074005, b: 0.35872722, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -771,7 +771,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: cfca230a9287b4f12ae42db64ebc66eb, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.093
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6110,7 +6110,7 @@ Prefab:
         type: 2}
       propertyPath: NextLine
       value: 
-      objectReference: {fileID: 8300000, guid: 42f702f28ae0f450b9049b8a08805a90, type: 3}
+      objectReference: {fileID: 0}
     - target: {fileID: 114423319735064514, guid: dd846d8d158faa7418d6f90759240708,
         type: 2}
       propertyPath: Template
@@ -10395,7 +10395,7 @@ Prefab:
     - target: {fileID: 224868228447284554, guid: 664858ca313a94841aff173dcd2c1d44,
         type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: 115.9
+      value: 114.3
       objectReference: {fileID: 0}
     - target: {fileID: 224868228447284554, guid: 664858ca313a94841aff173dcd2c1d44,
         type: 2}
