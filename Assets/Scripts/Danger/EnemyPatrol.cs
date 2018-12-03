@@ -72,11 +72,18 @@ public class EnemyPatrol : MonoBehaviour {
             patrolAnim.SetBool("hasTarget", false);
             patrolAnim.SetBool("idle", true);
         }
-        //senão, estou perseguindo o player
-        else
+        //meio que repetindo o raycast já feito no script EnemyChase, mas é uma redundância tolerável
+        //se tenho mais chão para andar ainda, sigo persiguindo o player
+        else if(Physics2D.Raycast(transform.position, Vector2.down, 2*this.GetComponent<Collider2D>().bounds.extents.y, LayerMask.GetMask("Obstacle")))
         {
             patrolAnim.SetBool("idle", false);
             patrolAnim.SetBool("hasTarget", true);
+        }
+        //senão, eu parei por não ter mais chão, e tenho que ficar idle
+        else
+        {
+            patrolAnim.SetBool("idle", true);
+            patrolAnim.SetBool("hasTarget", false);
         } 
 
     }
@@ -156,7 +163,18 @@ public class EnemyPatrol : MonoBehaviour {
 
         if (!stopped) {
             // Move towars the current point
+            Debug.Log("Move towars the current point");
             transform.position = Vector2.MoveTowards(transform.position, points[destPoint].position, PatrolSpeed * Time.deltaTime);
+
+            //fez-se necessário ajustar a rotação por aqui pra consertar um bug quando ele transiciona do chase para o patrol
+            //estamos rotacionando pela scale pra não estragar visualmente o patrulha e o campo de visão
+            int flip = points[destPoint].position.x < transform.position.x ? 1 : -1;
+            transform.localScale = new Vector3(flip * Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+            if(FOV != null && FOV.transform != null)
+            {
+                FOV.transform.localScale = new Vector3(flip * Mathf.Abs(FOV.transform.localScale.x), FOV.transform.localScale.y, FOV.transform.localScale.z);
+            }
+            
         }
 
     }
